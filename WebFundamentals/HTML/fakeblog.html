@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<meta charset = "UTF-8">
+	<head>
+	<title>Cesar Kyle Casil</title>
+	<meta name="description" content="Cesar Kyle Casil is an up and coming powerlifter competing in the 66kg (145lb) weightclass." >
+	<h1>Cesar Kyle Casil</h1>
+	</head>
+	<div>
+	<img src="http://alabamanewscenter.com/wp-content/uploads/2015/08/USA-Ray-Williams-Bench-1.jpg" alt="" height=357 width=500 >
+	</div>
+	<body>
+		<p>Ray Williams has recently destroyed previous records in the world of Powerlifting. He currently holds the world records in Squat, Bench, and total!</p>
+		<div>
+			<ul>
+				<li>Squat: 477.5kg (1052lbs)</li>
+				<li>Bench: 235kg (518lbs)</li>
+				<li>Deadlift: 392.5kg (864lbs)</li>
+				<li>Total: 1105kg (2436lbs)</li>
+			</ul>
+		</div>
+		<a href= "https://www.youtube.com/watch?v=PE4BIuCKr8Q">Here</a> are Ray Williams' record lifts!
+	</body>
+
+	<div>
+	<h3>Here are my top lifts:</h3>
+	<table>
+	    <thead>
+	        <tr>
+	            <th>Lift</th>
+	            <th>Weight</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr>
+	            <td>Squat:</td>
+	            <td>315lbs</td>
+	        </tr>
+	        <tr>
+	            <td>Bench:</td>
+	            <td>235lbs</td>
+	        </tr>
+	        <tr>
+	            <td>Deadlift:</td>
+	            <td>405lbs</td>
+	        </tr>
+	        <tr>
+	            <td>Total:</td>
+	            <td>955lbs</td>
+	        </tr>
+	    </tbody>
+	</table>
+	</div>
+
+
+
+	<form action="process.php" method="post">
+    	
+    	<h2>Please take this short survey</h2>
+    	<label for="email">Email:</label>
+    	<input type="text" id="email" name="email">
+    	
+    	<p>Which is your favorite lift:</p>
+   		<input type="radio" id="squat" name="lift" value="squat">    	
+    	<label for="squat">Squat</label>
+    	<input type="radio" id="bench" name="lift" value="bench">
+    	<label for="bench">Bench</label>
+    	<input type="radio" id="deadlift" name="lift" value="deadlift">    	
+    	<label for="deadlift">Deadlift</label>
+		
+		<p>Which do you prefer:</p>
+    	<input type="checkbox" id="bodybuilding" name="program" value="bodybuilding">
+    	<label for="bodybuilding">Bodybuilding</label>
+    	<input type="checkbox" id="powerlifting" name="program" value="powerlifting">
+    	<label for="powerlifting">Powerlifting</label>   
+    	<input type="checkbox" id="weightlifting" name="program" value="weightlifting">
+    	<label for="weightlifting">Weightlifting</label> 
+		<div>
+    	<input type="submit" value="Submit">
+    	</div>
+	</form>
+</html>
