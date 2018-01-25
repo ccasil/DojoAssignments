@@ -1,0 +1,112 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+#wrapper {
+ width: 970px;
+ background-color: #bebebe99;
+ margin: 10px auto;
+}
+#header{
+	font-family: "Comic Sans MS";
+	padding: 10px;
+	display: inline-block;
+	margin-right: 300px;
+}
+#subheader{
+	font-family: "Arial Black", Gadget, sans-serif;
+	display: inline-block;
+}
+#middle{
+	width: 970px;
+  	background: radial-gradient(#6f5964, #6f5964, black);
+}
+#footer{
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#links{
+	font-style: italic;
+}
+#profile{
+	border-color: #C0C0C0;
+	border-style: solid;
+	border-width: 5px;
+	display: inline-block;
+	vertical-align: top;
+	margin: 20px;
+}
+#aboutme{
+	width: 480px;
+	height: 250px;
+	display:inline-block;
+	background: linear-gradient(to right, white, #dacbd9);
+	margin: 20px;
+}
+#lamode{
+	width: 290px;
+	display: inline-block;
+	margin:15px;
+	vertical-align: top;
+	background: linear-gradient(to right, white, #dacbd9);
+	height: 530px;
+}
+#familycontacts{
+	width: 290px;
+	display: inline-block;
+	margin:15px;
+	vertical-align: top;
+	background: linear-gradient(to right, white, #dacbd9);
+	height: 530px;
+}
+#fiveeleven{
+	width: 290px;
+	display: inline-block;
+	margin:15px;
+	vertical-align: top;
+	background: linear-gradient(to right, white, #dacbd9);
+	height: 530px;
+}
+a{
+	color: black;
+}
+.info{
+	padding:10px;
+}
+p {
+	padding: 5px;
+}
+h3{
+	background: linear-gradient(lightgrey, darkgrey, lightgrey);
+	vertical-align: top;
+	color: white;
+	padding: 5px;
+}
+h4{
+	background: linear-gradient(lightgrey, darkgrey, lightgrey);
+	vertical-align: top;
+	color: white;
+	padding: 5px;
+}
+img {
+	padding: 4px;
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border-radius: 10px;
+    margin-left: 100px;
+}
+.button1 {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.24), 0 6px 20px 0 rgba(0,0,0,0.19);
+}

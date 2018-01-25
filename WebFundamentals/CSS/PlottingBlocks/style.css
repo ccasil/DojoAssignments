@@ -5,36 +5,36 @@
 
 #wrapper{
  width: 1000px;
- height: 700px;
  background-color: silver;
  margin: 10px auto;
+ padding: 20px;
 }
 #header{
  width: 960px;
  height: 150px;
  background-color: green;
- margin: 20px;
+ margin-bottom: 20px;
  display: inline-block;
 }
 #navigation{
  height: 300px;
  width: 200px;
  background-color: blue;
- margin: 20px;
+ margin-right: 20px;
  display:inline-block;
+ vertical-align: top;
 }
 #main_content{
  height: 400px;
  width: 700px;
  background-color: red;
- margin: 20px;
  display: inline-block;
 }
 .subcontents{
  height: 180px;
  width: 180px;
  background-color: yellow;
- margin: 10px;
+ margin: 20px;
  display: inline-block;
 }
 #advertisement{
