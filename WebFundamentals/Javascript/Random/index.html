@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>TITLE</title>
+	<meta name="description" content="CONTENT" >
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script type="text/javascript">
+    	// "use strict";
+    	function randomChance (quarters){
+    		for( var i = quarters; i > 0; i--){
+    			var rand = Math.floor(Math.random() * 101);
+    			console.log(rand);
+				if (rand === 1){
+					var quarter = quarters + (Math.floor(Math.random() * 51) + 50);
+					console.log("you win "+quarter+" quarters");
+					quarters--;
+					quarters = quarters + quarter;
+					console.log("you have "+quarters+" quarters remaining");
+					return quarters;
+				}
+				else{
+					console.log("you lose");
+					quarters--;
+				}
+    		}
+    		console.log("you have used up all of your quarters");
+    		return 0;
+    	}
+    	
+    </script>
+</head>
+
+<body>
+</body>
+</html>

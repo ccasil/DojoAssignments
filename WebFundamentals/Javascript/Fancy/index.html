@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>TITLE</title>
+	<meta name="description" content="CONTENT" >
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script type="text/javascript">
+    	function fancy (arrow, reversed){
+    		var arr = ["James", "Jill", "Jane", "Jack"];
+    		// if (arrow == "->"){
+    		// 	for (var a = 0; a < arr.length; a++){
+    		// 		console.log (a + " -> " + arr[a]);
+    		// 	}
+    		// }
+    		// else if (arrow == "=>"){
+    		// 	for (var b = 0; b < arr.length; b++){
+    		// 		console.log (b + " => " + arr[b]);
+    		// 	}
+    		// }
+    		// else if (arrow == "::"){
+    		// 	for (var c = 0; c < arr.length; c++){
+    		// 		console.log (c + " :: "+ arr[c]);
+    		// 	}
+    		// }
+    		// else if (arrow == "----"){
+    		// 	for (var d = 0; d < arr.length; d++){
+    		// 		console.log (d + " ---- " + arr[d]);
+    		// 	}
+    		// }
+    		if (reversed == false){
+    			for (var i = 0; i < arr.length; i++){
+    				console.log (i + arrow + arr[i]);
+    			}
+    		}
+    		if (reversed == true){
+    			for (var i = arr.length - 1; i >= 0; i--){
+    				console.log ((i+1) + arrow + arr[i]);
+    			}
+    		}
+    	}
+    	
+    </script>
+</head>
+
+<body>
+</body>
+</html>

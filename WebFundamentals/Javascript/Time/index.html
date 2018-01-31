@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>TITLE</title>
+	<meta name="description" content="CONTENT" >
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script type="text/javascript">
+        var hour = 7;
+        var minute = 15;
+        var period = "AM";
+        // if (period = "AM" && minute < 30){
+        //         console.log("It's just after "+hour+" in the morning");
+        // }
+        // if (period = "AM" && minute > 30){
+        //         console.log("It's almost "+hour+" in the morning");
+        // }
+        // if (period = "PM" && minute < 30){
+        //         console.log("It's just after "+hour+" in the evening");
+        // }
+        // if (period = "PM" && minute > 30){
+        //         console.log("It's almost "+hour+" in the evening");
+        // }
+
+        if (period = "AM"){
+            if (minute < 30){
+                console.log("It's just after "+hour+" in the morning");
+            }
+            if (minute > 30){
+                hour = hour+1;
+                console.log("It's almost "+hour+" in the morning");
+            }
+        }
+        else {
+            if (minute < 30){
+                console.log("It's just after", hour, "in the morning");
+            }
+            if (minute > 30){
+                hour = hour+1;
+                console.log("It's almost", hour, "in the morning");
+            }
+        }
+    </script>
+</head>
+
+<body>
+</body>
+</html>
