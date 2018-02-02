@@ -1,0 +1,18 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+img{
+	display: inline-block;
+	width: 200px;
+	vertical-align: top;
+}
+p{
+	font-weight: bold;
+}
+#details{
+	border: 5px solid black;
+}
+#images{
+	text-align: center;
+}
