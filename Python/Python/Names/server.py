@@ -1,15 +1,15 @@
-# students = [
-#      {'first_name':  'Michael', 'last_name' : 'Jordan'},
-#      {'first_name' : 'John', 'last_name' : 'Rosales'},
-#      {'first_name' : 'Mark', 'last_name' : 'Guillen'},
-#      {'first_name' : 'KB', 'last_name' : 'Tonel'}
-# ]
+students = [
+     {'first_name':  'Michael', 'last_name' : 'Jordan'},
+     {'first_name' : 'John', 'last_name' : 'Rosales'},
+     {'first_name' : 'Mark', 'last_name' : 'Guillen'},
+     {'first_name' : 'KB', 'last_name' : 'Tonel'}
+]
 
-# def name(dic):
-# 		for value in dic:
-# 			print value["first_name"], value["last_name"]
+def name(dic):
+		for value in dic:
+			print value["first_name"], value["last_name"]
 
-# name(students)
+name(students)
 
 users = {
  'Students': [
