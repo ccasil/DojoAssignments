@@ -13,8 +13,27 @@
 <body>
 	<!-- <p>{{name}}</p> -->
 	<form action='/process' method='post'>
-	    Your Name: <input type='text' name='formname'>
-	    <input type='submit' value='create user'>
+	    Your Name: <input type='text' name='name'>
+	    Dojo Location:
+	    <select name="location">
+	      <option value="sanjose">San Jose</option>
+	      <option value="seattle">Seattle</option>
+	      <option value="la">LA</option>
+	      <option value="dallas">Dallas</option>
+	      <option value="dc">DC</option>
+	      <option value="chicago">Chicago</option>
+	      <option value="tulsa">Tulsa</option>
+	    </select>
+	    Favorite Language:
+	    <select name="language">
+	      <option value="html">HTML</option>
+	      <option value="css">CSS</option>
+	      <option value="javascript">Javascript</option>
+	      <option value="python">Python</option>
+	    </select>
+	    Comment (optional):
+	    <textarea name="description"></textarea>
+	    <input type='submit' value='Button'>
 	</form>
 </body>
 </html>
