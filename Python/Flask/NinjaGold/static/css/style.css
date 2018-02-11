@@ -1,0 +1,16 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+form{
+	width: 200px;
+	border: 2px solid black;
+	margin: 10px;
+	text-align: center;
+	display: inline-block;
+}
+#activity{
+	width: 880px;
+	border: 2px solid black;
+	margin: 10px;
+}

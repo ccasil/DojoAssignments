@@ -11,10 +11,13 @@
 </head>
 
 <body>
-	<form action='/process' method='post'>
-	    Name: <input type='text' name='name'>
-	    Email: <input type='text' name='email'>
-	    <input type='submit' value='create user'>
+	<h1>Counter</h1>
+	<p>{{count}} times.</p>
+	<form action='/add' method='post'>
+		<input type='submit' value='+2'>
+	</form>
+	<form action='/reset' method='post'>
+		<input type='submit' value='Reset'>
 	</form>
 </body>
 </html>
