@@ -1,0 +1,8 @@
+You can list out 151 images or you can use a for loop (use a for loop).
+
+<img src="">
+<img src="http://pokeapi.co/media/img/1.png">
+<img src="http://pokeapi.co/media/img/1.png">
+<img src="http://pokeapi.co/media/img/1.png">
+<img src="http://pokeapi.co/media/img/1.png">
+Note: These images are hot-linked and wont work. Utilize the api v2 to find a sprite image that you can use to display the pokemons! 

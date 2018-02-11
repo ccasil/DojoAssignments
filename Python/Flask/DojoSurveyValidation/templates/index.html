@@ -11,14 +11,13 @@
 </head>
 
 <body>
-<!-- 	{% with messages = get_flashed_messages() %}
+	{% with messages = get_flashed_messages() %}
 		{% if messages %}
 			{% for message in messages %}
 				<p>{{message}}</p>
 			{% endfor %}
 		{% endif %}
-	{% endwith %} -->
-	<!-- <p>{{name}}</p> -->
+	{% endwith %}
 	<form action='/process' method='post'>
 	    Your Name: <input type='text' name='name'>
 	    Dojo Location:
@@ -42,5 +41,10 @@
 	    <textarea name="description"></textarea>
 	    <input type='submit' value='Button'>
 	</form>
+	<h2>Submitted Info</h2>
+	<p>Name: {{name}}</p>
+	<p>Dojo Location: {{location}}</p>
+	<p>Favorite Language: {{language}}</p>
+	<p>Comment: {{description}}</p>
 </body>
 </html>

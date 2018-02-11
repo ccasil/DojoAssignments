@@ -1,0 +1,1 @@
+During your time at Coding Dojo, you will be taking many stacks and completing many assignments. This means setting up a file system to keep track of what those assignments are.

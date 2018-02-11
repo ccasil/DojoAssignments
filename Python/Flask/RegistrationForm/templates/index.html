@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>TITLE</title>
+	<meta name="description" content="CONTENT" >
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+    <script type="text/javascript"  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    	
+    <script src="main.js"></script>
+</head>
+
+<body>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				<p>{{message}}</p>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	<form action='/process' method='post'>
+		Email: <input type='text' name='email'>
+	    First Name: <input type='text' name='firstname'>
+	    Last Name: <input type='text' name='lastname'>
+	    Password: <input type='text' name='password'>
+	    ConfirmPassword: <input type='text' name='cpassword'>
+	    Birth-Date: <input type='text' name='birthdate' value="mm/dd/yyyy">
+	    <input type='submit' value='create user'>
+	</form>
+</body>
+</html>

@@ -1,0 +1,5 @@
+Assignment: Making Dictionaries
+Create a function that takes in two lists and creates a single dictionary. The first list contains keys and the second list contains the values. Assume the lists will be of equal length.
+
+Hacker Challenge:
+If the lists are of unequal length, the longer list should be used for the keys, the shorter for the values.
