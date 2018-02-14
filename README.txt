@@ -1,4 +1,5 @@
 DOJO ASSIGNMENTS: Assignments during my time at Coding Dojo (1/22-4/27)
+Updated: 2/12/28
 
 Table of Contents:
 >iOS
@@ -30,6 +31,7 @@ Table of Contents:
 ----WhatsMyName
 --myEnvironments
 ----flaskEnv
+--mySQL
 --Python
 ----Checkerboard
 ----CoinTosses
