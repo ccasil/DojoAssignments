@@ -16,9 +16,9 @@ def index():
 
 @app.route('/wall')
 def wall():
-	query = "SELECT messages.id, message, comments.comment, comments.message_id, CONCAT(first_name, ' ', last_name) AS name, messages.created_at, comments.created_at FROM messages LEFT JOIN users ON messages.user_id = users.id  LEFT JOIN comments on users.id = comments.user_id;"
-	data = mysql.query_db(query)
-	return render_template('wall.html', data=data)
+		query = "SELECT messages.id, message, comments.comment, comments.message_id, CONCAT(first_name, ' ', last_name) AS name, messages.created_at, comments.created_at FROM messages JOIN users ON messages.user_id = users.id LEFT JOIN comments ON messages.id = comments.message_id;"
+		data = mysql.query_db(query)
+		return render_template('wall.html', data=data)
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -101,6 +101,7 @@ def loginregistration():
 
 @app.route('/logout')
 def logout():
+	session.clear()
 	return redirect('/')
 
 app.run(debug=True)

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Friends</title>
+	<meta name="description" content="CONTENT" >
+    <!-- <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}"> -->
+    <!-- <script type="text/javascript"  src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+    	
+    <!-- <script src="main.js"></script> -->
+</head>
+
+<body>
+<h1>User {{edit}}</h1>
+<p>Full Name: {{first_name}} {{last_name}}</p>
+<p>Email: {{email}}</p>
+<p>Created at: {{created_at}}</p>
+  <form action='/users/{{edit}}/edit'>
+    <input type="submit" value="Edit">
+  </form>
+  <form action='/users/{{edit}}'>
+    <input type="submit" value="Delete">
+  </form>
+</body>
+</html>

@@ -20,6 +20,7 @@
 	</div>
 	<hr>
 	<h2>Post a message</h2>
+	{{data}}
 	<form action="/message" method="post">
     	<textarea name="message"></textarea>
     	<input name="hiddenmid" type="hidden" value="{{session['id']}}">

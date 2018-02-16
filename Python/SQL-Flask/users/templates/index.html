@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Friends</title>
+	<meta name="description" content="CONTENT" >
+    <!-- <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}"> -->
+    <!-- <script type="text/javascript"  src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+    	
+    <!-- <script src="main.js"></script> -->
+</head>
+
+<body>
+<h1>Users</h1>
+  <table>
+      <thead>
+          <tr>
+              <th>id</th>
+              <th>Full Name</th>
+              <th>Email</th>
+              <th>Created At</th>
+              <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+        {% for user in data: %}
+        <tr>
+              <td>{{ user['id'] }}</td>
+              <td>{{ user['name'] }}</td>
+              <td>{{ user['email'] }}</td>
+              <td>{{ user['created_at'] }}</td>
+              <td>
+                <form action='/users/{{user["id"]}}/show'>
+                  <input type='submit' value='Show'>
+                </form>
+                <form action='/users/{{user["id"]}}/edit'>
+                  <input type="submit" value="Edit">
+                </form>
+                <form action='/users/{{user["id"]}}'>
+                  <input type="submit" value="Delete">
+                </form>
+              </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+    <form action='/users/new'>
+        <input type='submit' value='Add a new user'>
+    </form>
+</body>
+</html>
