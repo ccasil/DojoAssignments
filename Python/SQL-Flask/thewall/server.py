@@ -16,7 +16,7 @@ def index():
 
 @app.route('/wall')
 def wall():
-	query = "SELECT messages.id, message, comments.comment, comments.message_id, CONCAT(first_name, ' ', last_name) AS name, messages.created_at FROM messages LEFT JOIN users ON messages.user_id = users.id  LEFT JOIN comments on users.id = comments.user_id;"
+	query = "SELECT messages.id, message, comments.comment, comments.message_id, CONCAT(first_name, ' ', last_name) AS name, messages.created_at, comments.created_at FROM messages LEFT JOIN users ON messages.user_id = users.id  LEFT JOIN comments on users.id = comments.user_id;"
 	data = mysql.query_db(query)
 	return render_template('wall.html', data=data)
 
@@ -86,7 +86,7 @@ def message():
 
 @app.route('/comment', methods=['POST'])
 def comment():
-	query = "INSERT INTO comments (comment, user_id, message_id) VALUES (:comment, :user_id, :message_id)"
+	query = "INSERT INTO comments (comment, user_id, message_id, created_at) VALUES (:comment, :user_id, :message_id, NOW())"
 	data = {
 		'comment': request.form['comment'],
 		'user_id': request.form['hiddencid'],

@@ -2,6 +2,12 @@
 	margin: 0px;
 	padding: 0px;
 }
+.comment{
+	margin-left: 25px;
+}
+.header{
+	display: inline-block;
+}
 .title{
 	display: inline-block;
 }
@@ -11,5 +17,4 @@
 }
 h2{
 	display: inline-block;
-	margin-left: 400px;
 }

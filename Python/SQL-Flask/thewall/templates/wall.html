@@ -28,20 +28,21 @@
 	{% for message in data: %}
 		<h3>{{message.name}} - {{message['created_at'].month}}/{{message['created_at'].day}}/{{message['created_at'].year}}</h3>
 		<p>{{message.message}}</p>
+		<div class="comment">
+			{% for comment in data: %}
+				{% if comment.message_id == message.id %}
+					<h4>{{comment.name}} - {{comment['created_at'].month}}/{{comment['created_at'].day}}/{{comment['created_at'].year}}</h4>
+					<p>{{comment.comment}}</p>
+				{%  endif %}
+			{% endfor %}
 
-		{% for comment in data: %}
-			{% if comment.message_id == message.id %}
-				<h3>{{comment.name}}</h3>
-				<p>{{comment.comment}}</p>
-			{%  endif %}
-		{% endfor %}
-
-		<form action="/comment" method="post">
-    		<textarea name="comment"></textarea>
-    		<input name="hiddenmid" type="hidden" value='{{message.id}}'>
-    		<input name="hiddencid" type="hidden" value="{{session['id']}}">
-	    	<input type='submit' value='Post a comment'>
-		</form>
+			<form action="/comment" method="post">
+	    		<textarea name="comment"></textarea>
+	    		<input name="hiddenmid" type="hidden" value='{{message.id}}'>
+	    		<input name="hiddencid" type="hidden" value="{{session['id']}}">
+		    	<input type='submit' value='Post a comment'>
+			</form>
+		</div>
 	{% endfor %}
 </body>
 </html>
