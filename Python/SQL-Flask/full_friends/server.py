@@ -13,7 +13,7 @@ def index():
 def create():
     # Write query as a string. Notice how we have multiple values
     # we want to insert into our query.
-    query = "INSERT INTO friends (name, age, friend_since) VALUES (:first_name, :last_name, :occupation, NOW())"
+    query = "INSERT INTO friends (name, age, friend_since) VALUES (:name, :age, NOW())"
     # We'll then create a dictionary of data from the POST data received.
     data = {
              'name': request.form['name'],
@@ -36,22 +36,22 @@ def show(friend_id):
     # so we pass the value at [0] to our template under alias one_friend.
     return render_template('index.html', one_friend=friends[0])
 
-@app.route('/update_friend/<friend_id>', methods=['POST'])
-def update(friend_id):
-    query = "UPDATE friends SET name = :name, age = :age WHERE id = :id"
-    data = {
-             'name': request.form['name'],
-             'age': request.form['age'],
-             'id': friend_id
-           }
-    mysql.query_db(query, data)
-    return redirect('/')
+# @app.route('/update_friend/<friend_id>', methods=['POST'])
+# def update(friend_id):
+#     query = "UPDATE friends SET name = :name, age = :age WHERE id = :id"
+#     data = {
+#              'name': request.form['name'],
+#              'age': request.form['age'],
+#              'id': friend_id
+#            }
+#     mysql.query_db(query, data)
+#     return redirect('/')
 
-@app.route('/remove_friend/<friend_id>', methods=['POST'])
-def delete(friend_id):
-    query = "DELETE FROM friends WHERE id = :id"
-    data = {'id': friend_id}
-    mysql.query_db(query, data)
-    return redirect('/')
+# @app.route('/remove_friend/<friend_id>', methods=['POST'])
+# def delete(friend_id):
+#     query = "DELETE FROM friends WHERE id = :id"
+#     data = {'id': friend_id}
+#     mysql.query_db(query, data)
+#     return redirect('/')
     
 app.run(debug=True)

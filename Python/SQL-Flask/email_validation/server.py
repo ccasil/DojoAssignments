@@ -13,18 +13,14 @@ def index():
 	data = mysql.query_db(query)
 	return render_template('index.html', data=data)
 
-@app.route('/email', methods=['POST'])
-def create():
-    # Write query as a string. Notice how we have multiple values
-    # we want to insert into our query.
-    query = "INSERT INTO emails (email, created_at) VALUES (:email, NOW())"
-    # We'll then create a dictionary of data from the POST data received.
-    data = {
-             'email': request.form['email']
-           }
-    # Run query, with dictionary values injected into the query.
-    mysql.query_db(query, data)
-    return redirect('/')
+# @app.route('/email', methods=['POST'])
+# def create():
+#     query = "INSERT INTO emails (email, created_at) VALUES (:email, NOW())"
+#     data = {
+#              'email': request.form['email']
+#            }
+#     mysql.query_db(query, data)
+#     return redirect('/')
 
 @app.route('/process', methods=['POST'])
 def process():
@@ -33,11 +29,23 @@ def process():
 		return redirect('/')
 	else:
 		flash("The email address you entered is a VALID email address! Thank you!")
-		return redirect('/success')
+		query = "INSERT INTO emails (id, email, created_at) VALUES (:id, :email, NOW())"
+    	data = {
+             'email': request.form['email']
+             }
+    	mysql.query_db(query, data)
+	return redirect('/success')
+
+@app.route('/success/<ident>', methods=['POST'])
+def delete(ident):
+    query = "DELETE FROM emails WHERE id = :id"
+    data = {'id': ident}
+    mysql.query_db(query, data)
+    return redirect('/success')
 
 @app.route('/success')
 def success():
-	query = "SELECT email, created_at FROM emails"
+	query = "SELECT id, email, created_at FROM emails"
 	data = mysql.query_db(query)
 	return render_template('success.html', data=data)
 

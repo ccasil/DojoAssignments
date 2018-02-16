@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>TITLE</title>
+	<title>Success</title>
 	<meta name="description" content="CONTENT" >
     <!-- <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}"> -->
     <!-- <script type="text/javascript"  src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
@@ -25,13 +25,21 @@
           <tr>
               <th>EMAIL</th>
               <th>DATE</th>
+              <!-- <th></th> -->
+              <th></th>
           </tr>
       </thead>
       <tbody>
         {% for emails in data: %}
         <tr>
               <td>{{ emails['email'] }}</td>
-              <td>{{ emails['created_at'] }}</td>
+              <td>{{ emails['created_at'].month }}/{{ emails['created_at'].day }}/{{ emails['created_at'].year }}</td>
+              <!-- <td>{{ emails['id'] }}</td> -->
+              <td>
+                  <form action='/success/{{emails['id']}}' method='POST'>
+                    <input type="submit" value="Remove Email">
+                  </form>
+              </td>
         </tr>
         {% endfor %}
       </tbody>

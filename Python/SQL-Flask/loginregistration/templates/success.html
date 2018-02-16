@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Email Validation</title>
+	<title>TITLE</title>
 	<meta name="description" content="CONTENT" >
     <!-- <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}"> -->
     <!-- <script type="text/javascript"  src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  {{loginfo}}
 	{% with messages = get_flashed_messages() %}
 		{% if messages %}
 			{% for message in messages %}
@@ -18,10 +19,5 @@
 			{% endfor %}
 		{% endif %}
 	{% endwith %}
-	{{data}}
-	<form action='/process' method='post'>
-	    Email Address: <input type='text' name='email'>
-	    <input type='submit' value='Submit'>
-	</form>
 </body>
 </html>
