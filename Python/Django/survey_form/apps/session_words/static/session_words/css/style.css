@@ -1,0 +1,15 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+#side1{
+	vertical-align: top;
+	display: inline-block;
+}
+#side2{
+	vertical-align: top;
+	display: inline-block;
+}
+.button{
+	margin: 10px;
+}

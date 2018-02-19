@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Session Words</title>
+	<meta name="description" content="CONTENT" >
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript"  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'session_words/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <!-- <link rel="stylesheet" href="{% static 'session_words/javascript/main.js' %}" media="screen" title="no title"  charset="utf-8"> -->
+</head>
+
+<body>
+	<div id="side1">
+	<form action='/session_words/add_word' method='post'>
+		<h1>Add a new word</h1>
+		{% csrf_token %}
+	    <input type='text' name='word'>
+	    
+	    <p>Choose color:</p>
+		<input type="radio" id="colorChoice1" name="color" value="red">
+			<label for="colorChoice1">Red</label>
+		<input type="radio" id="colorChoice2" name="color" value="green">
+			<label for="colorChoice2">Green</label>
+		<input type="radio" id="colorChoice3" name="color" value="blue">
+			<label for="colorChoice3">Blue</label>
+
+		<p>
+		<input type="checkbox" id="bigfont" name="bigfont">
+			<label for="bigfont">Show in BIG fonts!</label>
+    	</p>
+	    <input class="button" type='submit' value='Add to Session'>
+	</form>
+	</div>
+	<div id="side2">
+		<form action="/session_words/clear">
+		    <input class="button" type='submit' value='Clear Session'>
+		</form>
+		{% for z in request.session.wordlist %}
+			<p style="color:{{z.color}}; font-size:{{z.bigfont}};">{{z.word}} - added on {{z.time}}</p>
+		{% endfor %}
+	</div>
+</body>
+</html>

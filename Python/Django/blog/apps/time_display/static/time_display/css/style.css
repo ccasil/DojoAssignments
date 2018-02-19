@@ -1,0 +1,13 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+h1 {
+	border: 2px solid black;
+	text-align: center;
+}
+div {
+	margin: 10px;
+	border: 2px solid black;
+	text-align: center;
+}

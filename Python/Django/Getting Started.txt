@@ -3,6 +3,14 @@
 3. cd main (change directory to main directory (\DojoAssignments\Python\Django\main))
 4. mkdir apps (make new apps directory inside main directory)
 5. cd apps
-6. touch __init__.py (create in \DojoAssignments\Python\Django\main\main)
-7. python ../manage.py startapp first_app (execute in main folder)
-8. in settings.py add applicatio nto project (INSTALLED_APPS)
+6. touch __init__.py (create in \DojoAssignments\Python\Django\main\apps)
+
+
+7. python ../manage.py startapp first_app (execute in apps folder)
+8. in settings.py add application to project (INSTALLED_APPS)
+9. in main urls.py     url(r'^', include('apps.app_name.urls')),
+9. create urls.py (import/add url patterns)
+10. python manage.py runserver (main folder)
+11. views.py set up index route from 
+	django.shortcuts import render, HttpResponse, redirect
+12. edit style link in html
