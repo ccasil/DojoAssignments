@@ -1,1 +1,2 @@
 source flaskEnv/Scripts/activate
+source djangoEnv/Scripts/activate
