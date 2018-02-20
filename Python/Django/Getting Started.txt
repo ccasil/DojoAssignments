@@ -9,7 +9,7 @@
 7. python ../manage.py startapp first_app (execute in apps folder)
 8. in settings.py add application to project (INSTALLED_APPS)
 9. in main urls.py     url(r'^', include('apps.app_name.urls')),
-9. create urls.py (import/add url patterns)
+9. create urls.py (import/add url patterns)(RENAME templates/static)
 10. python manage.py runserver (main folder)
 11. views.py set up index route from 
 	django.shortcuts import render, HttpResponse, redirect

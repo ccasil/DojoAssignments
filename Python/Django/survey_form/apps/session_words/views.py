@@ -20,6 +20,7 @@ def add_word(request):
 			bigfont = "16px"
 		else:
 			bigfont = "22px"
+			
 		if not 'wordlist' in request.session:
 			request.session['wordlist'] = []
 
