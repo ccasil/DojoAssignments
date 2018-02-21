@@ -1,0 +1,45 @@
+Creating a new record
+
+Blog.objects.create({{field1}}="{{value}}", {{field2}}="{{value}}", etc) # creates a new record in the Blog table
+Blog.objects.create(name="Star Wars Blog", desc="Everything about Star Wars") # creates a new blog record
+Blog.objects.create(name="CodingDojo Blog") # creates a new blog record with the empty desc field
+
+Alternative way of creating a record
+b = Blog(name="Disney Blog", desc="Disney stuff")
+b.name = "Disney Blog!"
+b.desc = "Disney stuff!!!"
+b.save()
+
+Basic Retrieval
+
+Blog.objects.first() - retrieves the first record in the Blog table
+Blog.objects.last() - retrieves the last record in the Blog table
+Blog.objects.all() - retrieves all records in the Blog table
+Blog.objects.count() - shows how many records are in the Blog table
+
+Updating the record - once you obtain an object that has the record you want to modify, use save() to update the record.  For example
+
+b = Blog.objects.first() # gets the first record in the blogs table
+b.name = "CodingDojo Blog"  # set name to be "CodingDojo Blog"
+b.save() # updates the blog record
+
+Deleting the record - use delete().  For example
+
+b = Blog.objects.get(id=1)
+b.delete() # deletes that particular record
+
+Other methods to retrieve records
+
+Blog.objects.get(id=1) - retrieves where id is 1; get only retrieves 1 record
+Blog.objects.filter(name="mike") - retrieves records where name is "mike"; returns multiple records
+Blog.objects.exclude(name="mike") - opposite of filter; returns multiple records
+Blog.objects.order_by("created_at") - orders by created_date field
+Blog.objects.order_by("-created_at") - reverses the order
+Blog.objects.raw("SELECT * FROM {{app_name}}_{{class/table name}}") - performs a raw SQL query
+Blog.objects.first().comments.all() - grabs all comments from the first Blog
+Blog.objects.get(id=15).comments.first() - grabs the first comment from Blog id = 15
+Comment.objects.get(id=15).blog.name - returns the name of the blog where Comment id = 15 belongs to
+
+Setting Relationship
+
+Comment.objects.create(blog=Blog.objects.get(id=1), comment="test") - create a new comment where the comment's blog points to Blog.objects.get(id=1).

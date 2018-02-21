@@ -1,0 +1,20 @@
+python manage.py makemigrations
+python manage.py migrate
+
+Users.objects.all()
+
+Users.objects.last()
+
+Users.objects.create({{field1}}="{{value}}",{{field2}}="{{value}}")
+
+Users.objects.first()
+
+Users.objects.order_by("-first_name")
+
+z = Users.objects.get(id=3)
+z.last_name = "kelvin"
+z.save()
+
+x = Users.objects.get(id=4)
+x.delete()
+
