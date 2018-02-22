@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>TITLE</title>
+	<meta name="description" content="CONTENT" >
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript"  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'course/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <!-- <link rel="stylesheet" href="{% static 'course/javascript/main.js' %}" media="screen" title="no title"  charset="utf-8"> -->
+</head>
+
+<body>
+	<h1>Are you sure you want to delete the following course?</h1>
+  <p>Name: {{ course.course_name }}</p>
+  <p>Description: {{ course.desc }}</p>
+  <a href='/no'>No</a>
+  <a href='/destroy/{{course.id}}'>Yes! I want to delete this</a>
+</body>
+</html>
