@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Friends</title>
+	<meta name="description" content="CONTENT" >
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'users/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+  <!-- <link rel="stylesheet" href="{% static 'app_name/javascript/main.js' %}" media="screen" title="no title"  charset="utf-8"> -->
+</head>
+
+<body>
+<h1>User {{user.id}}</h1>
+<p>Full Name: {{user.first_name}} {{user.last_name}}</p>
+<p>Email: {{user.email}}</p>
+<p>Created at: {{user.created_at}}</p>
+<a href='/{{user.id}}/edit'>Edit</a>
+<a href='{{user.id}}/destroy'>Delete</a>
+</body>
+</html>

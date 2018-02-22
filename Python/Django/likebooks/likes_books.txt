@@ -1,0 +1,138 @@
+>>> from apps.likes_books.models import *
+
+>>> User.objects.create(fname="Ian", lname="yang", email="i@i.com")
+
+<User: User object>
+
+>>> User.objects.create(fname="johnnie", lname="tran", email="j@j.com")
+
+<User: User object>
+
+>>> User.objects.create(fname="thinh", lname="le", email="t@t.com")
+
+<User: User object>
+
+>>> Book.objects.first().uploader
+>>> this_user = User.objects.get(id=1)
+
+>>> Book.objects.create(name="riding with johnnie", desc="johnnie ride", uploader=this_user)
+
+<Book: Book object>
+
+>>> Book.objects.create(name="thinh on the ocean", desc="thihn in the ocean", uploader=this_user)
+<Book: Book object>
+
+>>> this_user = User.objects.get(id=2)
+
+>>> Book.objects.create(name="Ians pimp daddy", desc="just pimp", uploader=this_user)
+
+<Book: Book object>
+
+>>> Book.objects.create(name="johnnie and me", desc="johnnie and me", uploader=this_user)
+
+<Book: Book object>
+
+>>> this_user = User.objects.get(id=3)
+
+>>> Book.objects.create(name="johnnie goes wild", desc="", uploader=this_user)
+
+<Book: Book object>
+
+>>> Book.objects.create(name="johnnie goes west", desc="", uploader=this_user)
+
+<Book: Book object>
+
+>>> this_user = User.objects.get(id=1)
+
+>>> this_book = Book.objects.first()
+
+>>> this_book.liked_by.add(this_user)
+
+>>> this_book = Book.objects.last()
+
+>>> this_book.liked_by.add(this_user)
+
+>>> this_user = User.objects.get(id=2)
+
+>>> this_book = Book.objects.first()
+
+>>> this_book.liked_by.add(this_user)
+
+>>> this_book = Book.objects.get(id=3)
+
+>>> this_book.liked_by.add(this_user)
+
+>>> this_user = User.objects.get(id=3)
+
+>>> this_book = Book.objects.all()
+
+>>> this_book.liked_by.add(this_user)
+
+
+>>> this_user = User.objects.get(id=3)
+
+>>> this_book = Book.objects.get(id=1)
+
+>>> this_book.liked_by.add(this_user)
+
+>>> this_book = Book.objects.get(id=2)
+
+>>> this_book.liked_by.add(this_user)
+
+>>> this_book = Book.objects.get(id=3)
+
+>>> this_book.liked_by.add(this_user)
+
+>>> this_book = Book.objects.get(id=4)
+
+>>> this_book.liked_by.add(this_user)
+
+>>> this_book = Book.objects.get(id=5)
+
+>>> this_book.liked_by.add(this_user)
+
+>>> this_book = Book.objects.get(id=6)
+
+>>> this_book.liked_by.add(this_user)
+
+
+
+>>> this_book = Book.objects.get(id=1)
+
+>>> this_book.liked_by.all()
+
+>>> h=this_book.liked_by.all()
+
+>>> h[0].fname
+u'Ian'
+
+>>> h[1].fname
+u'johnnie'
+
+>>> h[2].fname
+u'thinh'
+
+>>> h[3].fname
+
+
+>>> this_book = Book.objects.get(id=1)
+
+>>> this_book.uploader.fname
+
+
+
+>>> this_book = Book.objects.get(id=2)
+
+>>> this_book.liked_by.all()
+
+>>> h=this_book.liked_by.all()
+
+>>> h[0].fname
+u'thinh'
+
+
+
+>>> this_book = Book.objects.get(id=2)
+
+>>> this_book.uploader.fname
+u'Ian'

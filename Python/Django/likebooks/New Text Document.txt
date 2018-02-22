@@ -1,0 +1,52 @@
+CREATE OBJECTS
+
+>>> User.objects.create(first_name="kyle")
+<User: User object>
+>>> User.objects.create(first_name="ian")
+<User: User object>
+>>> User.objects.create(first_name="johnnie")
+<User: User object>
+
+CREATE OBJECT LINKING ONE TO MANY
+
+>>> this_user = User.objects.get(id=1)
+>>> Book.objects.create(name="book1: the beginning", uploader=this_user)
+<Book: Book object>
+>>> Book.objects.create(name="book2: the start", uploader=this_user)
+<Book: Book object>
+>>> this_user = User.objects.get(id=2)
+>>> Book.objects.create(name="book3: the upbringing", uploader=this_user)
+<Book: Book object>
+>>> Book.objects.create(name="book3: the upbringing", uploader=this_user)
+
+LINK MANY TO MANY
+
+>>> this_book.liked_users.add(this_user)
+>>> this_book = Book.objects.get(id=6)
+>>> this_book.liked_users.add(this_user)
+>>> this_user = User.objects.get(id=2)
+>>> this_book = Book.objects.get(id=1)
+>>> this_book.liked_users.add(this_user)
+>>> this_book = Book.objects.get(id=3)
+>>> this_book.liked_users.add(this_user)
+
+Display all users who like the first book
+
+ this_book = Book.objects.get(id=1)
+ this_book.liked_users.all()
+
+Display the user who uploaded the first book
+
+ this_book = Book.objects.get(id=1)
+ this_book.uploader.first_name
+
+Display all users who like the second book
+
+ this_book = Book.objects.get(id=2)
+ this_book.liked_users.all()
+
+
+Display the user who uploaded the second book
+
+ this_book = Book.objects.get(id=2)
+ this_book.uploader.first_name
