@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Add Book and Review</title>
+	<meta name="description" content="CONTENT" >
+    <script type="text/javascript"  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'belt/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <link rel="stylesheet" href="{% static 'belt/javascript/main.js' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+
+<body>
+	<a href="/books">Home</a>
+	<a href="/logout">Logout</a>
+	<h1>Add a New Book Title and a Review</h1>
+	<form action='/addnewbook' method='post'>
+		{% csrf_token %}
+	    <p>Book Title: <input type='text' name='title'></p>
+	    <p>Author:</p> 
+	    Choose from the list:
+	    <select name="authorlist">
+	      <option value="not">Add New Author</option>
+	      <option value="stephen_king">Stephen King</option>
+	      <option value="jkrowling">J. K. Rowling</option>
+	      <option value="drseuss">Dr. Seuss</option>
+	      <option value="shakespeare">William Shakespeare</option>
+	      <option value="jrrtolkien">J. R. R. Tolkien</option>
+	    </select>
+	    <p>Or add a new author: <input type='text' name='newauthor'></p>
+	    <p>Review: <textarea type='text' name='review'></textarea></p>
+	    Rating:
+	    <select name="rating">
+	      <option value="1">1</option>
+	      <option value="2">2</option>
+	      <option value="3">3</option>
+	      <option value="4">4</option>
+	      <option value="5">5</option>
+	    </select>
+	    <p><input type='submit' value='Add Book and Review'></p>
+	</form>
+</body>
+</html>

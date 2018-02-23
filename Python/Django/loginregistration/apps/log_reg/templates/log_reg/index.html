@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Login/Registration</title>
+	<meta name="description" content="CONTENT" >
+    <script type="text/javascript"  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+	<h1>Registration:</h1>
+	<form class= "form-group" action='/register' method='post'>
+		{% csrf_token %}
+	    <p>First Name: <input class="form-control" type='text' name='first_name'></p>
+	    <p>Last Name: <input class="form-control" type='text' name='last_name'></p>
+	    <p>Email: <input class="form-control" type='text' name='email'></p>
+	    <p>Password: <input class="form-control" type='password' name='password'></p>
+	    <p>Confirm Password: <input class="form-control" type='password' name='cpassword'></p>
+	    <input class="btn btn-success" type='submit' value='Register'>
+	</form>
+	<h1>Login:</h1>
+	<form class= "form-group" action='/login' method='post'>
+		{% csrf_token %}
+	    <p>Email: <input class="form-control" type='text' name='email'></p>
+	    <p>Password: <input class="form-control" type='password' name='password'></p>
+	    <input class="btn btn-success" type='submit' value='Login'>
+	</form>
+
+{% if messages %}
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+</div>
+</body>
+</html>
