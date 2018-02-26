@@ -4,31 +4,29 @@
 	<meta charset="utf-8">
 	<title>Welcome</title>
 	<meta name="description" content="CONTENT" >
-    <script type="text/javascript"  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'belt/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
-    <link rel="stylesheet" href="{% static 'belt/javascript/main.js' %}" media="screen" title="no title"  charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
+<div class='container'>
 	<h1>Welcome!</h1>
 	<h2>Registration:</h2>
-	<form action='/register' method='post'>
+	<form class="form-group" action='/register' method='post'>
 		{% csrf_token %}
-	    <p>Name: <input type='text' name='name'></p>
-	    <p>Alias: <input type='text' name='alias'></p>
-	    <p>Email: <input type='text' name='email'></p>
-	    <p>Password: <input type='password' name='password'></p>
+	    <p>Name: <input class="form-control" type='text' name='name'></p>
+	    <p>Alias: <input class="form-control" type='text' name='alias'></p>
+	    <p>Email: <input class="form-control" type='text' name='email'></p>
+	    <p>Password: <input class="form-control" type='password' name='password'></p>
 	    <p>*Password should be at least 8 characters</p>
-	    <p>Confirm Password: <input type='password' name='cpassword'></p>
-	    <input type='submit' value='Register'>
+	    <p>Confirm Password: <input class="form-control" type='password' name='cpassword'></p>
+	    <input class="btn btn-primary" type='submit' value='Register'>
 	</form>
 	<h2>Login:</h2>
-	<form action='/login' method='post'>
+	<form class="form-group" action='/login' method='post'>
 		{% csrf_token %}
-	    <p>Email: <input type='text' name='email'></p>
-	    <p>Password: <input type='password' name='password'></p>
-	    <input type='submit' value='Login'>
+	    <p>Email: <input class="form-control" type='text' name='email'></p>
+	    <p>Password: <input class="form-control" type='password' name='password'></p>
+	    <input class="btn btn-primary" type='submit' value='Login'>
 	</form>
 
 {% if messages %}
@@ -37,5 +35,6 @@
     {% endfor %}
 </ul>
 {% endif %}
+</div>
 </body>
 </html>

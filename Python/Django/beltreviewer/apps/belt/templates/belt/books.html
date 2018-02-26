@@ -4,14 +4,28 @@
 	<meta charset="utf-8">
 	<title>Books Home</title>
 	<meta name="description" content="CONTENT" >
-    <script type="text/javascript"  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
 	<a href="/add">Add Book and Review</a>
 	<a href="/logout">Logout</a>
-	<h1>Welcome, {{name.name}}!</h1>
+	<h1>Welcome, {{user.name}}!</h1>
 	<h2>Recent Book Reviews:</h2>
+	{% for z in first3 %}
+	<h4><a href="/showbook/{{ z.review.id }}">{{ z.review.title }}</a></h4>
+	<p>Rating: {{ z.rating }}</p>
+	<p> <a href="users/{{ z.reviewer_id }}">{{ z.reviewer.name }}</a> says: {{ z.content }}</p>
+	<p> Posted on {{ z.created_at }}</p>
+	<hr>
+	{% endfor %}
+
+	<h2>Other Books with Reviews</h2>
+	<div style="overflow-y: auto; height:200px;">
+	{% for x in book %}
+	<p><a href="/showbook/{{ x.id }}">{{ x.title }}</a></p>
+	{% endfor %}
+	</div>
+
 </body>
 </html>

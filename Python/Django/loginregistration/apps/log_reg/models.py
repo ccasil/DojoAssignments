@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 import re
+import bcrypt
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 NAME_REGEX = re.compile(r'^[a-zA-Z]+$')
@@ -22,18 +23,21 @@ class UserManager(models.Manager):
 			errors['password'] = "Password must be at least 8 characters long"
 		if postData['password'] != postData['cpassword']:
 			errors['confirm'] = "Make sure passwords match"
-		# else:
-		# 	password = postData['password']
-		# 	cpassword = postData['cpassword']
+		if len(errors) == 0:
+			hashpw = bcrypt.hashpw(postData['password'].encode(), bcrypt.gensalt())
+		 	userreg = User.objects.create(first_name=postData['first_name'], last_name=postData['last_name'], email=postData['email'], password=hashpw)
+			errors['userreg'] = userreg
 		return errors
 	def login_validator(self, postData):
 		errors = {}
-		if len(postData['email']) < 1 or len(postData['password']) < 1:
-			errors['field'] = "Make sure all fields are filled"
-		if  not EMAIL_REGEX.match(postData['email']):
-			errors['email'] = "Invalid Email address"
-		# else:
-		# 	checkemail = User.objects.filter(email=postData['email'])
+		checkemail = User.objects.filter(email=postData['email'])
+		if checkemail:
+			if bcrypt.checkpw(postData['password'].encode(), checkemail[0].password.encode()):
+				errors['userlog'] = checkemail[0]
+			else:
+				errors['invalidpass'] = "Invalid Password"
+		else:
+			errors['invalidemail'] = "Invalid Email"
 		return errors
 
 

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Add Book and Review</title>
+	<meta name="description" content="CONTENT" >
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+	<a href="/books">Home</a>
+	<a href="/add">Add Book and Review</a>
+	<a href="/logout">Logout</a>
+	<h1>User Alias: {{ user.alias }}</h1>
+	<h3>Name: {{ user.name }}</h3>
+	<h3>Email: {{ user.email }}</h3>
+	<h3>Total Reviews: {{ reviewnum }}</h3>
+	<hr>
+	<h2>Posted Reviews on the follow books:</h2>
+	{% for y in review %}
+	<p><a href="/showbook/{{ y.review.id }}">{{ y.review.title }}</a>
+	{% endfor %}
+</body>
+</html>
