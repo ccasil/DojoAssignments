@@ -1,0 +1,10 @@
+	-optional assignments
+	-THE WALL (fix)
+	-flask(multiplication table)
+	-sql/flask(books/books&quotes)
+	-responsive web design (rwd)
+	-build portfolio
+	-style belt reviewer
+
+-add to table of contents
+-add about.txt for new assignments
