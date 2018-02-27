@@ -40,7 +40,15 @@ class UserManager(models.Manager):
 		return errors
 	def addbook_validator(self, postData):
 		errors = {}
+		if len(postData['title']) < 1  or len(postData['review']) < 1:
+			errors['field'] = "Make sure all fields are filled"
 		return errors
+	def addreview_validator(self, postData):
+		errors = {}
+		if len(postData['content']) < 1:
+			errors['field'] = "Make sure all fields are filled"
+		return errors
+
 
 class User(models.Model):
 	name = models.CharField(max_length = 255)

@@ -33,7 +33,6 @@ def login(request):
 				messages.error(request, error, extra_tags=tag)
 	return redirect('/')
 
-
 def books(request):
 	top3 = Review.objects.order_by("-created_at")
 	data = {
@@ -52,14 +51,20 @@ def add(request):
 
 def addnewbook(request):
 	if request.method == 'POST':
-		if request.POST['authorlist'] == "not":
-			author = request.POST['newauthor']
-		else:
-			author = request.POST['authorlist']
-		newbook = Book.objects.create(title=request.POST['title'], author=author)
-		Review.objects.create(content=request.POST['content'], rating=request.POST['rating'], review_id=newbook.id, reviewer_id=request.session['id'])
-		return redirect('/showbook/' +str(newbook.id))
-
+	    errors = User.objects.addbook_validator(request.POST)
+        if len(errors):
+            for tag, error in errors.iteritems():
+                messages.error(request, error, extra_tags=tag)
+            return redirect('/add')
+        else:
+			if request.POST['authorlist'] == "not":
+				author = request.POST['newauthor']
+			else:
+				author = request.POST['authorlist']
+			newbook = Book.objects.create(title=request.POST['title'], author=author)
+			Review.objects.create(content=request.POST['content'], rating=request.POST['rating'], review_id=newbook.id, reviewer_id=request.session['id'])
+			return redirect('/showbook/' +str(newbook.id))
+					
 def showbook(request, id):
 	data = {
 		'book': Book.objects.get(id=id),
@@ -68,8 +73,17 @@ def showbook(request, id):
 	}
 	return render(request, 'belt/show.html', data)
 
+def destroy(request, id):
+	v = Review.objects.get(id=id)
+	bookid = str(v.review.id)
+	v.delete()
+	return redirect('/showbook/' +bookid)
+
 def addnewreview(request):
-	if request.POST['content'] == "":
+	errors = User.objects.addreview_validator(request.POST)
+	if len(errors):
+		for tag, error in errors.iteritems():
+			messages.error(request, error, extra_tags=tag)
 		return redirect('/showbook/' +request.POST['hiddenbookid'])
 	else:
 		newreview = Review.objects.create(content=request.POST['content'], rating=request.POST['rating'], review_id=request.POST['hiddenbookid'], reviewer_id=request.session['id'])

@@ -5,19 +5,30 @@
 	<title>Add Book and Review</title>
 	<meta name="description" content="CONTENT" >
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	{% load static %}
+    <link rel="stylesheet" href="{% static 'belt/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
 </head>
 
 <body>
+<div>
+<div class="sidebyside">
+	<h1>{{ book.title }}</h1>
+	<h3>Author: {{ book.author }}</h3>
+</div>
+<div class="sidebyside floatright">
 	<a href="/books">Home</a>
 	<a href="/logout">Logout</a>
-	<h1>{{ book.title }}</h1>
-	<h2>Author: {{ book.author }}</h2>
+</div>
+</div>
 	<h2>Reviews:</h2>
 	<hr>
 	{% for w in review %}
 		<p>Rating: {{ w.rating }}</p>
 		<p><a href="/users/{{ w.reviewer_id }}">{{ w.reviewer.name }}</a> says: {{ w.content }}</p>
 		<p>Posted on {{ w.created_at }}</p>
+		{% if request.session.id == w.reviewer_id %}
+		<p><a href="/destroy/{{ w.id }}">Delete</a></p>
+		{% endif %}
 		<hr>
 	{% endfor %}
 	<form action='/addnewreview' method='post'>
@@ -34,5 +45,11 @@
 	    <input type='hidden' name='hiddenbookid' value='{{ book.id }}'>
 	    <p><input class="btn btn-primary" type='submit' value='Submit Review'></p>
 	</form>
+{% if messages %}
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 </body>
 </html>

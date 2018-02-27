@@ -5,12 +5,18 @@
 	<title>Add Book and Review</title>
 	<meta name="description" content="CONTENT" >
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'belt/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
 </head>
 
 <body>
+<div class="sidebyside">
+	<h1>Add a New Book Title and a Review</h1>
+</div>
+<div class="sidebyside floatright">
 	<a href="/books">Home</a>
 	<a href="/logout">Logout</a>
-	<h1>Add a New Book Title and a Review</h1>
+</div>
 	<form class="form-group" action='/addnewbook' method='post'>
 		{% csrf_token %}
 	    <h3>Book Title: <input class="form-control" type='text' name='title'></h3>
@@ -34,5 +40,11 @@
 	    </select>
 	    <p><input class="btn btn-primary" type='submit' value='Add Book and Review'></p>
 	</form>
+{% if messages %}
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 </body>
 </html>

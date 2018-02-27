@@ -5,13 +5,15 @@
 	<title>Welcome</title>
 	<meta name="description" content="CONTENT" >
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'belt/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
 </head>
 
 <body>
 <div class='container'>
 	<h1>Welcome!</h1>
-	<h2>Registration:</h2>
-	<form class="form-group" action='/register' method='post'>
+	<h2>Register</h2>
+	<form class="form-group inline " action='/register' method='post'>
 		{% csrf_token %}
 	    <p>Name: <input class="form-control" type='text' name='name'></p>
 	    <p>Alias: <input class="form-control" type='text' name='alias'></p>
@@ -21,8 +23,9 @@
 	    <p>Confirm Password: <input class="form-control" type='password' name='cpassword'></p>
 	    <input class="btn btn-primary" type='submit' value='Register'>
 	</form>
-	<h2>Login:</h2>
-	<form class="form-group" action='/login' method='post'>
+
+	<h2>Login</h2>
+	<form class="form-group inline" action='/login' method='post'>
 		{% csrf_token %}
 	    <p>Email: <input class="form-control" type='text' name='email'></p>
 	    <p>Password: <input class="form-control" type='password' name='password'></p>

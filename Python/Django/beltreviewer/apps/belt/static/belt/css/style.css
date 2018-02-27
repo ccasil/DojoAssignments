@@ -2,6 +2,20 @@
 	margin: 0px;
 	padding: 0px;
 }
-h1{
-	border: 10px solid black;
+.scroll{
+	overflow-y: auto; height:155px;
+}
+.sidebyside{
+	display: inline-block;
+	vertical-align: top;
+}
+.floatright{
+	float: right;
+	margin: 10px
+}
+.border{
+	border: 2px solid black;
+}
+.header{
+	margin-right: 800px;
 }

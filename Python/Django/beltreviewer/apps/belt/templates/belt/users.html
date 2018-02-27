@@ -5,12 +5,16 @@
 	<title>Add Book and Review</title>
 	<meta name="description" content="CONTENT" >
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	{% load static %}
+    <link rel="stylesheet" href="{% static 'belt/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
 </head>
 
 <body>
+<div class="sidebyside floatright">
 	<a href="/books">Home</a>
 	<a href="/add">Add Book and Review</a>
 	<a href="/logout">Logout</a>
+</div>
 	<h1>User Alias: {{ user.alias }}</h1>
 	<h3>Name: {{ user.name }}</h3>
 	<h3>Email: {{ user.email }}</h3>
