@@ -10,22 +10,24 @@
 
 <body>
 <div class="container">
-	<h1>Registration:</h1>
+	<h1>Welcome!</h1>
+	<h2>Register:</h2>
 	<form class= "form-group" action='/register' method='post'>
 		{% csrf_token %}
-	    <p>First Name: <input class="form-control" type='text' name='first_name'></p>
-	    <p>Last Name: <input class="form-control" type='text' name='last_name'></p>
-	    <p>Email: <input class="form-control" type='text' name='email'></p>
+	    <p>Name: <input class="form-control" type='text' name='name'></p>
+	    <p>Username: <input class="form-control" type='text' name='username'></p>
 	    <p>Password: <input class="form-control" type='password' name='password'></p>
+	    <p>*Password should be at least 8 characters</p>
 	    <p>Confirm Password: <input class="form-control" type='password' name='cpassword'></p>
-	    <input class="btn btn-success" type='submit' value='Register'>
+	    <p>Date Hired: <input class="form-control" type="date" name="datehired"></p>
+	    <input class="btn btn-primary" type='submit' value='Register'>
 	</form>
-	<h1>Login:</h1>
+	<h2>Login:</h2>
 	<form class= "form-group" action='/login' method='post'>
 		{% csrf_token %}
-	    <p>Email: <input class="form-control" type='text' name='email'></p>
+	    <p>Username: <input class="form-control" type='text' name='username'></p>
 	    <p>Password: <input class="form-control" type='password' name='password'></p>
-	    <input class="btn btn-success" type='submit' value='Login'>
+	    <input class="btn btn-primary" type='submit' value='Login'>
 	</form>
 
 {% if messages %}

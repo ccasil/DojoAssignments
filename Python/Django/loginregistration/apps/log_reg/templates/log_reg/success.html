@@ -2,15 +2,70 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Success</title>
+	<title>My Wish List</title>
 	<meta name="description" content="CONTENT" >
     <script type="text/javascript"  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	{% load static %}
+    <link rel="stylesheet" href="{% static 'log_reg/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
 </head>
 
 <body>
-	<h1>Success! Welcome, {{name.first_name}}!</h1>
-	<h3>Successfully {{request.session.record}}</h3>
-	<p>RE-DEPLOYMENT TEST</p>
+	<a class="floatright sidebyside" href="/logout">Logout</a>
+	<h1 class="sidebyside">Hello, {{name.name}}!</h1>
+
+<h3>Your Wish List:</h3>
+  <table class="table">
+  <thead>
+      <tr>
+          <th>Item</th>
+          <th>Added by</th>
+          <th>Date Added</th>
+          <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+    {% for x in item %}
+  	<tr>
+  		<td><a href='/wish_items/{{x.id}}'>{{ x.itemname }}</a></td>
+  		<td>{{ x.added_by.name }}</td>
+  		<td>{{ x.date_added }}</td>
+		  <td>
+		  	{% if request.session.id == x.added_by_id %}
+		  	<a href='/delete/{{x.id}}'>Delete</a>
+		  	{% else %}
+		  	<a href='/removefrom/{{x.id}}'>Remove from my Wishlist</a>
+		  	{% endif %}
+		  </td>
+	 </tr>
+	 {% endfor %}
+	</tbody>
+</table>
+
+<h3>Other Users' Wish List</h3>
+  <table class="table">
+  <thead>
+      <tr>
+          <th>Item</th>
+          <th>Added by</th>
+          <th>Date Added</th>
+          <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+    {% for w in allitem %}
+  	<tr>
+  		<td><a href='/wish_items/{{w.id}}'>{{ w.itemname }}</a></td>
+  		<td>{{ w.added_by.name }}</td>
+  		<td>{{ w.date_added }}</td>
+		  <td>
+		  	<a href='/addto/{{w.id}}'>Add to my Wishlist</a>
+		  </td>
+	 </tr>
+	 {% endfor %}
+	</tbody>
+</table>
+
+	<a class="floatright" href="/add">Add Item</a>
 </body>
 </html>

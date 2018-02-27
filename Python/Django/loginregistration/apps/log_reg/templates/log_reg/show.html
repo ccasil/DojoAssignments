@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{{ item.itemname }}</title>
+	<meta name="description" content="CONTENT" >
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	{% load static %}
+    <link rel="stylesheet" href="{% static 'log_reg/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+
+<body>
+	<div class="floatright sidebyside">
+		<a href="/success">Home</a>
+		<a href="/logout">Logout</a>
+	</div>
+	<h1 class="sidebyside">{{ item.itemname }}</h1>
+	<p>Users who added this product/item under their wish list:</p>
+	{% for y in user %}
+	<p>{{ y.name }}</p>
+	{% endfor %}
+</body>
+</html>

@@ -1,9 +1,12 @@
 DOJO ASSIGNMENTS: Assignments during my time at Coding Dojo (1/22-4/27)
-Updated: 2/12/28
+Updated: 2/27/18
 
 Table of Contents:
 >iOS
 >MEAN
+>myEnvironments
+--djangoEnv
+--flaskEnv
 >netCore
 >Prework
 --academy-airplane-master
@@ -11,6 +14,31 @@ Table of Contents:
 --academy-pacman-master
 >Python
 --Blackjack_game-master
+--Django
+----START
+----amadon
+----beltreviewer
+----blog
+------blog_app
+------random_word
+------surveys
+------time_display
+------users
+----courses
+----likebooks
+----loginregistration
+----main
+----ninjaGoldDebug
+----ninjagold
+----semirestful
+----survey_form
+------session_words
+------surveys
+----users
+------book_autors
+------dojo_ninjas
+------like_books
+------user_app
 --Flask
 ----advanced_routing
 ----advanced_validation
@@ -29,8 +57,6 @@ Table of Contents:
 ----RegistrationForm
 ----views
 ----WhatsMyName
---myEnvironments
-----flaskEnv
 --mySQL
 --Python
 ----Checkerboard

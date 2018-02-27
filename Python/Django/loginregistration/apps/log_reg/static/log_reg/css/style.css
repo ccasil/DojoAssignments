@@ -2,3 +2,11 @@
 	margin: 0px;
 	padding: 0px;
 }
+.sidebyside{
+	display: inline-block;
+	vertical-align: top;
+}
+.floatright{
+	float: right;
+	margin: 10px
+}

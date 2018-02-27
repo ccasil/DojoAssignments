@@ -4,7 +4,7 @@
 	-sql/flask(books/books&quotes)
 	-responsive web design (rwd)
 	-build portfolio
-	-style belt reviewer
+	-user dashboard
 
 -add to table of contents
 -add about.txt for new assignments
