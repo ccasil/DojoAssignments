@@ -1,5 +1,12 @@
+HTML
+CSS
+Javascript
+ORM
+SQL
 Python
 Flask
 MySQL workbench
 Django
 SQLite Browser
+Amazon Web Services (AWS)
+Snagit
