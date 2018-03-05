@@ -1,10 +1,11 @@
 	-optional assignments
+		-flask(multiplication table)
+		-sql/flask(books/books&quotes)
 	-THE WALL (fix)
-	-flask(multiplication table)
-	-sql/flask(books/books&quotes)
 	-responsive web design (rwd)
 	-build portfolio
 	-user dashboard
+	-stack 0/1 algorithm quiz
 
 -add to table of contents
 -add about.txt for new assignments

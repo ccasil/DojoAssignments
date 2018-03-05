@@ -8,7 +8,7 @@ Table of Contents:
 --djangoEnv
 --flaskEnv
 >netCore
->Prework
+>Other
 --academy-airplane-master
 --academy-ninja-master
 --academy-pacman-master

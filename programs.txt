@@ -10,3 +10,7 @@ Django
 SQLite Browser
 Amazon Web Services (AWS)
 Snagit
+Sublime
+Visual Studio Code
+
+XCode

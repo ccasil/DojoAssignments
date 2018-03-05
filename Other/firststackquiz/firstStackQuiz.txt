@@ -1,0 +1,44 @@
+This is a self assessment. You do not need to turn in your answers. Instead, use this as an opportunity to determine the best course of action for your own learning. Write your code and run it to make sure it works! Don't forget to think of edge cases and verify that your code still works. If you are able to confidently demonstrate to yourself that you can solve these problems, you should progress to second stack algorithms. If you are uncertain about whether your code works, consider repeating first stack algorithms.
+
+1.  IsPalindrome - Create a function that returns a boolean whether the string is a strict palindrome. Do not ignore spaces, punctuation, or capitalization. 
+	
+    Examples:
+
+    Input: “a x a” or “racecar”, 
+    Output: return true. 
+
+    Input: “Dud” or “oho !”
+    Output: return false. 
+
+2.  Singly Linked List - Write the object constructor for a singly linked list. Give it an add method and a remove value method.
+	
+	Examples:
+
+	Input: mySLL.add(5).add(9).add(3)
+	Output: 5 -> 9 -> 3
+	
+	Input: mySLL.remove(5)
+	Output: 9 -> 3
+
+3.  Queue - Write an object constructor for a queue. Give it an enqueue method and a dequeue method. Use an SLL.
+
+4.  Stack - Write an object constructor for a stack. Give it a push method and a pop method. Use an array.
+
+5.  Remove Duplicates - Given an array, create a new array that contains the same values, but without duplicates. Do not alter the original array. This should be ‘stable’, in other words, the values in the resulting array should be in the original order as in the given array.
+	
+	Example:
+
+    Input: [1,2,1,3,4,2]
+    Output: [1,2,3,4]
+
+6.  (Ninja Level/ Bonus) Braces Valid - Given a string that may contain parentheses, square brackets, and curly brackets, determine whether the braces are valid. 
+	
+	Example:
+    
+    Input: “W {alt (Di [s{ (ne y) }]) }[]”
+    Output: return true
+
+    Input: “D (i {a}l[ t]o)n{e”
+    Output: return false
+	
+7.  (Ninja Level/ Bonus) Binary Search - Given a sorted array and a value, return whether the array contains that value. Do not sequentially iterate the array. Instead, ‘divide and conquer’, taking advantage of the fact that the array is sorted. As always, only use built-in functions that you are prepared to recreate (write yourself) on demand!
