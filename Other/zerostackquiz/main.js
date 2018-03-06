@@ -19,7 +19,17 @@ function fizzbuzz(num){
 // Output: 1  2  Fizz  4  Buzz  Fizz  7  8  Fizz  Buzz  11  Fizz  13  14  FizzBuzz  16  17  Fizz  19  Buzz
 
 function InsertAt(arr, idx, n){
-
+	var temp = arr[idx + 1];
+	var temp2 = arr[1]
+	arr[idx] = n;
+	if (idx > arr.length){
+		arr[idx] = n;
+	}else{
+		for (var i = idx + 1; i < arr.length; i++){
+			temp2 = arr[i];
+			
+		}
+	}
 }
 
 // Input: insertAt([1,2,3], 2, 7)
