@@ -27,12 +27,11 @@ class ViewController: UIViewController {
         if let unwrappedguess = guess {
             let guessed = Int(unwrappedguess)!
             
-            if guessed == rand {
-                let alertController = UIAlertController(title: "Correct", message:
-                    "\(guessed) was Correct!!!", preferredStyle: UIAlertControllerStyle.alert)
+            if guessed > rand {
+                let alertController = UIAlertController(title: "Incorrect", message:
+                    "\(guessed) was too high!!!", preferredStyle: UIAlertControllerStyle.alert)
                 alertController.addAction(UIAlertAction(title: "Play Again", style: UIAlertActionStyle.default,handler: nil))
                 self.present(alertController, animated: true, completion: nil)
-                rand = Int(arc4random_uniform(100))
             }
             else if guessed < rand {
                 let alertController = UIAlertController(title: "Incorrect", message:
@@ -40,28 +39,21 @@ class ViewController: UIViewController {
                 alertController.addAction(UIAlertAction(title: "Play Again", style: UIAlertActionStyle.default,handler: nil))
                 self.present(alertController, animated: true, completion: nil)
             }else{
-                let alertController = UIAlertController(title: "Incorrect", message:
-                    "\(guessed) was too high!!!", preferredStyle: UIAlertControllerStyle.alert)
+                let alertController = UIAlertController(title: "Correct", message:
+                    "\(guessed) was Correct!!!", preferredStyle: UIAlertControllerStyle.alert)
                 alertController.addAction(UIAlertAction(title: "Play Again", style: UIAlertActionStyle.default,handler: nil))
                 self.present(alertController, animated: true, completion: nil)
+                rand = Int(arc4random_uniform(100))
             }
         }
-//        else{
-//            let alertController = UIAlertController(title: "!!!!!", message:
-//                "Please input a number", preferredStyle: UIAlertControllerStyle.alert)
-//            alertController.addAction(UIAlertAction(title: "Play Again", style: UIAlertActionStyle.default,handler: nil))
-//            self.present(alertController, animated: true, completion: nil)
-//        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
