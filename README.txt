@@ -3,6 +3,8 @@ Updated: 2/27/18
 
 Table of Contents:
 >iOS
+--Basics
+--Playground
 >MEAN
 >myEnvironments
 --djangoEnv
