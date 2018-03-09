@@ -20,11 +20,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var button9: UIButton!
     @IBOutlet weak var winnerLabel: UILabel!
     
+    func winnerTie() {
+        if winnerLabel.text == ""{
+            winnerLabel.text = "It's A Tie"
+        }
+    }
     func winnerRed() {
-        winnerLabel.text = "Congrats Red Won"
+        if winnerLabel.text == ""{
+            winnerLabel.text = "Congrats Red Won"
+        }
     }
     func winnerBlue() {
-        winnerLabel.text = "Congrats Blue Won"
+        if winnerLabel.text == ""{
+            winnerLabel.text = "Congrats Blue Won"
+        }
+    }
+    func checkWin() {
+        redWinCheck()
+        blueWinCheck()
+        tieWinCheck()
+    }
+    
+    func tieWinCheck() {
+        if (button1.backgroundColor != UIColor.black && button2.backgroundColor != UIColor.black && button3.backgroundColor != UIColor.black && button4.backgroundColor != UIColor.black && button5.backgroundColor != UIColor.black && button6.backgroundColor != UIColor.black && button7.backgroundColor != UIColor.black && button8.backgroundColor != UIColor.black && button9.backgroundColor != UIColor.black){
+            winnerTie()
+        }
+
     }
     
     func redWinCheck() {
@@ -104,8 +125,7 @@ class ViewController: UIViewController {
                 button1.backgroundColor = UIColor.blue
                 count = true
             }
-            redWinCheck()
-            blueWinCheck()
+            checkWin()
         }
     }
     @IBAction func button2(_ sender: UIButton) {
@@ -117,8 +137,7 @@ class ViewController: UIViewController {
                 button2.backgroundColor = UIColor.blue
                 count = true
             }
-            redWinCheck()
-            blueWinCheck()
+            checkWin()
         }
     }
     @IBAction func button3(_ sender: UIButton) {
@@ -130,8 +149,7 @@ class ViewController: UIViewController {
                 button3.backgroundColor = UIColor.blue
                 count = true
             }
-            redWinCheck()
-            blueWinCheck()
+            checkWin()
         }
     }
     @IBAction func button4(_ sender: UIButton) {
@@ -143,8 +161,7 @@ class ViewController: UIViewController {
                 button4.backgroundColor = UIColor.blue
                 count = true
             }
-            redWinCheck()
-            blueWinCheck()
+            checkWin()
         }
     }
     @IBAction func button5(_ sender: UIButton) {
@@ -156,8 +173,7 @@ class ViewController: UIViewController {
                 button5.backgroundColor = UIColor.blue
                 count = true
             }
-            redWinCheck()
-            blueWinCheck()
+            checkWin()
         }
     }
     @IBAction func button6(_ sender: UIButton) {
@@ -169,8 +185,7 @@ class ViewController: UIViewController {
                 button6.backgroundColor = UIColor.blue
                 count = true
             }
-            redWinCheck()
-            blueWinCheck()
+            checkWin()
         }
     }
     @IBAction func button7(_ sender: UIButton) {
@@ -182,8 +197,7 @@ class ViewController: UIViewController {
                 button7.backgroundColor = UIColor.blue
                 count = true
             }
-            redWinCheck()
-            blueWinCheck()
+            checkWin()
         }
     }
     @IBAction func button8(_ sender: UIButton) {
@@ -195,8 +209,7 @@ class ViewController: UIViewController {
                 button8.backgroundColor = UIColor.blue
                 count = true
             }
-            redWinCheck()
-            blueWinCheck()
+            checkWin()
         }
     }
     @IBAction func button9(_ sender: UIButton) {
@@ -208,8 +221,7 @@ class ViewController: UIViewController {
                 button9.backgroundColor = UIColor.blue
                 count = true
             }
-            redWinCheck()
-            blueWinCheck()
+            checkWin()
         }
     }
     
