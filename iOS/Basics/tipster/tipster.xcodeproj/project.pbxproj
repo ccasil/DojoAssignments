@@ -430,7 +430,7 @@
 				DEVELOPMENT_TEAM = R352MXT522;
 				INFOPLIST_FILE = tipster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.CesarKyleCasil.tipster;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cesarcasil.iOSQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -445,7 +445,7 @@
 				DEVELOPMENT_TEAM = R352MXT522;
 				INFOPLIST_FILE = tipster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.CesarKyleCasil.tipster;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cesarcasil.iOSQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
