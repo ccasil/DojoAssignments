@@ -18,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="8rf-uq-cda">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="myCell" id="8rf-uq-cda">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8rf-uq-cda" id="rdP-k1-RwF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="307" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -35,10 +35,13 @@
                     <navigationItem key="navigationItem" id="al7-hV-2Ak">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3jV-yW-MqS">
                             <connections>
-                                <segue destination="bYi-50-wwQ" kind="presentation" identifier="AddNewMission" id="MTd-ba-gik"/>
+                                <segue destination="bYi-50-wwQ" kind="presentation" identifier="AddItemSegue" id="MTd-ba-gik"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="bYi-50-wwQ" kind="presentation" identifier="EditItemSegue" id="ffu-Ct-ps7"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NJS-Sq-2G0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -142,4 +145,7 @@
             <point key="canvasLocation" x="692" y="65"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MTd-ba-gik"/>
+    </inferredMetricsTieBreakers>
 </document>

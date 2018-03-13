@@ -81,8 +81,6 @@
 		DDA72A76205729AC00B6BFEA = {
 			isa = PBXGroup;
 			children = (
-				DDA72AB62057511800B6BFEA /* additemtableviewcontrollerdelegate.swift */,
-				DDA72AB2205735EC00B6BFEA /* AddItemTableViewController.swift */,
 				DDA72A81205729AC00B6BFEA /* bucketlist */,
 				DDA72A96205729AC00B6BFEA /* bucketlistTests */,
 				DDA72AA1205729AC00B6BFEA /* bucketlistUITests */,
@@ -103,6 +101,8 @@
 		DDA72A81205729AC00B6BFEA /* bucketlist */ = {
 			isa = PBXGroup;
 			children = (
+				DDA72AB62057511800B6BFEA /* additemtableviewcontrollerdelegate.swift */,
+				DDA72AB2205735EC00B6BFEA /* AddItemTableViewController.swift */,
 				DDA72A82205729AC00B6BFEA /* AppDelegate.swift */,
 				DDA72A84205729AC00B6BFEA /* BucketListViewController.swift */,
 				DDA72A86205729AC00B6BFEA /* Main.storyboard */,
