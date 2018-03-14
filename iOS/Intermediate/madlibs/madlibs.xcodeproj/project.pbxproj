@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD3388192059AF650079A621 /* AddWordViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3388182059AF650079A621 /* AddWordViewControllerDelegate.swift */; };
 		DD4151042058EE5F007FC81E /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4151032058EE5F007FC81E /* AddWordViewController.swift */; };
 		DDD2622220589D5400C46AA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2622120589D5400C46AA5 /* AppDelegate.swift */; };
 		DDD2622420589D5400C46AA5 /* MadLibViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2622320589D5400C46AA5 /* MadLibViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD3388182059AF650079A621 /* AddWordViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordViewControllerDelegate.swift; sourceTree = "<group>"; };
 		DD4151032058EE5F007FC81E /* AddWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
 		DDD2621E20589D5400C46AA5 /* madlibs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = madlibs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDD2622120589D5400C46AA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				DDD2622320589D5400C46AA5 /* MadLibViewController.swift */,
 				DD4151032058EE5F007FC81E /* AddWordViewController.swift */,
 				DDD2622520589D5400C46AA5 /* Main.storyboard */,
+				DD3388182059AF650079A621 /* AddWordViewControllerDelegate.swift */,
 				DDD2622820589D5400C46AA5 /* Assets.xcassets */,
 				DDD2622A20589D5400C46AA5 /* LaunchScreen.storyboard */,
 				DDD2622D20589D5400C46AA5 /* Info.plist */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDD2622420589D5400C46AA5 /* MadLibViewController.swift in Sources */,
+				DD3388192059AF650079A621 /* AddWordViewControllerDelegate.swift in Sources */,
 				DDD2622220589D5400C46AA5 /* AppDelegate.swift in Sources */,
 				DD4151042058EE5F007FC81E /* AddWordViewController.swift in Sources */,
 			);

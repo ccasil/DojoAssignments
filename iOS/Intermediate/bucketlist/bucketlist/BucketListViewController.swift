@@ -14,6 +14,17 @@ class BucketListViewController: UITableViewController, AddItemTableViewControlle
     var tableData = [BucketListItem]()
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        fetchAllItems()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     func itemSaved(by controller: AddItemTableViewController, with text: String, at indexPath: NSIndexPath?) {
         if let ip = indexPath {
             let item = tableData[ip.row]
@@ -50,17 +61,6 @@ class BucketListViewController: UITableViewController, AddItemTableViewControlle
         }
         tableData.remove(at: indexPath.row)
         tableView.reloadData()
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        fetchAllItems()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

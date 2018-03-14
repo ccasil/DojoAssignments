@@ -8,21 +8,20 @@
 
 import UIKit
 
-class MadLibViewController: UIViewController {
+class MadLibViewController: UIViewController, AddWordViewControllerDelegate {
+        
     @IBOutlet weak var madLibLabel: UILabel!
     
-    var adjective: String? = ""
-    var verb1: String? = ""
-    var verb2: String? = ""
-    var noun:String? = ""
-
+    func changeWords(by controller: AddWordViewController, adjective: String, verb1: String, verb2: String, noun: String) {
+        madLibLabel.text = "We are having a perfectly \(adjective) time now. Later we will \(verb1) and \(verb2) in the \(noun)."
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var madlib: String = "We are having a perfectly \(adjective) time now. Later we will \(verb1) and \(verb2) in the \(noun)."
-        madLibLabel.text = madlib
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -31,10 +30,10 @@ class MadLibViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! AddWordViewController
+        destination.delegate = self
     }
     
     @IBAction func composeButtonPressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "AddWordViewController", sender: sender)
     }
 }
-
