@@ -16,6 +16,7 @@
 		DDA72AA3205729AC00B6BFEA /* bucketlistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA72AA2205729AC00B6BFEA /* bucketlistUITests.swift */; };
 		DDA72AB3205735EC00B6BFEA /* AddItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA72AB2205735EC00B6BFEA /* AddItemTableViewController.swift */; };
 		DDA72AB72057511800B6BFEA /* additemtableviewcontrollerdelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA72AB62057511800B6BFEA /* additemtableviewcontrollerdelegate.swift */; };
+		DDD261D82058652100C46AA5 /* BucketList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDD261D62058652100C46AA5 /* BucketList.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		DDA72AA4205729AC00B6BFEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDA72AB2205735EC00B6BFEA /* AddItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemTableViewController.swift; sourceTree = "<group>"; };
 		DDA72AB62057511800B6BFEA /* additemtableviewcontrollerdelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = additemtableviewcontrollerdelegate.swift; sourceTree = "<group>"; };
+		DDD261D72058652100C46AA5 /* BucketList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BucketList.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				DDA72AB62057511800B6BFEA /* additemtableviewcontrollerdelegate.swift */,
 				DDA72AB2205735EC00B6BFEA /* AddItemTableViewController.swift */,
 				DDA72A82205729AC00B6BFEA /* AppDelegate.swift */,
+				DDD261D62058652100C46AA5 /* BucketList.xcdatamodeld */,
 				DDA72A84205729AC00B6BFEA /* BucketListViewController.swift */,
 				DDA72A86205729AC00B6BFEA /* Main.storyboard */,
 				DDA72A89205729AC00B6BFEA /* Assets.xcassets */,
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDD261D82058652100C46AA5 /* BucketList.xcdatamodeld in Sources */,
 				DDA72A85205729AC00B6BFEA /* BucketListViewController.swift in Sources */,
 				DDA72A83205729AC00B6BFEA /* AppDelegate.swift in Sources */,
 				DDA72AB72057511800B6BFEA /* additemtableviewcontrollerdelegate.swift in Sources */,
@@ -566,6 +570,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DDD261D62058652100C46AA5 /* BucketList.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DDD261D72058652100C46AA5 /* BucketList.xcdatamodel */,
+			);
+			currentVersion = DDD261D72058652100C46AA5 /* BucketList.xcdatamodel */;
+			path = BucketList.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DDA72A77205729AC00B6BFEA /* Project object */;
 }
