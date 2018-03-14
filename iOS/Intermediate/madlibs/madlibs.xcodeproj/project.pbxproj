@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD4151042058EE5F007FC81E /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4151032058EE5F007FC81E /* AddWordViewController.swift */; };
 		DDD2622220589D5400C46AA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2622120589D5400C46AA5 /* AppDelegate.swift */; };
-		DDD2622420589D5400C46AA5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2622320589D5400C46AA5 /* ViewController.swift */; };
+		DDD2622420589D5400C46AA5 /* MadLibViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2622320589D5400C46AA5 /* MadLibViewController.swift */; };
 		DDD2622720589D5400C46AA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDD2622520589D5400C46AA5 /* Main.storyboard */; };
 		DDD2622920589D5400C46AA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDD2622820589D5400C46AA5 /* Assets.xcassets */; };
 		DDD2622C20589D5400C46AA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDD2622A20589D5400C46AA5 /* LaunchScreen.storyboard */; };
@@ -34,9 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD4151032058EE5F007FC81E /* AddWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
 		DDD2621E20589D5400C46AA5 /* madlibs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = madlibs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDD2622120589D5400C46AA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DDD2622320589D5400C46AA5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DDD2622320589D5400C46AA5 /* MadLibViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadLibViewController.swift; sourceTree = "<group>"; };
 		DDD2622620589D5400C46AA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDD2622820589D5400C46AA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDD2622B20589D5400C46AA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,7 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				DDD2622120589D5400C46AA5 /* AppDelegate.swift */,
-				DDD2622320589D5400C46AA5 /* ViewController.swift */,
+				DDD2622320589D5400C46AA5 /* MadLibViewController.swift */,
+				DD4151032058EE5F007FC81E /* AddWordViewController.swift */,
 				DDD2622520589D5400C46AA5 /* Main.storyboard */,
 				DDD2622820589D5400C46AA5 /* Assets.xcassets */,
 				DDD2622A20589D5400C46AA5 /* LaunchScreen.storyboard */,
@@ -259,8 +262,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDD2622420589D5400C46AA5 /* ViewController.swift in Sources */,
+				DDD2622420589D5400C46AA5 /* MadLibViewController.swift in Sources */,
 				DDD2622220589D5400C46AA5 /* AppDelegate.swift in Sources */,
+				DD4151042058EE5F007FC81E /* AddWordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
