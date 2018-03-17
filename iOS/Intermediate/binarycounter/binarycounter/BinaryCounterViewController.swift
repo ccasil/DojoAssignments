@@ -8,14 +8,21 @@
 
 import UIKit
 
-class BinaryCounterViewController: UIViewController {
-    @IBOutlet weak var BinaryCounterTableView: UITableView!
+class BinaryCounterViewController: UIViewController, CustomCellDelegate {
     
-    let power = 1
+    @IBOutlet weak var BinaryCounterTableView: UITableView!
+    @IBOutlet weak var totalLabel: UILabel!
+    
+    var powers: [Int] = []
+    var total = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        var power = 1
+        for _ in 1...16 {
+            powers.append(1 * power)
+            power *= 10
+        }
         BinaryCounterTableView.dataSource = self
     }
 
@@ -23,8 +30,15 @@ class BinaryCounterViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    func sub(by controller: CustomCell, numpower: Int) {
+        total -= numpower
+        totalLabel.text = "Total: " +  String(total)
+    }
+    func add(by controller: CustomCell, numpower: Int) {
+        total += numpower
+        totalLabel.text = "Total: " +   String(total)
+    }
+    
 }
 
 extension BinaryCounterViewController: UITableViewDelegate, UITableViewDataSource {
@@ -33,11 +47,10 @@ extension BinaryCounterViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath)
-        cell.textLabel?.text = String(power)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
+        cell.powerLabel.text = String(powers[indexPath.row])
+        cell.delegate = self
         return cell
     }
-    
-    
     
 }

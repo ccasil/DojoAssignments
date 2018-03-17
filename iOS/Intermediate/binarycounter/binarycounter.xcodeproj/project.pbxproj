@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DD1F72E7205B147E00FB11B0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1F72E6205B147E00FB11B0 /* CustomCell.swift */; };
+		DD9BF92E205C52250077865C /* CustomCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9BF92D205C52250077865C /* CustomCellDelegate.swift */; };
 		DDA4F7C1205AE28A002A3CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4F7C0205AE28A002A3CCA /* AppDelegate.swift */; };
 		DDA4F7C3205AE28A002A3CCA /* BinaryCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4F7C2205AE28A002A3CCA /* BinaryCounterViewController.swift */; };
 		DDA4F7C6205AE28A002A3CCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDA4F7C4205AE28A002A3CCA /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		DD1F72E6205B147E00FB11B0 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		DD9BF92D205C52250077865C /* CustomCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellDelegate.swift; sourceTree = "<group>"; };
 		DDA4F7BD205AE28A002A3CCA /* binarycounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = binarycounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA4F7C0205AE28A002A3CCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDA4F7C2205AE28A002A3CCA /* BinaryCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryCounterViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				DDA4F7C0205AE28A002A3CCA /* AppDelegate.swift */,
 				DDA4F7C2205AE28A002A3CCA /* BinaryCounterViewController.swift */,
+				DD9BF92D205C52250077865C /* CustomCellDelegate.swift */,
 				DDA4F7C4205AE28A002A3CCA /* Main.storyboard */,
 				DD1F72E6205B147E00FB11B0 /* CustomCell.swift */,
 				DDA4F7C7205AE28A002A3CCA /* Assets.xcassets */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDA4F7C3205AE28A002A3CCA /* BinaryCounterViewController.swift in Sources */,
+				DD9BF92E205C52250077865C /* CustomCellDelegate.swift in Sources */,
 				DD1F72E7205B147E00FB11B0 /* CustomCell.swift in Sources */,
 				DDA4F7C1205AE28A002A3CCA /* AppDelegate.swift in Sources */,
 			);
