@@ -13,16 +13,10 @@ class BinaryCounterViewController: UIViewController, CustomCellDelegate {
     @IBOutlet weak var BinaryCounterTableView: UITableView!
     @IBOutlet weak var totalLabel: UILabel!
     
-    var powers: [Int] = []
     var total = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var power = 1
-        for _ in 1...16 {
-            powers.append(1 * power)
-            power *= 10
-        }
         BinaryCounterTableView.dataSource = self
     }
 
@@ -48,7 +42,7 @@ extension BinaryCounterViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
-        cell.powerLabel.text = String(powers[indexPath.row])
+        cell.powerLabel.text = String(describing: pow(10,indexPath.row))
         cell.delegate = self
         return cell
     }
