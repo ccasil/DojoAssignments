@@ -12,55 +12,30 @@ class PeopleViewController: UITableViewController {
 
     // Hardcoded data for now
     var people: [String] = []
-    var apiurl: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // specify the url that we will be sending the GET request to
-        swapURL()
-        for i in apiurl {
-        let url = URL(string: String(i))
-        // create a URLSession to handle the request tasks
-        let session = URLSession.shared
-        // create a "data task" to make the request and run completion handler
-        let task = session.dataTask(with: url!, completionHandler: {
-            // see: Swift closure expression syntax
+        StarWarsModel.getAllPeople(completionHandler: { // passing what becomes "completionHandler" in the 'getAllPeople' function definition in StarWarsModel.swift
             data, response, error in
-            // data -> JSON data, response -> headers and other meta-information, error-> if one occurred
-            // "do-try-catch" blocks execute a try statement and then use the catch statement for errors
             do {
-                // try converting the JSON object to "Foundation Types" (NSDictionary, NSArray, NSString, etc.)
+                // Try converting the JSON object to "Foundation Types" (NSDictionary, NSArray, NSString, etc.)
                 if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
-                    // Why do we need to optionally unwrap jsonResult["results"]
-                    // Try it without the optional unwrapping and you'll see that the value is actually an optional
                     if let results = jsonResult["results"] as? NSArray {
-                        // coercing the results object as an NSArray and then storing that in resultsArray
                         for person in results {
-                            let peep = person as! NSDictionary
-                            if let name = peep["name"] as? String {
-                                self.people.append(name)
-                            }
+                            let personDict = person as! NSDictionary
+                            self.people.append(personDict["name"]! as! String)
                         }
-                        DispatchQueue.main.async(execute: {
-                            self.tableView.reloadData()
-                        })
-                        // now we can run NSArray methods like count and firstObject
                     }
                 }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             } catch {
-                print(error)
+                print("Something went wrong")
             }
         })
-        // execute the task and then wait for the response
-        // to run the completion handler. This is async!
-        task.resume()
-        }
     }
-    func swapURL() {
-        for i in 1...9 {
-            apiurl.append("https://swapi.co/api/people/?page=\(i)")
-        }
-    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

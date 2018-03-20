@@ -16,6 +16,7 @@
 		DD0D2F0820605C1D002E67FF /* Star_Wars_EncyclopediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0D2F0720605C1D002E67FF /* Star_Wars_EncyclopediaTests.swift */; };
 		DD0D2F1320605C1D002E67FF /* Star_Wars_EncyclopediaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0D2F1220605C1D002E67FF /* Star_Wars_EncyclopediaUITests.swift */; };
 		DD0D2F2120607DEF002E67FF /* FilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0D2F2020607DEF002E67FF /* FilmViewController.swift */; };
+		DDDC63E220617A1500C00862 /* StarWarsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDC63E120617A1500C00862 /* StarWarsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		DD0D2F1220605C1D002E67FF /* Star_Wars_EncyclopediaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star_Wars_EncyclopediaUITests.swift; sourceTree = "<group>"; };
 		DD0D2F1420605C1D002E67FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD0D2F2020607DEF002E67FF /* FilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewController.swift; sourceTree = "<group>"; };
+		DDDC63E120617A1500C00862 /* StarWarsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				DD0D2EF120605C1D002E67FF /* PeopleViewController.swift */,
 				DD0D2EF320605C1D002E67FF /* Main.storyboard */,
 				DD0D2F2020607DEF002E67FF /* FilmViewController.swift */,
+				DDDC63E120617A1500C00862 /* StarWarsModel.swift */,
 				DD0D2EF920605C1D002E67FF /* Assets.xcassets */,
 				DD0D2EFB20605C1D002E67FF /* LaunchScreen.storyboard */,
 				DD0D2EFE20605C1D002E67FF /* Info.plist */,
@@ -267,6 +270,7 @@
 			files = (
 				DD0D2EF220605C1D002E67FF /* PeopleViewController.swift in Sources */,
 				DD0D2EF020605C1D002E67FF /* AppDelegate.swift in Sources */,
+				DDDC63E220617A1500C00862 /* StarWarsModel.swift in Sources */,
 				DD0D2F2120607DEF002E67FF /* FilmViewController.swift in Sources */,
 				DD0D2EF820605C1D002E67FF /* Star_Wars_Encyclopedia.xcdatamodeld in Sources */,
 			);

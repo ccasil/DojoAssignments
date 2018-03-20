@@ -15,11 +15,14 @@ class AddItemViewController: UIViewController {
     weak var delegate: AddItemViewControllerDelegate?
     
     var indexPath: NSIndexPath?
+    var item: ToDoListItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        itemTitleLabel.text = title
+        itemDescriptionLabel.text = description
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +37,9 @@ class AddItemViewController: UIViewController {
         
         delegate?.itemAdded(by: self, title: itemTitleLabel.text!, desc: itemDescriptionLabel.text!, date: strDate, check: false, at: indexPath)
 //        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func cancelButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
