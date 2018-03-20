@@ -27,19 +27,17 @@ class AddItemViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func addItemButtonPressed(_ sender: UIButton) {
-        delegate?.itemAdded(by: self, title: itemTitleLabel.text!, desc: itemDescriptionLabel.text!, at: indexPath)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let strDate = dateFormatter.string(from: datePicker.date)
+        
+        delegate?.itemAdded(by: self, title: itemTitleLabel.text!, desc: itemDescriptionLabel.text!, date: strDate, check: false, at: indexPath)
 //        dismiss(animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let destination = segue.destination as! ToDoViewController
     }
-    */
 
 }
