@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD158F9720637392001887CE /* icons8-turtle-60.png in Resources */ = {isa = PBXBuildFile; fileRef = DD158F9520637392001887CE /* icons8-turtle-60.png */; };
+		DD158F9820637392001887CE /* icons8-easter-rabbit-60.png in Resources */ = {isa = PBXBuildFile; fileRef = DD158F9620637392001887CE /* icons8-easter-rabbit-60.png */; };
 		DD1F6F90205DDE860050BDBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1F6F8F205DDE860050BDBB /* AppDelegate.swift */; };
-		DD1F6F92205DDE860050BDBB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1F6F91205DDE860050BDBB /* FirstViewController.swift */; };
+		DD1F6F92205DDE860050BDBB /* SwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1F6F91205DDE860050BDBB /* SwitchViewController.swift */; };
 		DD1F6F95205DDE860050BDBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1F6F93205DDE860050BDBB /* Main.storyboard */; };
 		DD1F6F97205DDE860050BDBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD1F6F96205DDE860050BDBB /* Assets.xcassets */; };
 		DD1F6F9A205DDE860050BDBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1F6F98205DDE860050BDBB /* LaunchScreen.storyboard */; };
 		DD1F6FA5205DDE860050BDBB /* tabbarcontrollerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1F6FA4205DDE860050BDBB /* tabbarcontrollerTests.swift */; };
 		DD1F6FB0205DDE860050BDBB /* tabbarcontrollerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1F6FAF205DDE860050BDBB /* tabbarcontrollerUITests.swift */; };
-		DD1F6FBE205DDF520050BDBB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1F6FBD205DDF520050BDBB /* SecondViewController.swift */; };
+		DD1F6FBE205DDF520050BDBB /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1F6FBD205DDF520050BDBB /* DatePickerViewController.swift */; };
+		DDFEA3F020645B9200E79DC8 /* CustomSwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFEA3EF20645B9200E79DC8 /* CustomSwipeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD158F9520637392001887CE /* icons8-turtle-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-turtle-60.png"; path = "../../../../../../Downloads/icons8-turtle-60.png"; sourceTree = "<group>"; };
+		DD158F9620637392001887CE /* icons8-easter-rabbit-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-easter-rabbit-60.png"; path = "../../../../../../Downloads/icons8-easter-rabbit-60.png"; sourceTree = "<group>"; };
 		DD1F6F8C205DDE860050BDBB /* tabbarcontroller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tabbarcontroller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1F6F8F205DDE860050BDBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DD1F6F91205DDE860050BDBB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		DD1F6F91205DDE860050BDBB /* SwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewController.swift; sourceTree = "<group>"; };
 		DD1F6F94205DDE860050BDBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD1F6F96205DDE860050BDBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD1F6F99205DDE860050BDBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,7 +53,8 @@
 		DD1F6FAB205DDE860050BDBB /* tabbarcontrollerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tabbarcontrollerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1F6FAF205DDE860050BDBB /* tabbarcontrollerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabbarcontrollerUITests.swift; sourceTree = "<group>"; };
 		DD1F6FB1205DDE860050BDBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD1F6FBD205DDF520050BDBB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		DD1F6FBD205DDF520050BDBB /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		DDFEA3EF20645B9200E79DC8 /* CustomSwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwipeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,10 +106,13 @@
 			isa = PBXGroup;
 			children = (
 				DD1F6F8F205DDE860050BDBB /* AppDelegate.swift */,
-				DD1F6F91205DDE860050BDBB /* FirstViewController.swift */,
+				DD1F6F91205DDE860050BDBB /* SwitchViewController.swift */,
 				DD1F6F93205DDE860050BDBB /* Main.storyboard */,
-				DD1F6FBD205DDF520050BDBB /* SecondViewController.swift */,
+				DDFEA3EF20645B9200E79DC8 /* CustomSwipeTableViewController.swift */,
+				DD1F6FBD205DDF520050BDBB /* DatePickerViewController.swift */,
 				DD1F6F96205DDE860050BDBB /* Assets.xcassets */,
+				DD158F9620637392001887CE /* icons8-easter-rabbit-60.png */,
+				DD158F9520637392001887CE /* icons8-turtle-60.png */,
 				DD1F6F98205DDE860050BDBB /* LaunchScreen.storyboard */,
 				DD1F6F9B205DDE860050BDBB /* Info.plist */,
 			);
@@ -238,6 +247,8 @@
 				DD1F6F9A205DDE860050BDBB /* LaunchScreen.storyboard in Resources */,
 				DD1F6F97205DDE860050BDBB /* Assets.xcassets in Resources */,
 				DD1F6F95205DDE860050BDBB /* Main.storyboard in Resources */,
+				DD158F9720637392001887CE /* icons8-turtle-60.png in Resources */,
+				DD158F9820637392001887CE /* icons8-easter-rabbit-60.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,8 +273,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD1F6FBE205DDF520050BDBB /* SecondViewController.swift in Sources */,
-				DD1F6F92205DDE860050BDBB /* FirstViewController.swift in Sources */,
+				DD1F6FBE205DDF520050BDBB /* DatePickerViewController.swift in Sources */,
+				DDFEA3F020645B9200E79DC8 /* CustomSwipeTableViewController.swift in Sources */,
+				DD1F6F92205DDE860050BDBB /* SwitchViewController.swift in Sources */,
 				DD1F6F90205DDE860050BDBB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

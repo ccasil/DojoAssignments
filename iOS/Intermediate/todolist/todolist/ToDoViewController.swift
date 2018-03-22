@@ -50,15 +50,15 @@ class ToDoViewController: UIViewController, AddItemViewControllerDelegate {
                 item.date = udate
             }
         }else{
-        let item = NSEntityDescription.insertNewObject(forEntityName: "ToDoListItem", into: managedObjectContext) as! ToDoListItem
+            let item = NSEntityDescription.insertNewObject(forEntityName: "ToDoListItem", into: managedObjectContext) as! ToDoListItem
             item.title = title
             item.desc = desc
             if let udate = date as? Date {
                 item.date = udate
             }
             tableData.append(item)
-            appDelegate.saveContext()
         }
+        appDelegate.saveContext()
         toDoTableView.reloadData()
         dismiss(animated: true, completion: nil)
     }
@@ -80,27 +80,27 @@ class ToDoViewController: UIViewController, AddItemViewControllerDelegate {
 extension ToDoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) {
-            if cell.accessoryType == .checkmark {
-                cell.accessoryType = .none
-                tableData[indexPath.row].check = false
-            } else {
-                cell.accessoryType = .checkmark
-                tableData[indexPath.row].check = true
-            }
-        }
+        tableData[indexPath.row].check = !tableData[indexPath.row].check
+        let cell = tableView.cellForRow(at: indexPath)!
+        cell.accessoryType = tableData[indexPath.row].check ? .checkmark : .none
+        
+//        if let cell = tableView.cellForRow(at: indexPath) {
+//            if cell.accessoryType == .checkmark {
+//                cell.accessoryType = .none
+//                tableData[indexPath.row].check = false
+//            } else {
+//                cell.accessoryType = .checkmark
+//                tableData[indexPath.row].check = true
+//            }
+//        }
     }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") {_,_ in
             let item = self.tableData[indexPath.row]
             self.managedObjectContext.delete(item)
-            do {
-                try self.managedObjectContext.save()
-            } catch {
-                print ("\(error)")
-            }
+            self.appDelegate.saveContext()
             self.tableData.remove(at: indexPath.row)
-            tableView.reloadData()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         let edit = UITableViewRowAction(style: .normal, title: "Edit") {_,_ in
             self.performSegue(withIdentifier: "AddSegue", sender: indexPath)
@@ -125,12 +125,12 @@ extension ToDoViewController: UITableViewDelegate, UITableViewDataSource {
         dateFormatter.dateFormat = "MM/dd/yyyy"
         // dateFormatter.dateFormat = .medium
         cell.dateLabel.text = dateFormatter.string(from: data.date!)
-        
-        if data.check {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
+        cell.accessoryType = data.check ? .checkmark : .none
+//        if data.check {
+//            cell.accessoryType = .checkmark
+//        } else {
+//            cell.accessoryType = .none
+//        }
         return cell
     }
 }

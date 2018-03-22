@@ -48,9 +48,6 @@ class AddItemViewController: UIViewController {
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! ToDoViewController
-    }
+
 
 }
