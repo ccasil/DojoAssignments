@@ -178,6 +178,7 @@
                         <viewLayoutGuide key="safeArea" id="fwS-RK-BLQ"/>
                     </view>
                     <connections>
+                        <outlet property="buttonText" destination="vJ2-sF-vwS" id="Lzr-9c-G8b"/>
                         <outlet property="datePicker" destination="ddX-yj-UIc" id="fKA-Yd-Nex"/>
                         <outlet property="itemDescriptionLabel" destination="Xzu-od-o6d" id="jFV-W1-Rqx"/>
                         <outlet property="itemTitleLabel" destination="zhn-lf-g13" id="bKm-hZ-d4V"/>

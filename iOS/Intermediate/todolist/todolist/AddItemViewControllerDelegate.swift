@@ -9,5 +9,5 @@
 import UIKit
 
 protocol AddItemViewControllerDelegate: class {
-    func itemAdded(by controller: AddItemViewController, title: String, desc: String, date: String, check: Bool, at indexPath: NSIndexPath?)
+    func itemAdded(by controller: AddItemViewController, title: String, desc: String, date: Date, check: Bool, at indexPath: NSIndexPath?)
 }

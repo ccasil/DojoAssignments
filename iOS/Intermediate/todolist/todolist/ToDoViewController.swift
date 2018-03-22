@@ -11,12 +11,12 @@ import CoreData
 
 class ToDoViewController: UIViewController, AddItemViewControllerDelegate {
     
-    
     @IBOutlet weak var toDoTableView: UITableView!
     
     var tableData = [ToDoListItem]()
     
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,26 +41,23 @@ class ToDoViewController: UIViewController, AddItemViewControllerDelegate {
         }
     }
     
-    func itemAdded(by controller: AddItemViewController, title: String, desc: String, date: String, check: Bool, at indexPath: NSIndexPath?) {
+    func itemAdded(by controller: AddItemViewController, title: String, desc: String, date: Date, check: Bool, at indexPath: NSIndexPath?) {
         if let ip = indexPath {
             let item = tableData[ip.row]
             item.title = title
             item.desc = desc
-            item.date = date
-            item.check = check
+            if let udate = date as? Date {
+                item.date = udate
+            }
         }else{
         let item = NSEntityDescription.insertNewObject(forEntityName: "ToDoListItem", into: managedObjectContext) as! ToDoListItem
             item.title = title
             item.desc = desc
-            item.date = date
-            item.check = check
+            if let udate = date as? Date {
+                item.date = udate
+            }
             tableData.append(item)
-            print (tableData)
-        }
-        do {
-            try managedObjectContext.save()
-        } catch {
-            print ("\(error)")
+            appDelegate.saveContext()
         }
         toDoTableView.reloadData()
         dismiss(animated: true, completion: nil)
@@ -71,15 +68,11 @@ class ToDoViewController: UIViewController, AddItemViewControllerDelegate {
         destination.delegate = self
         if let indexPath = sender as? NSIndexPath {
             let item = tableData[indexPath.row]
-            item.title = title
-            item.desc = desc
-//            if let titles = item.title {
-//                destination.itemTitleLabel.text = titles
-//            }
-//            if let descs = item.desc {
-//                destination.itemDescriptionLabel.text = descs
-//            }
-////            destination.datePicker. = item.date
+            destination.tit = item.title
+            destination.desc = item.desc
+            destination.date = item.date
+            destination.indexPath = indexPath
+            destination.updateText = "Update"
         }
     }
 }
@@ -122,10 +115,18 @@ extension ToDoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
-        cell.itemTitleLabel.text = tableData[indexPath.row].title
-        cell.itemDescriptionLabel.text = tableData[indexPath.row].desc
-        cell.dateLabel.text = tableData[indexPath.row].date
-        if tableData[indexPath.row].check {
+        
+        let data = tableData[indexPath.row]
+        
+        cell.itemTitleLabel.text = data.title
+        cell.itemDescriptionLabel.text = data.desc
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        // dateFormatter.dateFormat = .medium
+        cell.dateLabel.text = dateFormatter.string(from: data.date!)
+        
+        if data.check {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
