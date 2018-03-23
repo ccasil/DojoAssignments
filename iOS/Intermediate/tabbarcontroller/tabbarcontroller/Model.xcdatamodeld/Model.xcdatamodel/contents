@@ -4,7 +4,14 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="ToDoListItem" representedClassName="ToDoListItem" syncable="YES" codeGenerationType="class">
+        <attribute name="check" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Animal" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="ToDoListItem" positionX="-63" positionY="0" width="128" height="105"/>
     </elements>
 </model>

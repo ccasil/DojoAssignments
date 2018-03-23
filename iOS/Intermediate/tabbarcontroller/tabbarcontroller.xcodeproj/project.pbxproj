@@ -17,6 +17,10 @@
 		DD1F6FA5205DDE860050BDBB /* tabbarcontrollerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1F6FA4205DDE860050BDBB /* tabbarcontrollerTests.swift */; };
 		DD1F6FB0205DDE860050BDBB /* tabbarcontrollerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1F6FAF205DDE860050BDBB /* tabbarcontrollerUITests.swift */; };
 		DD1F6FBE205DDF520050BDBB /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1F6FBD205DDF520050BDBB /* DatePickerViewController.swift */; };
+		DDFC61F72064C4EE003CA2F8 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFC61F62064C4EE003CA2F8 /* CustomCell.swift */; };
+		DDFC61F92064C685003CA2F8 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFC61F82064C685003CA2F8 /* ToDoViewController.swift */; };
+		DDFC61FB2064C86B003CA2F8 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFC61FA2064C86B003CA2F8 /* AddItemViewController.swift */; };
+		DDFC61FD2064C9CF003CA2F8 /* AddItemViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFC61FC2064C9CF003CA2F8 /* AddItemViewControllerDelegate.swift */; };
 		DDFEA3F020645B9200E79DC8 /* CustomSwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFEA3EF20645B9200E79DC8 /* CustomSwipeTableViewController.swift */; };
 		DDFEA3F220647D5700E79DC8 /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFEA3F120647D5700E79DC8 /* SectionViewController.swift */; };
 		DDFEA3F42064933F00E79DC8 /* UnwindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFEA3F32064933F00E79DC8 /* UnwindViewController.swift */; };
@@ -57,6 +61,10 @@
 		DD1F6FAF205DDE860050BDBB /* tabbarcontrollerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabbarcontrollerUITests.swift; sourceTree = "<group>"; };
 		DD1F6FB1205DDE860050BDBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1F6FBD205DDF520050BDBB /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		DDFC61F62064C4EE003CA2F8 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		DDFC61F82064C685003CA2F8 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
+		DDFC61FA2064C86B003CA2F8 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		DDFC61FC2064C9CF003CA2F8 /* AddItemViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewControllerDelegate.swift; sourceTree = "<group>"; };
 		DDFEA3EF20645B9200E79DC8 /* CustomSwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwipeTableViewController.swift; sourceTree = "<group>"; };
 		DDFEA3F120647D5700E79DC8 /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
 		DDFEA3F32064933F00E79DC8 /* UnwindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwindViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +103,7 @@
 				DD1F6FA3205DDE860050BDBB /* tabbarcontrollerTests */,
 				DD1F6FAE205DDE860050BDBB /* tabbarcontrollerUITests */,
 				DD1F6F8D205DDE860050BDBB /* Products */,
+				DDFC61F82064C685003CA2F8 /* ToDoViewController.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,11 +120,14 @@
 		DD1F6F8E205DDE860050BDBB /* tabbarcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				DDFC61F62064C4EE003CA2F8 /* CustomCell.swift */,
 				DDFEA3F120647D5700E79DC8 /* SectionViewController.swift */,
 				DD1F6F8F205DDE860050BDBB /* AppDelegate.swift */,
 				DDFEA3F520649B7000E79DC8 /* Model.xcdatamodeld */,
 				DD1F6F91205DDE860050BDBB /* SwitchViewController.swift */,
 				DD1F6F93205DDE860050BDBB /* Main.storyboard */,
+				DDFC61FC2064C9CF003CA2F8 /* AddItemViewControllerDelegate.swift */,
+				DDFC61FA2064C86B003CA2F8 /* AddItemViewController.swift */,
 				DDFEA3F32064933F00E79DC8 /* UnwindViewController.swift */,
 				DDFEA3EF20645B9200E79DC8 /* CustomSwipeTableViewController.swift */,
 				DD1F6FBD205DDF520050BDBB /* DatePickerViewController.swift */,
@@ -282,12 +294,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDFC61FD2064C9CF003CA2F8 /* AddItemViewControllerDelegate.swift in Sources */,
 				DD1F6FBE205DDF520050BDBB /* DatePickerViewController.swift in Sources */,
 				DDFEA3F220647D5700E79DC8 /* SectionViewController.swift in Sources */,
 				DDFEA3F020645B9200E79DC8 /* CustomSwipeTableViewController.swift in Sources */,
 				DDFEA3F720649B7000E79DC8 /* Model.xcdatamodeld in Sources */,
+				DDFC61F92064C685003CA2F8 /* ToDoViewController.swift in Sources */,
+				DDFC61FB2064C86B003CA2F8 /* AddItemViewController.swift in Sources */,
 				DDFEA3F42064933F00E79DC8 /* UnwindViewController.swift in Sources */,
 				DD1F6F92205DDE860050BDBB /* SwitchViewController.swift in Sources */,
+				DDFC61F72064C4EE003CA2F8 /* CustomCell.swift in Sources */,
 				DD1F6F90205DDE860050BDBB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
