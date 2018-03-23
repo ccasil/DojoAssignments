@@ -18,6 +18,9 @@
 		DD1F6FB0205DDE860050BDBB /* tabbarcontrollerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1F6FAF205DDE860050BDBB /* tabbarcontrollerUITests.swift */; };
 		DD1F6FBE205DDF520050BDBB /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1F6FBD205DDF520050BDBB /* DatePickerViewController.swift */; };
 		DDFEA3F020645B9200E79DC8 /* CustomSwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFEA3EF20645B9200E79DC8 /* CustomSwipeTableViewController.swift */; };
+		DDFEA3F220647D5700E79DC8 /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFEA3F120647D5700E79DC8 /* SectionViewController.swift */; };
+		DDFEA3F42064933F00E79DC8 /* UnwindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFEA3F32064933F00E79DC8 /* UnwindViewController.swift */; };
+		DDFEA3F720649B7000E79DC8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDFEA3F520649B7000E79DC8 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		DD1F6FB1205DDE860050BDBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1F6FBD205DDF520050BDBB /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		DDFEA3EF20645B9200E79DC8 /* CustomSwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwipeTableViewController.swift; sourceTree = "<group>"; };
+		DDFEA3F120647D5700E79DC8 /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
+		DDFEA3F32064933F00E79DC8 /* UnwindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwindViewController.swift; sourceTree = "<group>"; };
+		DDFEA3F620649B7000E79DC8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +111,12 @@
 		DD1F6F8E205DDE860050BDBB /* tabbarcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				DDFEA3F120647D5700E79DC8 /* SectionViewController.swift */,
 				DD1F6F8F205DDE860050BDBB /* AppDelegate.swift */,
+				DDFEA3F520649B7000E79DC8 /* Model.xcdatamodeld */,
 				DD1F6F91205DDE860050BDBB /* SwitchViewController.swift */,
 				DD1F6F93205DDE860050BDBB /* Main.storyboard */,
+				DDFEA3F32064933F00E79DC8 /* UnwindViewController.swift */,
 				DDFEA3EF20645B9200E79DC8 /* CustomSwipeTableViewController.swift */,
 				DD1F6FBD205DDF520050BDBB /* DatePickerViewController.swift */,
 				DD1F6F96205DDE860050BDBB /* Assets.xcassets */,
@@ -274,7 +283,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1F6FBE205DDF520050BDBB /* DatePickerViewController.swift in Sources */,
+				DDFEA3F220647D5700E79DC8 /* SectionViewController.swift in Sources */,
 				DDFEA3F020645B9200E79DC8 /* CustomSwipeTableViewController.swift in Sources */,
+				DDFEA3F720649B7000E79DC8 /* Model.xcdatamodeld in Sources */,
+				DDFEA3F42064933F00E79DC8 /* UnwindViewController.swift in Sources */,
 				DD1F6F92205DDE860050BDBB /* SwitchViewController.swift in Sources */,
 				DD1F6F90205DDE860050BDBB /* AppDelegate.swift in Sources */,
 			);
@@ -574,6 +586,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DDFEA3F520649B7000E79DC8 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DDFEA3F620649B7000E79DC8 /* Model.xcdatamodel */,
+			);
+			currentVersion = DDFEA3F620649B7000E79DC8 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DD1F6F84205DDE860050BDBB /* Project object */;
 }

@@ -15,7 +15,6 @@ class SwitchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         print ("SwitchViewController viewDidLoad")
         textChange()
         mySwitch.addTarget(self, action: #selector(switchSwitch(_:)), for: UIControlEvents.valueChanged)
@@ -28,8 +27,9 @@ class SwitchViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    } 
+    @IBAction func unwindToSwitch(segue: UIStoryboardSegue) {}
+    
     @IBAction func switchSwitch(_ sender: UISwitch) {
         textChange()
     }

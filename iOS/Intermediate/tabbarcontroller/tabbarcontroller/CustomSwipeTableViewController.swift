@@ -10,34 +10,24 @@ import UIKit
 
 class CustomSwipeTableViewController: UITableViewController {
     let name: [String] = ["Batman", "Mario", "Katniss Everdeen", "Thor", "Maggie Simpson", "Peter Griffin"]
-    let nemesis = ["Johnnie", "Nathan","Ian", "Robert", "Maggie Simpson", "Vince", "Peter Lin"]
-    let world = ["Got EMMM", "Fettuccine", "Area 51", "Ashtray", "Springfield", "Cool hwhip"]
-
+    let nemesis: [String] = ["Johnnie", "Nathan","Ian", "Robert", "Vince", "Peter Lin"]
+    let world: [String] = ["Got EMMM", "Fettuccine", "Area 51", "Ashtray", "Springfield", "Cool hwhip"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return world.count
+        return name.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,50 +35,27 @@ class CustomSwipeTableViewController: UITableViewController {
         cell.textLabel?.text = name[indexPath.row]
         return cell
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let cell = tableView.cellForRow(at: indexPath)
+        let clear = UITableViewRowAction(style: .normal, title: "Clear") {_,_ in
+            cell?.detailTextLabel?.text = ""
+        }
+        let world = UITableViewRowAction(style: .destructive, title: "World") {_,_ in
+            cell?.detailTextLabel?.text = self.world[indexPath.row]
+        }
+        let nemesis = UITableViewRowAction(style: .destructive, title: "Nemesis") {_,_ in
+            cell?.detailTextLabel?.text = self.nemesis[indexPath.row]
+        }
+        nemesis.backgroundColor = UIColor.red
+        world.backgroundColor = UIColor.blue
+        if cell?.detailTextLabel?.text == self.nemesis[indexPath.row] {
+            return [world, clear]
+        }
+        if cell?.detailTextLabel?.text == self.world[indexPath.row] {
+            return [clear, nemesis]
+        } else {
+            return [world, nemesis]
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
