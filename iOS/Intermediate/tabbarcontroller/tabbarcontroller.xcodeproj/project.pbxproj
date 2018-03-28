@@ -103,7 +103,6 @@
 				DD1F6FA3205DDE860050BDBB /* tabbarcontrollerTests */,
 				DD1F6FAE205DDE860050BDBB /* tabbarcontrollerUITests */,
 				DD1F6F8D205DDE860050BDBB /* Products */,
-				DDFC61F82064C685003CA2F8 /* ToDoViewController.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +130,7 @@
 				DDFEA3F32064933F00E79DC8 /* UnwindViewController.swift */,
 				DDFEA3EF20645B9200E79DC8 /* CustomSwipeTableViewController.swift */,
 				DD1F6FBD205DDF520050BDBB /* DatePickerViewController.swift */,
+				DDFC61F82064C685003CA2F8 /* ToDoViewController.swift */,
 				DD1F6F96205DDE860050BDBB /* Assets.xcassets */,
 				DD158F9620637392001887CE /* icons8-easter-rabbit-60.png */,
 				DD158F9520637392001887CE /* icons8-turtle-60.png */,
