@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+</head>
+<body>
+    <script>
+        function zero_negativity(arr) {
+            for (var z = 0; z < arr.length; z++){
+                if (arr[z] < 0){
+                    return false
+                }
+            }
+            return true
+        }
+        function is_even(num) {
+            if (num % 2 == 0) {
+                return true
+            }
+            return false
+        }
+        function how_many_even(arr) {
+            var count = 0
+            for (var x = 0; x < arr.length; x++){
+                if (is_even(arr[x]) == true) {
+                    count ++
+                }
+            }
+            return count
+        }
+        function create_dummy_array(n){
+            var newarr = []
+            for (var y = 0; y < n; y++){
+                newarr[y] = Math.floor(Math.random() * 10)
+            }
+            return newarr
+        }
+        function random_choice(arr) {
+            return arr[Math.floor(Math.random() * arr.length)]
+        }
+    </script>
+    
+</body>
+</html>

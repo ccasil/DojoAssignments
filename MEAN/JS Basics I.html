@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+</head>
+<body>
+    <script>
+        function basic1 (){
+            var x = []
+            x.push("coding", "dojo", "rocks")
+            x.pop()
+            console.log(x)
+        }
+        function basic2 () {
+            const y = []
+            y.push(88)
+            console.log(y)
+        }
+        function basic3 () {
+            var z = [9, 10, 6 ,5 ,-1, 20, 13, 2]
+            for ( var k = 0; k < z.length; k++){
+                if (k == z.length-1 ){
+                    continue;
+                } else {
+                    console.log(z[k])
+                }
+            }
+        }
+        function basic4 () {
+            var names = ['Kadie', 'Joe', 'Fritz', 'Pierre', 'Alphonso']
+            for (var j = 0; j < names.length; j++){
+                if (names[j].length == 5)
+                console.log (names[j])
+            }
+        }
+        function yell (str) {
+            var upstr = str.toUpperCase()
+            return upstr
+        }
+    </script>
+    
+</body>
+</html>
