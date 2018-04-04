@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+</head>
+<body>
+    <script>
+        class Card {
+            constructor(suit, value) {
+                this.suit = suit
+                this.value = value
+            }
+        }
+        class Deck {
+            constructor() {
+                this.deck = [];
+            }
+                create() {
+                for (var k = 1; k < 5; k ++ ){
+                    var i;
+                    if (k == 1) {
+                        i = 'hearts';
+                    }
+                    else if (k == 2) {
+                        i = 'spades';
+                    }
+                    else if (k == 3) {
+                        i = 'clubs';
+                    }
+                    else if (k == 4) {
+                        i = 'diamonds';
+                    }
+                    for (var j = 1; j < 14; j++) {
+                        var cards = new Card(i, j);
+                        this.deck.push(cards);
+                    }
+                }
+            }
+            show() {
+                console.log(this.deck)
+            }
+            shuffle(deck) {
+                for (var h = 0; h < deck; h++) {
+                    var place = Math.floor(Math.random() * 53)
+                    var temp = h
+                    h = this.deck[place]
+                    this.deck[place] = temp
+                    return deck
+                }
+            }
+            reset() {
+                this.deck = []
+                this.create()
+            }
+            deal() {
+                let d = this.deck.pop()
+                return d
+                
+            }
+        }
+        class Player {
+            constructor(name) {
+                this.name = name;
+                this.hand = []
+            }
+            take(num) {
+                this.hand.push(num)
+                console.log("Player hand: " + this.hand)
+            }
+            discard() {
+                let discard = this.hand.pop()
+                console.log("Player hand: " + this.hand)
+                return discard
+            }
+        }
+        let deck = new Deck();
+
+        deck.create();
+        deck.shuffle();
+        deck.show();
+        // deck.reset();
+        // deck.show();
+        const player1 = new Player("Kyle");
+        player1.take(deck.deal());
+        player1.take(deck.deal());
+        player1.take(deck.deal());
+        player1.take(deck.deal());
+        player1.take(deck.deal());
+        player1.discard();
+        deck.show();
+    </script>
+    
+</body>
+</html>
