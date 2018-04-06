@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Survey Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+</head>
+<body>
+    <h1>Welcome to the Great Number Game!</h1>
+    <p>I am thinking of a number between 1 and 100</p>
+    <p>Take a guess!</p>
+    <h2> <%= attempt %> </h2>
+    <form action='/result' method='post'>
+        <input type='text' name='guess'>
+        <input type='submit' value='Submit'>
+    </form>
+    <form action='/reset' method='get'>
+        <input type='submit' value='Reset'>
+    </form>
+</body>
+</html>

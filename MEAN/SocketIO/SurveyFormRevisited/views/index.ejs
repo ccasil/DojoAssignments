@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Survey Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // this triggers the connection event in our server!
+            var socket = io.connect();
+            // we'll write all the socket stuff after the above line!
+            $('#submitbutton').click(function () {
+                socket.emit("posting_form", { name: $('#name').val(), location: $('#location').val(), language: $('#language').val(), desc: $('#desc').val()});
+            });
+            socket.on('updated_message', function (data) {
+                console.log('The server says: ' + data.name);
+                $("#html1").html("You emitted the following information to the server:"
+            +"<p>"+ data.name +"</p>"+"<p>"+ data.location +"</p>"+"<p>"+ data.language +"</p>"+"<p>"+ data.desc +"</p>");
+            });
+            socket.on('random_number', function (data) {
+                $("#html2").html("Your lucky number emitted by the server is " + data.rand);
+            });
+        })
+    </script>
+</head>
+<body>
+    <p id="html1"></p>
+    <p id="html2"></p>
+        Your Name:
+        <input id="name" type='text' name='name'> 
+        Dojo Location:
+        <select id="location" name="location">
+            <option value="sanjose">San Jose</option>
+            <option value="seattle">Seattle</option>
+            <option value="la">LA</option>
+            <option value="dallas">Dallas</option>
+            <option value="dc">DC</option>
+            <option value="chicago">Chicago</option>
+            <option value="tulsa">Tulsa</option>
+        </select>
+        Favorite Language:
+        <select id="language" name="language">
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript">Javascript</option>
+            <option value="python">Python</option>
+        </select>
+        Comment (optional):
+        <textarea id="desc" name="description"></textarea>
+        <input id="submitbutton" type='submit' value='Submit'>
+
+</body>
+</html>
