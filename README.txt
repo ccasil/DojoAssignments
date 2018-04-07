@@ -1,11 +1,41 @@
 DOJO ASSIGNMENTS: Assignments during my time at Coding Dojo (1/22-4/27)
-Updated: 2/27/18
+Updated: 4/6/18
 
 Table of Contents:
 >iOS
+--Advanced
+----Star Wars Encyclopedia
 --Basics
+----calculator
+----coldcall
+----coldcallv2
+----greatnumbergame
+----iOSQuiz
+----tictactoe
+----tipster
+--Beast Belt Search
+--Beast Belt Sections
+--Beast Belt
+--Contact List
+--HelloCoreData
+--Intermediate
+----agingpeople
+----beastlist
+----binarycounter
+----bucketlist
+----customcell
+----madlibs
+----northeastsouthwest
+----rainbowroad
+----tabbarcontroller
+----todolist
 --Playground
 >MEAN
+--Express
+--Javascript
+--Node
+--npm bower
+--SocketIO
 >myEnvironments
 --djangoEnv
 --flaskEnv
