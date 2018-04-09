@@ -22,7 +22,7 @@
 {\list\listtemplateid16\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1501\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid1502\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid16}
 {\list\listtemplateid17\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1601\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid1602\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid17}}
 {\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}{\listoverride\listid7\listoverridecount0\ls7}{\listoverride\listid8\listoverridecount0\ls8}{\listoverride\listid9\listoverridecount0\ls9}{\listoverride\listid10\listoverridecount0\ls10}{\listoverride\listid11\listoverridecount0\ls11}{\listoverride\listid12\listoverridecount0\ls12}{\listoverride\listid13\listoverridecount0\ls13}{\listoverride\listid14\listoverridecount0\ls14}{\listoverride\listid15\listoverridecount0\ls15}{\listoverride\listid16\listoverridecount0\ls16}{\listoverride\listid17\listoverridecount0\ls17}}
-\margl1440\margr1440\vieww14160\viewh18000\viewkind0
+\margl1440\margr1440\vieww14160\viewh15500\viewkind0
 \deftab720
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
 \ls1\ilvl0
@@ -36,8 +36,7 @@ Create a database called 'my_first_db'.\
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
 \ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
 Create students collection.\
-\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
-\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\ls2\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
 Each document you insert into this collection should have the following format: (\{name: STRING, home_state: STRING, lucky_number: NUMBER, birthday: \{month: NUMBER, day: NUMBER, year: NUMBER\}\})\
 \pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sl280\partightenfactor0
 \ls2\ilvl1\cf2 \kerning1\expnd0\expndtw0 {\listtext	1.	}db.students.insert(\expnd0\expndtw0\kerning0
@@ -91,7 +90,7 @@ between 1 and 9 (inclusive)\
 \ls6\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
 Add a field to each student collection called 'interests' that is an ARRAY. \'a0It should contain the following entries: 'coding', 'brunch', 'MongoDB'.\'a0Do this in ONE operation.\
 \pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sl280\partightenfactor0
-\ls6\ilvl1\cf2 \kerning1\expnd0\expndtw0 {\listtext	1.	}\cf4 \CocoaLigature0 db.students.updateMany(\{\}, \{$set: \{interests:  [\'93coding\'94,\cf4  \'93branch\'94, \'93MongoDB\'94]\}\cf4 \})\
+\ls6\ilvl1\cf2 \kerning1\expnd0\expndtw0 {\listtext	1.	}\cf4 \CocoaLigature0 db.students.updateMany(\{\}, \{$set: \{interests:  [\'93coding\'94, \'93branch\'94, \'93MongoDB\'94]\}\})\
 \pard\tx720\tx1440\pardeftab720\sl280\partightenfactor0
 \cf2 \expnd0\expndtw0\kerning0
 \CocoaLigature1 \
@@ -109,7 +108,7 @@ Add some unique interests for each particular student into each of their interes
 \ls8\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
 Add the interest 'taxes' into someone's interest array.\
 \pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sl280\partightenfactor0
-\ls8\ilvl1\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8259 	}\cf4 \cb3 \CocoaLigature0 db.students.update(\{name: "Kyle"\}, \{$addToSet: \{interests: \'93taxes\'94\}\})\cf2 \cb3 \expnd0\expndtw0\kerning0
+\ls8\ilvl1\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8259 	}\cf4 \CocoaLigature0 db.students.update(\{name: "Kyle"\}, \{$addToSet: \{interests: \'93taxes\'94\}\})\cf2 \expnd0\expndtw0\kerning0
 \CocoaLigature1 \
 \pard\tx720\pardeftab720\sl280\partightenfactor0
 \cf2 \
@@ -157,7 +156,7 @@ Add a field to each student collection called 'number_of_belts' and set it to 0.
 \ls14\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
 Increment this field by 1 for all students in Washington (Seattle Dojo).\
 \pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sl280\partightenfactor0
-\ls14\ilvl1\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8259 	}\cf4 \CocoaLigature0 db.students.updateMany(\{home_state: "AZ"\}, \{$inc: \{number_of_belts: 1\}\})\cf2 \expnd0\expndtw0\kerning0
+\ls14\ilvl1\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8259 	}\cf4 \CocoaLigature0 db.students.updateMany(\{home_state: \'93WA\'94\}, \{$inc: \{number_of_belts: 1\}\})\cf2 \expnd0\expndtw0\kerning0
 \CocoaLigature1 \
 \pard\tx720\tx1440\pardeftab720\sl280\partightenfactor0
 \cf2 \

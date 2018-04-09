@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>QuotingDojo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <h1>Welcome to QuotingDojo</h1>
+
+    <form action='/quotes' method='post'>
+        <p>Your name: <input type="text" name='name'></p>
+        <p>Your quote: <input type="text" name='quote'></p>
+        <button id='addquote'>Add my quote!</button>
+    </form>
+    <form action='/quotes' method='get'>
+        <input type='submit' value='skip'>
+    </form>
+    <% if(typeof(errors) != 'undefined' ) { %>
+        <% for (var x in errors) { %>
+            <h3><%= errors[x].message %></h3>
+        <% } %>
+    <% } %>
+</body>
+</html>
