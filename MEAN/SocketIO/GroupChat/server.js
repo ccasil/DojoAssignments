@@ -9,23 +9,37 @@ app.use(express.static(path.join(__dirname, "./static")));
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
 
+let messages = [];
 app.get('/', function (req, res) {
-    res.render("index");
+    res.render("index", {key: messages});
 })
 
 var server = app.listen(8000, function () {
     console.log("listening on port 8000");
 });
 
-let name = ""
 var io = require('socket.io').listen(server);
 io.sockets.on('connection', function (socket) {
+
     console.log("Client/socket is connected!");
     console.log("Client/socket id is: ", socket.id);
-    // all the server socket code goes in herecopy
+
     socket.on("createuser", function (data) {
-        name = data.name
-        socket.emit('updated_page', { name: data.name });
-        socket.emit('updated_message', { name: data.name });
+    })
+
+    socket.on("createmessage", function (data) {
+        let n = data.name;
+        let m = data.message;
+
+        messages.push({
+            name: n,
+            message: m
+        });
+
+        io.emit('updated_message', { 
+            name: data.name,
+            message: data.message,
+            allmessages: messages
+        });
     })
 })
