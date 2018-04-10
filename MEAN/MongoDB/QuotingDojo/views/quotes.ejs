@@ -9,11 +9,11 @@
 </head>
 
 <body>
-    <h1>Here are the awesome quotes!</h1>
-                <% for (var x in key) { %>
-                    <p>"<%= key[x].quote %>"</p>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;-<%= key[x].name %> at <%= key[x].date %></p>
-                            <hr>
-                <% } %>
+    <h1>Here are the awesome quotes!<form action='/back'><button name="back">BACK</button></form></h1>
+        <% for (var x in quotes) { %>
+            <p>"<%= quotes[x].quote %>"</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;-<%= quotes[x].name %> at <%= quotes[x].createdAt.toDateString() %></p>
+                <hr>
+        <% } %>
 </body>
 </html>

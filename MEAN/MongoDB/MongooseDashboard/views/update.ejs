@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Update Sheep</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>Update Sheep!</h1>
+
+    <form action='/sheep/<%= sheep.id %>' method='post'>
+        <p>name: <input type="text" name='name' value='<%= sheep.name %>'> </p>
+        <button id='updatesheep'>Update my sheep!</button>
+    </form>
+
+    <form action='/cancel' method='get'>
+        <input type='submit' value='Cancel'>
+    </form>
+
+    <% if(typeof(errors) != 'undefined' ) { %>
+        <% for (var x in errors) { %>
+            <h3><%= errors[x].message %></h3>
+        <% } %>
+    <% } %>
+</body>
+
+</html>
