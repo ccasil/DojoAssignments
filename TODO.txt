@@ -1,5 +1,6 @@
 	-optional assignments
 		-flask(multiplication table)
+		-user dashboard (django)
 		-sql/flask(books/books&quotes)
 	-THE WALL (fix)
 	-responsive web design (rwd)

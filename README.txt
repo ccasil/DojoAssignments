@@ -1,5 +1,5 @@
 DOJO ASSIGNMENTS: Assignments during my time at Coding Dojo (1/22-4/27)
-Updated: 4/6/18
+Updated: 4/9/18
 
 Table of Contents:
 >iOS
@@ -33,13 +33,13 @@ Table of Contents:
 >MEAN
 --Express
 --Javascript
+--MongoDB
 --Node
 --npm bower
 --SocketIO
 >myEnvironments
 --djangoEnv
 --flaskEnv
->netCore
 >Other
 --academy-airplane-master
 --academy-ninja-master
@@ -116,7 +116,6 @@ Table of Contents:
 ----Hospital
 ----MathDojo
 ----Product
->Ruby
 >Web Fundamentals
 --APIandAjax
 ----GameOfThrones
