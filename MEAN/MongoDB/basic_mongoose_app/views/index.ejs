@@ -3,15 +3,22 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>The Great Button Game</title>
+    <title>Basic Mongoose</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
     <form action='/users' method='post'>
-        <p>Name: <input id="name" type="text"></p>
-        <p>Age: <input id="age" type="text"></p>
+        <p>First Name: <input name="first_name" type="text"></p>
+        <p>Last Name: <input name="last_name" type="text"></p>
+        <p>Age: <input name="age" type="text"></p>
+        <p>Email: <input name="email" type="text"></p>
         <button id="submit">Submit</button>
     </form>
+    <% if(typeof(errors) != 'undefined' ) { %>
+        <% for (var x in errors) { %>
+            <h3><%= errors[x].message %></h3>
+        <% } %>
+    <% } %>
 </body>
 </html>
