@@ -6,7 +6,7 @@ var mongoose = require('mongoose')
 
 var app = express();
 
-mongoose.connect('mongodb://localhost/APItest');
+mongoose.connect('mongodb://localhost/RestfulRouting');
 var TaskSchema = new mongoose.Schema({
     title: { type: String, required: [true, "title is required"]},
     description: { type: String, default: ""},
@@ -25,7 +25,9 @@ app.use(express.static(path.join(__dirname, './static')));
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
 
-app.get('/', function (req, res) {
+
+// RETRIEVE ALL TASKS
+app.get('/tasks', function (req, res) {
     Task.find({}, function (err, task) {
         if (err) {
             console.log("Returned error", err);
@@ -38,29 +40,47 @@ app.get('/', function (req, res) {
         }
     })
 })
-app.post('/new/:title', function (req, res) {
-    var task = new Task({ title: req.params.title });
+
+// CREATE A TASK
+app.post('/tasks', function (req, res) {
+    var task = new Task({ _id: req.params.id });
     task.save(function (err, results) {
         if (err) {
             console.log('something went wrong', err);
         } else {
             console.log('successfully added a task!', results);
-            res.redirect('/');
+            res.redirect('/tasks');
         }
     })
 })
-app.get('/remove/:title', function (req, res) {
-    Task.remove({ title: req.params.title }, function (err) {
+
+// UPDATE A TASK
+app.put('/tasks/:id', function (req, res) {
+    Task.findOneAndUpdate({ _id: req.params.id }, { $set: { name: req.body.name } }, function (err, sheep) {
+        if (err) {
+            console.log('something went wrong', err);
+        } else {
+            console.log('successfully updated a sheep!');
+            res.redirect('/tasks');
+        }
+    })
+})
+
+// DELETE A TASK
+app.delete('/tasks/:id', function (req, res) {
+    Task.remove({ _id: req.params.id }, function (err) {
         if (err) {
             console.log('something went wrong', err);
         } else {
             console.log('successfully deleted a task!');
-            res.redirect('/');
+            res.redirect('/tasks');
         }
     });
 })
-app.get('/:title', function (req, res) {
-    Task.findOne({ title: req.params.title }, function (err, task) {
+
+// RETIEVE A TASK
+app.get('/tasks/:id', function (req, res) {
+    Task.findOne({ _id: req.params.id }, function (err, task) {
         if (err) {
             console.log(err);
         } else {
