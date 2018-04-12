@@ -106,5 +106,21 @@ var math = (x, y) => [sum, product, difference];
 console.log(math(2,3))
 
 
-
-
+class Elephant {
+    constructor(public age: number) { }
+    birthday = function () {
+        this.age++;
+    }
+    eage = function () {
+        //function to display age
+        return this.age
+    }
+}
+const babar = new Elephant(8);
+setTimeout(babar.birthday(), 1000)
+// invoke the birthday function
+setTimeout(function () {
+    console.log(`Babar's age is ${babar.eage()}.`)
+    // invoke the eage function
+}, 2000)
+// Why didn't babar's age change? Fix this by using an arrow function in the Elephant class.

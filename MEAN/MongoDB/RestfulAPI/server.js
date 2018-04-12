@@ -43,7 +43,7 @@ app.get('/tasks', function (req, res) {
 
 // CREATE A TASK
 app.post('/tasks', function (req, res) {
-    var task = new Task({ _id: req.params.id });
+    var task = new Task({ title: req.body.title });
     task.save(function (err, results) {
         if (err) {
             console.log('something went wrong', err);
