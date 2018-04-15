@@ -51,7 +51,7 @@ var http_service_1 = __webpack_require__("./src/app/http.service.ts");
 var AppComponent = /** @class */ (function () {
     function AppComponent(_httpService) {
         this._httpService = _httpService;
-        this.title = 'app';
+        this.title = 'MEAN';
     }
     AppComponent = __decorate([
         core_1.Component({
@@ -131,10 +131,20 @@ var HttpService = /** @class */ (function () {
         this.getPokemon();
     }
     HttpService.prototype.getPokemon = function () {
-        var bulbasaur = this._http.get('https://pokeapi.co/api/v2/pokemon/1/');
-        bulbasaur.subscribe(function (data) {
+        var _this = this;
+        var porygon = this._http.get('https://pokeapi.co/api/v2/pokemon/137/');
+        porygon.subscribe(function (data) {
             console.log('Got our pokemon!', data);
-            console.log('Bulbasaur\'s abilities are ' + data);
+            console.log('Porygon\'s abilities are ', data.abilities[0].ability.name, data.abilities[1].ability.name, data.abilities[2].ability.name);
+            console.log('Porygon\'s type is', data.types[0].type.name);
+            var analytic = _this._http.get(data.abilities[0].ability.url);
+            analytic.subscribe(function (data) {
+                console.log('Got our pokemon!', data);
+                console.log('Number of Pokemon who can use Analytic: ', data.pokemon.length);
+                for (var i = 0; i < data.pokemon.length; i++) {
+                    console.log(data.pokemon[i].pokemon.name);
+                }
+            });
         });
     };
     HttpService = __decorate([

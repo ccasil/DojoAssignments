@@ -27,7 +27,7 @@ module.exports = ""
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n  <img width=\"300\" alt=\"Angular Logo\" src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==\">\n</div>\n<h2>Here are some links to help you start: </h2>\n<ul>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://angular.io/tutorial\">Tour of Heroes</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://github.com/angular/angular-cli/wiki\">CLI Documentation</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://blog.angular.io/\">Angular blog</a></h2>\n  </li>\n</ul>\n\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    {{ title }}\n  </h1>\n</div>\n\n<h2>All the tasks: </h2>\n<p><button (click)=\"onButtonClickAll($event)\">Click to get all tasks</button></p>\n<p><input #idtext type=\"text\" name=\"id\"><button (click)=\"onButtonClickOne(idtext.value)\">Click to get one task</button></p>\n<ul>\n  <li *ngFor='let task of tasks'>\n    <h2> {{ task['title'] }}</h2>\n  </li>\n</ul>\n\n"
 
 /***/ }),
 
@@ -51,8 +51,44 @@ var http_service_1 = __webpack_require__("./src/app/http.service.ts");
 var AppComponent = /** @class */ (function () {
     function AppComponent(_httpService) {
         this._httpService = _httpService;
-        this.title = 'MEAN';
+        // Set the attribute tasks to be an array.
+        this.title = 'Restful Tasks API';
+        this.tasks = [];
     }
+    AppComponent.prototype.ngOnInit = function () {
+        // this.onButtonClick();
+    };
+    AppComponent.prototype.getTasksFromService = function () {
+        var _this = this;
+        var observable = this._httpService.getTasks();
+        observable.subscribe(function (data) {
+            console.log('Got our tasks!', data);
+            _this.tasks = data['tasks'];
+            console.log(_this.tasks);
+        });
+    };
+    AppComponent.prototype.onButtonClickAll = function (event) {
+        this.getTasksFromService();
+        console.log('Click event is working, event:', event);
+    };
+    AppComponent.prototype.getTaskFromService = function (id) {
+        var _this = this;
+        if (id) {
+            var observable = this._httpService.getTask(id);
+            observable.subscribe(function (data) {
+                console.log('Got our task!', data);
+                _this.tasks = data['data'];
+                console.log(_this.tasks);
+            });
+        }
+        else {
+            console.log('Error');
+        }
+    };
+    AppComponent.prototype.onButtonClickOne = function (id) {
+        this.getTaskFromService(id);
+        console.log('Click event is working, id:', id);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app-root',
@@ -128,20 +164,20 @@ var http_1 = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 var HttpService = /** @class */ (function () {
     function HttpService(_http) {
         this._http = _http;
-        this.getTasks();
-        this.getTask(1);
     }
     HttpService.prototype.getTasks = function () {
-        // our http response is an Observable, store it in a variable
-        var tempObservable = this._http.get('/tasks');
-        // subscribe to the Observable and provide the code we would like to do with our data from the response
-        tempObservable.subscribe(function (data) { return console.log('Got our tasks!', data); });
+        // Remove the lines of code where we make the variable 'tempObservable' and subscribe to it.
+        // tempObservable = this._http.get('/tasks');
+        // tempObservable.subscribe(data => console.log("Got our tasks!", data));
+        // Return the observable to wherever the getTasks method was invoked.
+        return this._http.get('/tasks');
     };
     HttpService.prototype.getTask = function (id) {
-        // our http response is an Observable, store it in a variable
-        var tempObservable = this._http.get('/tasks/' + id + '');
-        // subscribe to the Observable and provide the code we would like to do with our data from the response
-        tempObservable.subscribe(function (data) { return console.log('Got our task!', data); });
+        // // our http response is an Observable, store it in a variable
+        // const tempObservable = this._http.get('/tasks/' + id + '');
+        // // subscribe to the Observable and provide the code we would like to do with our data from the response
+        // tempObservable.subscribe(data => console.log('Got our task!', data));
+        return this._http.get('/tasks/' + id);
     };
     HttpService = __decorate([
         core_1.Injectable(),

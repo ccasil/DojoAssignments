@@ -11,8 +11,8 @@ var TaskSchema = new mongoose.Schema({
     title: { type: String, required: [true, "title is required"]},
     description: { type: String, default: ""},
     completed: { type: Boolean, default: false },
-    created_at: { type: Date, default: Date.now },
-    updated_at: { type: Date, default: Date.now }
+    created_at: { type: Date, default: Date.now() },
+    updated_at: { type: Date, default: Date.now() }
 });
 mongoose.model('Task', TaskSchema); 
 var Task = mongoose.model('Task')
@@ -21,9 +21,6 @@ mongoose.Promise = global.Promise;
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/RestfulAPI/dist'));
-
-app.get('/', function (req, res) {
-})
 
 // RETRIEVE ALL TASKS
 app.get('/tasks', function (req, res) {
@@ -34,57 +31,55 @@ app.get('/tasks', function (req, res) {
             res.json({ message: "Error", error: err })
         }
         else {
+            console.log(task)
             // respond with JSON
-            res.json({ task })
+            res.json({message: "Success", tasks:task })
         }
     })
 })
 
 // CREATE A TASK
-app.post('/tasks', function (req, res) {
+app.post('/tasks/new', function (req, res) {
     var task = new Task({ title: req.body.title });
     task.save(function (err, results) {
         if (err) {
-            console.log('something went wrong', err);
+            res.json({ message: "Error", error: err })
         } else {
-            console.log('successfully added a task!', results);
-            res.redirect('/tasks');
+            res.json({ message: "Successfully added a task!", tasks: task })
         }
     })
 })
 
 // UPDATE A TASK
-app.put('/tasks/:id', function (req, res) {
-    Task.findOneAndUpdate({ _id: req.params.id }, { $set: { name: req.body.name } }, function (err, sheep) {
+app.put('/tasks/edit/:id', function (req, res) {
+    Task.findOneAndUpdate({ _id: req.params.id }, { $set: { name: req.body.name } }, function (err, task) {
         if (err) {
-            console.log('something went wrong', err);
+            res.json({ message: "Error", error: err })
         } else {
-            console.log('successfully updated a sheep!');
-            res.redirect('/tasks');
+            res.json({ message: "Successfully updated a task!", tasks: task })
         }
     })
 })
 
 // DELETE A TASK
-app.delete('/tasks/:id', function (req, res) {
+app.delete('/tasks/destroy/:id', function (req, res) {
     Task.remove({ _id: req.params.id }, function (err) {
         if (err) {
-            console.log('something went wrong', err);
+            res.json({ message: "Error", error: err })
         } else {
-            console.log('successfully deleted a task!');
-            res.redirect('/tasks');
+            res.end()
         }
     });
 })
 
-// RETIEVE A TASK
+// RETRIEVE A TASK
 app.get('/tasks/:id', function (req, res) {
     Task.findOne({ _id: req.params.id }, function (err, task) {
         if (err) {
-            console.log(err);
+            res.json({ message: "Error", error: err })
         } else {
             // respond with JSON
-            res.json({ data: task })
+            res.json({ tasks: task })
         }
     })
 })

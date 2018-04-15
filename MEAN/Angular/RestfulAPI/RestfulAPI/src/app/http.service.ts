@@ -5,8 +5,7 @@ import { HttpClient } from '@angular/common/http';
 export class HttpService {
 
   constructor(private _http: HttpClient) {
-    this.getTasks();
-    this.getTask(1);
+
   }
   getTasks() {
     // Remove the lines of code where we make the variable 'tempObservable' and subscribe to it.
@@ -20,6 +19,6 @@ export class HttpService {
     // const tempObservable = this._http.get('/tasks/' + id + '');
     // // subscribe to the Observable and provide the code we would like to do with our data from the response
     // tempObservable.subscribe(data => console.log('Got our task!', data));
-    return this._http.get('/tasks/' + id + '');
+    return this._http.get('/tasks/' + id);
   }
 }
