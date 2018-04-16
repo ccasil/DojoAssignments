@@ -1,16 +1,44 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    {{ title }}
-  </h1>
+<h1>{{ title }}</h1>
+
+<div id="wrapper">
+
+<div id="top">
+  <h2>New Task</h2>
+  <form (submit)="onSubmit()">
+    <p>Title: <input type="text" name="newTask.title" [(ngModel)]="newTask.title" /></p>
+    <p>Description: <input type="text" name="newTask.description" [(ngModel)]="newTask.description" /><input type="submit" value="Create" /></p>
+    <!-- use the json pipe to see how newTask changes in real time -->
+    <p>{{ newTask | json }}</p>
+  </form>
 </div>
 
-<h2>All the tasks: </h2>
-<p><button (click)="onButtonClickAll($event)">Click to get all tasks</button></p>
-<p><input #idtext type="text" name="id"><button (click)="onButtonClickOne(idtext.value)">Click to get one task</button></p>
-<ul>
-  <li *ngFor='let task of tasks'>
-    <h2> {{ task['title'] }}</h2>
-  </li>
-</ul>
+<div id="bottom">
+  <h2>Task List</h2>
+  <p><input #idtext type="text" name="id"><button (click)="onButtonClickOne(idtext.value)">Get one task</button></p>
+  <ul>
+    <li *ngFor='let task of tasks'>
+      <h3> {{ task['title'] }} <button (click)="getTaskFromService(task._id)">Edit</button></h3>
+        <h4>{{ task['description'] }} <button (click)="deleteTaskFromService(task._id)">Delete</button></h4>
+    </li>
+  </ul>
+</div>
 
+<div id="bottom">
+  <div *ngIf = "edit">
+    <h2>Edit a Task</h2>
+    <form (submit)="editSubmit(task._id)">
+      <p>Title:
+        <input type="text" name="editTask.title" [(ngModel)]="editTask.title" />
+      </p>
+      <p>Description:
+        <input type="text" name="editTask.description" [(ngModel)]="editTask.description" />
+        <input type="submit" value="Edit" />
+      </p>
+      <!-- use the json pipe to see how editTask changes in real time -->
+      <p>{{ editTask | json }}</p>
+    </form>
+  </div>
+</div>
+
+</div>

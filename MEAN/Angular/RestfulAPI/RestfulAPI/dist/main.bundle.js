@@ -20,14 +20,14 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "#wrapper {\n    text-align: left;\n}\nh1 {\n    text-align: center;\n}\n#top {\n    display: block;\n}\n#bottom {\n    display: inline-block;\n    width: 400px;\n    vertical-align: top;\n}"
 
 /***/ }),
 
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    {{ title }}\n  </h1>\n</div>\n\n<h2>All the tasks: </h2>\n<p><button (click)=\"onButtonClickAll($event)\">Click to get all tasks</button></p>\n<p><input #idtext type=\"text\" name=\"id\"><button (click)=\"onButtonClickOne(idtext.value)\">Click to get one task</button></p>\n<ul>\n  <li *ngFor='let task of tasks'>\n    <h2> {{ task['title'] }}</h2>\n  </li>\n</ul>\n\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<h1>{{ title }}</h1>\n\n<div id=\"wrapper\">\n\n<div id=\"top\">\n  <h2>New Task</h2>\n  <form (submit)=\"onSubmit()\">\n    <p>Title: <input type=\"text\" name=\"newTask.title\" [(ngModel)]=\"newTask.title\" /></p>\n    <p>Description: <input type=\"text\" name=\"newTask.description\" [(ngModel)]=\"newTask.description\" /><input type=\"submit\" value=\"Create\" /></p>\n    <!-- use the json pipe to see how newTask changes in real time -->\n    <p>{{ newTask | json }}</p>\n  </form>\n</div>\n\n<div id=\"bottom\">\n  <h2>Task List</h2>\n  <p><input #idtext type=\"text\" name=\"id\"><button (click)=\"onButtonClickOne(idtext.value)\">Get one task</button></p>\n  <ul>\n    <li *ngFor='let task of tasks'>\n      <h3> {{ task['title'] }} <button (click)=\"getTaskFromService(task._id)\">Edit</button></h3>\n        <h4>{{ task['description'] }} <button (click)=\"deleteTaskFromService(task._id)\">Delete</button></h4>\n    </li>\n  </ul>\n</div>\n\n<div id=\"bottom\">\n  <div *ngIf = \"edit\">\n    <h2>Edit a Task</h2>\n    <form (submit)=\"editSubmit(task._id)\">\n      <p>Title:\n        <input type=\"text\" name=\"editTask.title\" [(ngModel)]=\"editTask.title\" />\n      </p>\n      <p>Description:\n        <input type=\"text\" name=\"editTask.description\" [(ngModel)]=\"editTask.description\" />\n        <input type=\"submit\" value=\"Edit\" />\n      </p>\n      <!-- use the json pipe to see how editTask changes in real time -->\n      <p>{{ editTask | json }}</p>\n    </form>\n  </div>\n</div>\n\n</div>\n"
 
 /***/ }),
 
@@ -54,9 +54,12 @@ var AppComponent = /** @class */ (function () {
         // Set the attribute tasks to be an array.
         this.title = 'Restful Tasks API';
         this.tasks = [];
+        this.task = {};
+        this.edit = false;
     }
     AppComponent.prototype.ngOnInit = function () {
-        // this.onButtonClick();
+        this.getTasksFromService();
+        this.newTask = { title: '', description: '' };
     };
     AppComponent.prototype.getTasksFromService = function () {
         var _this = this;
@@ -64,12 +67,8 @@ var AppComponent = /** @class */ (function () {
         observable.subscribe(function (data) {
             console.log('Got our tasks!', data);
             _this.tasks = data['tasks'];
-            console.log(_this.tasks);
+            console.log('this.tasks', _this.tasks);
         });
-    };
-    AppComponent.prototype.onButtonClickAll = function (event) {
-        this.getTasksFromService();
-        console.log('Click event is working, event:', event);
     };
     AppComponent.prototype.getTaskFromService = function (id) {
         var _this = this;
@@ -77,8 +76,12 @@ var AppComponent = /** @class */ (function () {
             var observable = this._httpService.getTask(id);
             observable.subscribe(function (data) {
                 console.log('Got our task!', data);
-                _this.tasks = data['data'];
-                console.log(_this.tasks);
+                _this.task = data['tasks'];
+                console.log('this.task', _this.task);
+                console.log('TITLE', _this.task['title']);
+                _this.editTask = { id: _this.task['_id'], title: _this.task['title'], description: _this.task['description'] };
+                console.log('this.editTask', _this.editTask);
+                _this.edit = true;
             });
         }
         else {
@@ -88,6 +91,35 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.onButtonClickOne = function (id) {
         this.getTaskFromService(id);
         console.log('Click event is working, id:', id);
+    };
+    AppComponent.prototype.onSubmit = function () {
+        // Code to send off the form data (this.newTask) to the Service
+        var observable = this._httpService.addTask(this.newTask);
+        observable.subscribe(function (data) {
+            console.log('Got data from post back!', data);
+        });
+        this.getTasksFromService();
+        // Reset this.newTask to a new, clean object.
+        this.newTask = { title: '', description: '' };
+    };
+    AppComponent.prototype.editSubmit = function (id) {
+        var _this = this;
+        console.log(id);
+        var observable = this._httpService.editTask(id, this.editTask);
+        observable.subscribe(function (data) {
+            console.log('Got data from put back!', data);
+            _this.getTasksFromService();
+            _this.edit = false;
+        });
+    };
+    AppComponent.prototype.deleteTaskFromService = function (id) {
+        var _this = this;
+        var observable = this._httpService.deleteTask(id);
+        observable.subscribe(function (data) {
+            console.log('Removed the task');
+            _this.getTasksFromService();
+            _this.task = {};
+        });
     };
     AppComponent = __decorate([
         core_1.Component({
@@ -121,6 +153,7 @@ var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 var app_component_1 = __webpack_require__("./src/app/app.component.ts");
 var http_service_1 = __webpack_require__("./src/app/http.service.ts");
 var http_1 = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+var forms_1 = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -131,7 +164,8 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [
                 platform_browser_1.BrowserModule,
-                http_1.HttpClientModule
+                http_1.HttpClientModule,
+                forms_1.FormsModule
             ],
             providers: [http_service_1.HttpService],
             bootstrap: [app_component_1.AppComponent]
@@ -178,6 +212,15 @@ var HttpService = /** @class */ (function () {
         // // subscribe to the Observable and provide the code we would like to do with our data from the response
         // tempObservable.subscribe(data => console.log('Got our task!', data));
         return this._http.get('/tasks/' + id);
+    };
+    HttpService.prototype.addTask = function (newTask) {
+        return this._http.post('/tasks', newTask);
+    };
+    HttpService.prototype.deleteTask = function (id) {
+        return this._http.delete('/tasks/' + id);
+    };
+    HttpService.prototype.editTask = function (id, editTask) {
+        return this._http.put('/tasks/' + id, editTask);
     };
     HttpService = __decorate([
         core_1.Injectable(),

@@ -9,7 +9,7 @@ var app = express();
 mongoose.connect('mongodb://localhost/RestfulRouting');
 var TaskSchema = new mongoose.Schema({
     title: { type: String, required: [true, "title is required"]},
-    description: { type: String, default: ""},
+    description: { type: String, required: [true, "description is required"]},
     completed: { type: Boolean, default: false },
     created_at: { type: Date, default: Date.now() },
     updated_at: { type: Date, default: Date.now() }
@@ -39,8 +39,8 @@ app.get('/tasks', function (req, res) {
 })
 
 // CREATE A TASK
-app.post('/tasks/new', function (req, res) {
-    var task = new Task({ title: req.body.title });
+app.post('/tasks', function (req, res) {
+    var task = new Task({ title: req.body.title, description: req.body.description });
     task.save(function (err, results) {
         if (err) {
             res.json({ message: "Error", error: err })
@@ -51,18 +51,27 @@ app.post('/tasks/new', function (req, res) {
 })
 
 // UPDATE A TASK
-app.put('/tasks/edit/:id', function (req, res) {
-    Task.findOneAndUpdate({ _id: req.params.id }, { $set: { name: req.body.name } }, function (err, task) {
+app.put('/tasks/:id', function (req, res) {
+    console.log("REACHED UPDATE ROUTE")
+    Task.findOne({ _id: req.params.id }, function (err, task) {
         if (err) {
             res.json({ message: "Error", error: err })
         } else {
-            res.json({ message: "Successfully updated a task!", tasks: task })
+            task.title = req.body.title 
+            task.description = req.body.description
+            task.save(function(err) {
+                if (err) {
+                    res.json({ message: "Error", error: err })
+                } else {
+                    res.json({ message: "Successfully updated a task!", tasks: task })
+                }
+            })
         }
     })
 })
 
 // DELETE A TASK
-app.delete('/tasks/destroy/:id', function (req, res) {
+app.delete('/tasks/:id', function (req, res) {
     Task.remove({ _id: req.params.id }, function (err) {
         if (err) {
             res.json({ message: "Error", error: err })

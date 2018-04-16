@@ -1,0 +1,14 @@
+#wrapper {
+    text-align: left;
+}
+h1 {
+    text-align: center;
+}
+#top {
+    display: block;
+}
+#bottom {
+    display: inline-block;
+    width: 400px;
+    vertical-align: top;
+}
