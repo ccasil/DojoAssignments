@@ -1,7 +1,7 @@
 
 var express = require('express');
 var path = require('path');
-const bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
 
 var app = express();
@@ -16,11 +16,11 @@ var User = mongoose.model('User')
 mongoose.Promise = global.Promise;
 
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/AngularBase/dist'));
+app.use(express.static(__dirname + '/AngularApp/dist'));
 
-app.get('/', function (req, res) {
-
-})
+app.all("*", (req, res, next) => {
+    res.sendFile(path.resolve("./AngularApp/dist/index.html"))
+});
 
 app.listen(8000, function () {
     console.log("listening on port 8000");
