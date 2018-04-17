@@ -1,0 +1,14 @@
+<div *ngIf="city">
+  <h1>Welcome to {{city.name}}!</h1>
+  <img src="https://images.pexels.com/photos/739047/pexels-photo-739047.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="WashingtonDC.jpg"
+    style="height:400px">
+
+
+  <p>
+    Humidity: {{city.main.humidity}}
+    <br> Temperature (Average): {{city.main.temp}}
+    <br> Temperature (High): {{city.main.temp_max}}
+    <br> Temperature (Low): {{city.main.temp_min }}
+    <br> Status: {{city.weather[0].description}}
+  </p>
+</div>
