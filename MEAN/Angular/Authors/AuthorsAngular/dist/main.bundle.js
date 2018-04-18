@@ -27,7 +27,7 @@ module.exports = ""
 /***/ "./src/app/add/add.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  add works!\n</p>\n"
+module.exports = "<button (click)=\"cancelButton()\"> Home </button>\r\n<h4> Add a new author: </h4>\r\n<input type=\"text\" name=\"name\" [(ngModel)]=\"name\">\r\n<button (click)=\"cancelButton()\"> Cancel </button>\r\n<button (click)=\"submitButton()\"> Submit </button>\r\n<br> {{error}}"
 
 /***/ }),
 
@@ -47,10 +47,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var http_service_1 = __webpack_require__("./src/app/http.service.ts");
 var AddComponent = /** @class */ (function () {
-    function AddComponent() {
+    function AddComponent(_httpService, _route, _router) {
+        this._httpService = _httpService;
+        this._route = _route;
+        this._router = _router;
     }
     AddComponent.prototype.ngOnInit = function () {
+    };
+    AddComponent.prototype.cancelButton = function () {
+        this._router.navigate(['/home']);
+    };
+    AddComponent.prototype.submitButton = function () {
+        var _this = this;
+        var observable = this._httpService.newAuthor(this.name);
+        observable.subscribe(function (data) {
+            if (data.message === 'Success') {
+                _this._router.navigate(['/home']);
+            }
+            else {
+                _this.error = 'Name must be at least 3 characters';
+            }
+        });
+        console.log(this.name);
     };
     AddComponent = __decorate([
         core_1.Component({
@@ -58,7 +79,9 @@ var AddComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/add/add.component.html"),
             styles: [__webpack_require__("./src/app/add/add.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [http_service_1.HttpService,
+            router_1.ActivatedRoute,
+            router_1.Router])
     ], AddComponent);
     return AddComponent;
 }());
@@ -84,13 +107,11 @@ var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.j
 var home_component_1 = __webpack_require__("./src/app/home/home.component.ts");
 var add_component_1 = __webpack_require__("./src/app/add/add.component.ts");
 var edit_component_1 = __webpack_require__("./src/app/edit/edit.component.ts");
-var pagenotfound_component_1 = __webpack_require__("./src/app/pagenotfound/pagenotfound.component.ts");
 var routes = [
     { path: 'home', component: home_component_1.HomeComponent },
     { path: 'add', component: add_component_1.AddComponent },
     { path: 'edit', component: edit_component_1.EditComponent },
-    { path: '', pathMatch: 'full', redirectTo: '/home' },
-    { path: '**', component: pagenotfound_component_1.PagenotfoundComponent }
+    { path: '', pathMatch: 'full', redirectTo: '/home' }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -118,7 +139,7 @@ module.exports = ""
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Favorite authors</h1>\n\n<router-outlet></router-outlet>\n"
+module.exports = "<h1>Favorite authors</h1>\r\n\r\n<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -139,10 +160,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 var http_service_1 = __webpack_require__("./src/app/http.service.ts");
+var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var AppComponent = /** @class */ (function () {
-    function AppComponent(_httpService) {
+    function AppComponent(_route, _router, _httpService) {
+        this._route = _route;
+        this._router = _router;
         this._httpService = _httpService;
-        this.title = 'app';
     }
     AppComponent = __decorate([
         core_1.Component({
@@ -150,7 +173,9 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/app.component.html"),
             styles: [__webpack_require__("./src/app/app.component.css")]
         }),
-        __metadata("design:paramtypes", [http_service_1.HttpService])
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            router_1.Router,
+            http_service_1.HttpService])
     ], AppComponent);
     return AppComponent;
 }());
@@ -181,7 +206,6 @@ var forms_1 = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js")
 var add_component_1 = __webpack_require__("./src/app/add/add.component.ts");
 var edit_component_1 = __webpack_require__("./src/app/edit/edit.component.ts");
 var home_component_1 = __webpack_require__("./src/app/home/home.component.ts");
-var pagenotfound_component_1 = __webpack_require__("./src/app/pagenotfound/pagenotfound.component.ts");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -191,8 +215,7 @@ var AppModule = /** @class */ (function () {
                 app_component_1.AppComponent,
                 add_component_1.AddComponent,
                 edit_component_1.EditComponent,
-                home_component_1.HomeComponent,
-                pagenotfound_component_1.PagenotfoundComponent
+                home_component_1.HomeComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -221,7 +244,7 @@ module.exports = ""
 /***/ "./src/app/edit/edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  edit works!\n</p>\n"
+module.exports = "<button (click)=\"cancelButton()\"> Home </button>\r\n<div *ngIf=\"author\">\r\n  <h4> Edit this author: </h4>\r\n  <input type=\"text\" name=\"name\" [(ngModel)]=\"author.name\">\r\n  <button (click)=\"cancelButton()\"> Cancel </button>\r\n  <button (click)=\"submitButton()\"> Submit </button>\r\n  <br> {{error}}\r\n</div>\r\n"
 
 /***/ }),
 
@@ -241,10 +264,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var http_service_1 = __webpack_require__("./src/app/http.service.ts");
 var EditComponent = /** @class */ (function () {
-    function EditComponent() {
+    function EditComponent(_httpService, _route, _router) {
+        this._httpService = _httpService;
+        this._route = _route;
+        this._router = _router;
     }
     EditComponent.prototype.ngOnInit = function () {
+        this.author = this._httpService.selected;
+    };
+    EditComponent.prototype.cancelButton = function () {
+        this._router.navigate(['/home']);
+    };
+    EditComponent.prototype.submitButton = function () {
+        var _this = this;
+        var observable = this._httpService.editAuthor(this.author);
+        observable.subscribe(function (data) {
+            console.log(data);
+            if (data.message === 'Success') {
+                _this._router.navigate(['/home']);
+            }
+            else {
+                _this.error = 'Name must be at least 3 characters';
+            }
+        });
     };
     EditComponent = __decorate([
         core_1.Component({
@@ -252,7 +297,9 @@ var EditComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/edit/edit.component.html"),
             styles: [__webpack_require__("./src/app/edit/edit.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [http_service_1.HttpService,
+            router_1.ActivatedRoute,
+            router_1.Router])
     ], EditComponent);
     return EditComponent;
 }());
@@ -271,7 +318,7 @@ module.exports = ""
 /***/ "./src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<a [routerLink]=\"['add']\">Add an author</a>\n<p>We have quotes by:</p>\n\n<table style=\"width:100%\">\n  <tr>\n    <th>Author</th>\n    <th>Actions available</th>\n  </tr>\n  <tr>\n    <td></td>\n    <td></td>\n  </tr>\n</table>"
+module.exports = "<button (click)=\"addAuthor()\"> Add an Author </button>\r\n<h4>We have quotes by:</h4>\r\n\r\n<table>\r\n  <tr>\r\n    <th>Author</th>\r\n    <th>Actions available</th>\r\n  </tr>\r\n  <tr *ngFor=\"let author of authors\">\r\n    <td> {{author.name}} </td>\r\n    <td><button (click)=\"editAuthor(author)\"> Edit </button><button (click)=\"deleteAuthor(author)\"> Delete </button></td>\r\n  </tr>\r\n</table>"
 
 /***/ }),
 
@@ -291,10 +338,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var router_1 = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var http_service_1 = __webpack_require__("./src/app/http.service.ts");
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+    function HomeComponent(_route, _router, _httpService) {
+        this._route = _route;
+        this._router = _router;
+        this._httpService = _httpService;
+        this.authors = [];
     }
     HomeComponent.prototype.ngOnInit = function () {
+        this.getAuthors();
+    };
+    HomeComponent.prototype.getAuthors = function () {
+        var _this = this;
+        var observable = this._httpService.getAuthors();
+        observable.subscribe(function (data) {
+            _this.authors = data.data;
+        });
+    };
+    HomeComponent.prototype.addAuthor = function () {
+        this._router.navigate(['/add']);
+    };
+    HomeComponent.prototype.editAuthor = function (author) {
+        console.log(author);
+        this._httpService.selected = author;
+        this._router.navigate(['/edit']);
+    };
+    HomeComponent.prototype.deleteAuthor = function (author) {
+        var _this = this;
+        var observable = this._httpService.deleteAuthor(author);
+        observable.subscribe(function (data) {
+            console.log(data);
+            _this.getAuthors();
+        });
     };
     HomeComponent = __decorate([
         core_1.Component({
@@ -302,7 +379,9 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/home/home.component.html"),
             styles: [__webpack_require__("./src/app/home/home.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            router_1.Router,
+            http_service_1.HttpService])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -332,6 +411,20 @@ var HttpService = /** @class */ (function () {
     function HttpService(_http) {
         this._http = _http;
     }
+    HttpService.prototype.getAuthors = function () {
+        return this._http.get('/authors');
+    };
+    HttpService.prototype.newAuthor = function (name) {
+        return this._http.post('/new', { name: name });
+    };
+    HttpService.prototype.editAuthor = function (author) {
+        console.log(author);
+        return this._http.put('/edit', { id: author._id, name: author.name });
+    };
+    HttpService.prototype.deleteAuthor = function (author) {
+        console.log('deleting ', author);
+        return this._http.delete('/delete/' + author._id);
+    };
     HttpService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.HttpClient])
@@ -339,56 +432,6 @@ var HttpService = /** @class */ (function () {
     return HttpService;
 }());
 exports.HttpService = HttpService;
-
-
-/***/ }),
-
-/***/ "./src/app/pagenotfound/pagenotfound.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/pagenotfound/pagenotfound.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<p>\n  pagenotfound works!\n</p>\n"
-
-/***/ }),
-
-/***/ "./src/app/pagenotfound/pagenotfound.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-var PagenotfoundComponent = /** @class */ (function () {
-    function PagenotfoundComponent() {
-    }
-    PagenotfoundComponent.prototype.ngOnInit = function () {
-    };
-    PagenotfoundComponent = __decorate([
-        core_1.Component({
-            selector: 'app-pagenotfound',
-            template: __webpack_require__("./src/app/pagenotfound/pagenotfound.component.html"),
-            styles: [__webpack_require__("./src/app/pagenotfound/pagenotfound.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], PagenotfoundComponent);
-    return PagenotfoundComponent;
-}());
-exports.PagenotfoundComponent = PagenotfoundComponent;
 
 
 /***/ }),

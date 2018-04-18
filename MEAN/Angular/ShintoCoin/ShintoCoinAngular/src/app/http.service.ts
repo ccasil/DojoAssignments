@@ -13,6 +13,7 @@ export class HttpService {
   selected: any;
 
   constructor(private _http: HttpClient) { }
+
   getValue() {
     return this.value;
   }

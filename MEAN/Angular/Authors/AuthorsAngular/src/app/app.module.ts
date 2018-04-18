@@ -12,7 +12,6 @@ import { FormsModule } from '@angular/forms';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
 import { HomeComponent } from './home/home.component';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
 @NgModule({
@@ -20,8 +19,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     AppComponent,
     AddComponent,
     EditComponent,
-    HomeComponent,
-    PagenotfoundComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,

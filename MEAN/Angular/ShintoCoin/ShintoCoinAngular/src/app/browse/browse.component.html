@@ -7,10 +7,10 @@
     <th>Value</th>
     <th></th>
   </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+  <tr *ngFor="let lg of log">
+    <td>{{lg.action}}</td>
+    <td>{{lg.quantity}}</td>
+    <td>{{lg.value}}</td>
+    <td><button (click)="viewDetail()"> Details </button></td>
   </tr>
 </table>

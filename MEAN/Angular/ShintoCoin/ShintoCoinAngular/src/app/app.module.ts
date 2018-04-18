@@ -13,7 +13,6 @@ import { MineComponent } from './mine/mine.component';
 import { BuyComponent } from './buy/buy.component';
 import { SellComponent } from './sell/sell.component';
 import { BrowseComponent } from './browse/browse.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import { FormsModule } from '@angular/forms';
 
@@ -25,8 +24,7 @@ import { FormsModule } from '@angular/forms';
     MineComponent,
     BuyComponent,
     SellComponent,
-    BrowseComponent,
-    PageNotFoundComponent
+    BrowseComponent
   ],
   imports: [
     BrowserModule,

@@ -7,9 +7,11 @@ import { HttpService } from '../http.service';
   styleUrls: ['./buy.component.css']
 })
 export class BuyComponent implements OnInit {
+
   value = 0;
   owned = 0;
   quantity = 0;
+
   constructor(private _httpService: HttpService) { }
 
   ngOnInit() {

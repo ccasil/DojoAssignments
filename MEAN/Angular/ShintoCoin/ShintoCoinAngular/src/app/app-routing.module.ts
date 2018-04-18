@@ -6,7 +6,6 @@ import { MineComponent } from './mine/mine.component';
 import { BuyComponent } from './buy/buy.component';
 import { SellComponent } from './sell/sell.component';
 import { BrowseComponent } from './browse/browse.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -15,7 +14,7 @@ const routes: Routes = [
   { path: 'sell', component: SellComponent },
   { path: 'browse', component: BrowseComponent },
   { path: '', pathMatch: 'full', redirectTo: '/home' },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({

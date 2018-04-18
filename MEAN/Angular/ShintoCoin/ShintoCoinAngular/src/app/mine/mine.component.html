@@ -2,7 +2,5 @@
 <p>Here you can mine ShintoCoins by being the first to solve the algorithm:</p>
 <div> What is the 7th Fibonacci Number?</div>
 
-<form (submit)="onMine()">
-  <input type="number" name="answer" [(ngModel)]="answer">
-  <button (click)="mineCoin()"> Mine </button>
-</form>
+<input type="number" name="answer" [(ngModel)]="answer" class='form-control'>
+<button class="btn btn-info" (click)="mineCoin()"> Mine </button>
