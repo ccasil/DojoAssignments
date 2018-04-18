@@ -1,5 +1,5 @@
 DOJO ASSIGNMENTS: Assignments during my time at Coding Dojo (1/22-4/27)
-Updated: 4/9/18
+Updated: 4/17/18
 
 Table of Contents:
 >iOS
@@ -31,15 +31,36 @@ Table of Contents:
 ----todolist
 --Playground
 >MEAN
+--Angular
+----API
+----Authors
+----ExpressAPP
+----NinjaGold
+----RestfulAPI
+----ShintoCoin
+----WeatherAPI
 --Express
+----Counter
+----GreatNumberGame
+----Hello_Express
+----SurveyForm
 --Javascript
 --MongoDB
+----1955API
+----MongooseDashboard
+----QuotingDojo
+----RestfulAPI
+----basic_mongoose_app
 --Node
---npm bower
+----Landing Page
+---- Math Module
+----cars_and_cats
+----node_module_basics
+----node_server
 --SocketIO
->myEnvironments
---djangoEnv
---flaskEnv
+----EpicButtonGame
+----GroupChat
+----SurveyFormRevisited
 >Other
 --academy-airplane-master
 --academy-ninja-master
