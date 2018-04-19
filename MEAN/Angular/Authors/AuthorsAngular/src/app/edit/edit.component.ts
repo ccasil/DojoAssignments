@@ -9,9 +9,11 @@ import { HttpService } from '../http.service';
 })
 export class EditComponent implements OnInit {
 
-  constructor(private _httpService: HttpService,
+  constructor(
+    private _httpService: HttpService,
     private _route: ActivatedRoute,
-    private _router: Router) { }
+    private _router: Router
+  ) { }
 
   author: any;
   error: string;

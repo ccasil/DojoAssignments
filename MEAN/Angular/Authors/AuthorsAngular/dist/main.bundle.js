@@ -27,7 +27,7 @@ module.exports = ""
 /***/ "./src/app/add/add.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<button (click)=\"cancelButton()\"> Home </button>\r\n<h4> Add a new author: </h4>\r\n<input type=\"text\" name=\"name\" [(ngModel)]=\"name\">\r\n<button (click)=\"cancelButton()\"> Cancel </button>\r\n<button (click)=\"submitButton()\"> Submit </button>\r\n<br> {{error}}"
+module.exports = "<button (click)=\"cancelButton()\"> Home </button>\n<h4> Add a new author: </h4>\n<input type=\"text\" name=\"name\" [(ngModel)]=\"name\">\n<button (click)=\"cancelButton()\"> Cancel </button>\n<button (click)=\"submitButton()\"> Submit </button>\n<br> {{error}}"
 
 /***/ }),
 
@@ -139,7 +139,7 @@ module.exports = ""
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Favorite authors</h1>\r\n\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<h1>Favorite authors</h1>\n\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -244,7 +244,7 @@ module.exports = ""
 /***/ "./src/app/edit/edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<button (click)=\"cancelButton()\"> Home </button>\r\n<div *ngIf=\"author\">\r\n  <h4> Edit this author: </h4>\r\n  <input type=\"text\" name=\"name\" [(ngModel)]=\"author.name\">\r\n  <button (click)=\"cancelButton()\"> Cancel </button>\r\n  <button (click)=\"submitButton()\"> Submit </button>\r\n  <br> {{error}}\r\n</div>\r\n"
+module.exports = "<button (click)=\"cancelButton()\"> Home </button>\n<div *ngIf=\"author\">\n  <h4> Edit this author: </h4>\n  <input type=\"text\" name=\"name\" [(ngModel)]=\"author.name\">\n  <button (click)=\"cancelButton()\"> Cancel </button>\n  <button (click)=\"submitButton()\"> Submit </button>\n  <br> {{error}}\n</div>\n"
 
 /***/ }),
 
@@ -318,7 +318,7 @@ module.exports = ""
 /***/ "./src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<button (click)=\"addAuthor()\"> Add an Author </button>\r\n<h4>We have quotes by:</h4>\r\n\r\n<table>\r\n  <tr>\r\n    <th>Author</th>\r\n    <th>Actions available</th>\r\n  </tr>\r\n  <tr *ngFor=\"let author of authors\">\r\n    <td> {{author.name}} </td>\r\n    <td><button (click)=\"editAuthor(author)\"> Edit </button><button (click)=\"deleteAuthor(author)\"> Delete </button></td>\r\n  </tr>\r\n</table>"
+module.exports = "<button (click)=\"addAuthor()\"> Add an Author </button>\n<h4>We have quotes by:</h4>\n\n<table>\n  <tr>\n    <th>Author</th>\n    <th>Actions available</th>\n  </tr>\n  <tr *ngFor=\"let author of authors\">\n    <td> {{author.name}} </td>\n    <td><button (click)=\"editAuthor(author)\"> Edit </button><button (click)=\"deleteAuthor(author)\"> Delete </button></td>\n  </tr>\n</table>"
 
 /***/ }),
 
