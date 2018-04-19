@@ -1,0 +1,8 @@
+<button (click)="cancelButton()"> Home </button>
+<div *ngIf="author">
+  <h4> Edit this author: </h4>
+  <input type="text" name="name" [(ngModel)]="author.name">
+  <button (click)="cancelButton()"> Cancel </button>
+  <button (click)="submitButton()"> Submit </button>
+  <br> {{error}}
+</div>

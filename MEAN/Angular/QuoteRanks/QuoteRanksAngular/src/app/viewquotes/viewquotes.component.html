@@ -1,0 +1,19 @@
+<button (click)="cancelButton()"> Home </button>
+<button (click)="addQuote(author)"> Add a quote </button>
+<h4>Quotes by {{ author.name }}:</h4>
+
+<table>
+  <tr>
+    <th>Quote</th>
+    <th>Votes</th>
+    <th>Actions available</th>
+  </tr>
+  <tr *ngFor="let author of authors">
+    <td> {{author.name}} </td>
+    <td>
+      <button (click)="voteUp()"> Vote up </button>
+      <button (click)="voteDown()"> Vote down </button>
+      <button (click)="deleteQuote()"> Delete </button>
+    </td>
+  </tr>
+</table>
