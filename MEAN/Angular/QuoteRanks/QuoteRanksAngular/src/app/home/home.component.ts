@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
 
   // Click 'viewQuotes' button and navigates to /viewQuotes component
   viewQuotes(author) {
+    console.log(author._id);
     this._httpService.selected = author;
     this._router.navigate(['/viewquotes']);
   }

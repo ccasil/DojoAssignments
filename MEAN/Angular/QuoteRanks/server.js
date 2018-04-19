@@ -3,22 +3,22 @@ let express = require('express'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose')
 
-var app = express();
+let app = express();
 
 mongoose.connect('mongodb://localhost/Authors');
 
-var AuthorSchema = new mongoose.Schema({
+let AuthorSchema = new mongoose.Schema({
     name: { type: String, required: true, minlength: 3 },
     quotes: [{
-        quote: {type: String, minlength: 3},
-        votes: {type: Number}
+        quote: {type: String, minlength: 5},
+        votes: {type: Number, default: 0 }
     }]
 }, { timestamps: true });
 // quotes: [ {quote, votes}, {quote, votes} ]
 
 
 mongoose.model('Author', AuthorSchema);
-var Author = mongoose.model('Author')
+let Author = mongoose.model('Author')
 
 mongoose.Promise = global.Promise;
 
@@ -37,9 +37,20 @@ app.get('/authors', function (req, res) {
     })
 })
 
+// Retrieve one author
+app.get('/authors/:id', function (req, res) {
+    Author.findOne({ _id: req.params.id }, function (err, author) {
+        if (err) {
+            res.json({ message: "Error", error: err })
+        } else {
+            res.json({ message: "Success", author: author })
+        }
+    }) 
+})
+
 // Create a new author
 app.post('/new', function (req, res) {
-    var newAuthor = new Author(req.body);
+    let newAuthor = new Author(req.body);
     console.log("making new author");
     newAuthor.save(function (err) {
         if (err) {
@@ -47,6 +58,32 @@ app.post('/new', function (req, res) {
             res.json({ message: "Error creating an author", err: err });
         } else {
             res.json({ message: "Success", id: newAuthor._id })
+        }
+    })
+})
+
+// Retrieve all quotes
+app.get('/viewquotes/:id', function (req, res) {
+    Author.findOne({ _id: req.params.id }, function (err, authors) {
+        console.log(authors)
+        if (err) {
+            res.json({ message: "Error", err: err })
+        } else {
+            res.json({ message: "Success", data: authors })
+        }
+    })
+})
+
+// Create a new quote
+app.post('/newquote/:id', function (req, res) {
+    let newQuote = new Author(req.body);
+    console.log("making new quote");
+    newQuote.save(function (err) {
+        if (err) {
+            console.log("error creating")
+            res.json({ message: "Error creating a quote", err: err });
+        } else {
+            res.json({ message: "Success", id: newQuote._id })
         }
     })
 })

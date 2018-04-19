@@ -10,6 +10,8 @@ import { HttpService } from '../http.service';
 export class AddquoteComponent implements OnInit {
 
   author: any;
+  quote: string;
+  error: string;
 
   constructor(
     private _httpService: HttpService,
@@ -20,9 +22,22 @@ export class AddquoteComponent implements OnInit {
   ngOnInit() {
     this.author = this._httpService.selected;
   }
-
-  // cancelButton pressed navigates to /home route
   cancelButton() {
     this._router.navigate(['/home']);
   }
+
+  // submitButton pressed newAuthor service
+  submitButton() {
+    const observable = this._httpService.newQuote(this.quote);
+    observable.subscribe(data => {
+      if ((data as any).message === 'Success') {
+        this._router.navigate(['/home']);
+      } else {
+        // error message display
+        this.error = 'Quote must be at least 5 characters';
+      }
+    });
+    console.log(this.quote);
+  }
+
 }

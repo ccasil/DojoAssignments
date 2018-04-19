@@ -27,7 +27,7 @@ module.exports = ""
 /***/ "./src/app/addauthor/addauthor.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<button (click)=\"cancelButton()\"> Home </button>\n<h4> Add a new quotable author: </h4>\n<input type=\"text\" name=\"name\" [(ngModel)]=\"name\">\n<button (click)=\"cancelButton()\"> Cancel </button>\n<button (click)=\"submitButton()\"> Submit </button>\n<br> {{error}}"
+module.exports = "<button (click)=\"cancelButton()\"> Home </button>\r\n<h4> Add a new quotable author: </h4>\r\n<input type=\"text\" name=\"name\" [(ngModel)]=\"name\">\r\n<button (click)=\"cancelButton()\"> Cancel </button>\r\n<button (click)=\"submitButton()\"> Submit </button>\r\n<br> {{error}}"
 
 /***/ }),
 
@@ -57,7 +57,6 @@ var AddauthorComponent = /** @class */ (function () {
     }
     AddauthorComponent.prototype.ngOnInit = function () {
     };
-    // cancelButton pressed navigates to /home route
     AddauthorComponent.prototype.cancelButton = function () {
         this._router.navigate(['/home']);
     };
@@ -103,7 +102,7 @@ module.exports = ""
 /***/ "./src/app/addquote/addquote.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<button (click)=\"cancelButton()\"> Home </button>\n<h4> Provide a quote by {{ author.name }}: </h4>\n<input type=\"text\" name=\"quote\" [(ngModel)]=\"quote\">\n<button (click)=\"cancelButton()\"> Cancel </button>\n<button (click)=\"submitButton()\"> Submit </button>\n<br> {{error}}"
+module.exports = "<button (click)=\"cancelButton()\"> Home </button>\r\n<h4> Provide a quote by {{ author.name }}: </h4>\r\n<input type=\"text\" name=\"quote\" [(ngModel)]=\"quote\">\r\n<button (click)=\"cancelButton()\"> Cancel </button>\r\n<button (click)=\"submitButton()\"> Submit </button>\r\n<br> {{error}}"
 
 /***/ }),
 
@@ -134,9 +133,23 @@ var AddquoteComponent = /** @class */ (function () {
     AddquoteComponent.prototype.ngOnInit = function () {
         this.author = this._httpService.selected;
     };
-    // cancelButton pressed navigates to /home route
     AddquoteComponent.prototype.cancelButton = function () {
         this._router.navigate(['/home']);
+    };
+    // submitButton pressed newAuthor service
+    AddquoteComponent.prototype.submitButton = function () {
+        var _this = this;
+        var observable = this._httpService.newQuote(this.quote);
+        observable.subscribe(function (data) {
+            if (data.message === 'Success') {
+                _this._router.navigate(['/home']);
+            }
+            else {
+                // error message display
+                _this.error = 'Quote must be at least 5 characters';
+            }
+        });
+        console.log(this.quote);
     };
     AddquoteComponent = __decorate([
         core_1.Component({
@@ -208,7 +221,7 @@ module.exports = ""
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Quote Ranks</h1>\n\n\n<router-outlet></router-outlet>\n"
+module.exports = "<h1>Quote Ranks</h1>\r\n\r\n\r\n<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -318,7 +331,7 @@ module.exports = ""
 /***/ "./src/app/editauthor/editauthor.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<button (click)=\"cancelButton()\"> Home </button>\n<div *ngIf=\"author\">\n  <h4> Edit this author: </h4>\n  <input type=\"text\" name=\"name\" [(ngModel)]=\"author.name\">\n  <button (click)=\"cancelButton()\"> Cancel </button>\n  <button (click)=\"submitButton()\"> Submit </button>\n  <br> {{error}}\n</div>"
+module.exports = "<button (click)=\"cancelButton()\"> Home </button>\r\n<div *ngIf=\"author\">\r\n  <h4> Edit this author: </h4>\r\n  <input type=\"text\" name=\"name\" [(ngModel)]=\"author.name\">\r\n  <button (click)=\"cancelButton()\"> Cancel </button>\r\n  <button (click)=\"submitButton()\"> Submit </button>\r\n  <br> {{error}}\r\n</div>"
 
 /***/ }),
 
@@ -395,7 +408,7 @@ module.exports = ""
 /***/ "./src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<button (click)=\"addAuthor()\"> Add a quotable author </button>\n<h4>We have quotes by:</h4>\n\n<table>\n  <tr>\n    <th>Author</th>\n    <th>Actions available</th>\n  </tr>\n  <tr *ngFor=\"let author of authors\">\n    <td> {{author.name}} </td>\n    <td>\n      <button (click)=\"viewQuotes(author)\"> View Quotes </button>\n      <button (click)=\"editAuthor(author)\"> Edit </button>\n      <button (click)=\"deleteAuthor(author)\"> Delete </button>\n    </td>\n  </tr>\n</table>"
+module.exports = "<button (click)=\"addAuthor()\"> Add a quotable author </button>\r\n<h4>We have quotes by:</h4>\r\n\r\n<table>\r\n  <tr>\r\n    <th>Author</th>\r\n    <th>Actions available</th>\r\n  </tr>\r\n  <tr *ngFor=\"let author of authors\">\r\n    <td> {{author.name}} </td>\r\n    <td>\r\n      <button (click)=\"viewQuotes(author)\"> View Quotes </button>\r\n      <button (click)=\"editAuthor(author)\"> Edit </button>\r\n      <button (click)=\"deleteAuthor(author)\"> Delete </button>\r\n    </td>\r\n  </tr>\r\n</table>"
 
 /***/ }),
 
@@ -440,6 +453,7 @@ var HomeComponent = /** @class */ (function () {
     };
     // Click 'viewQuotes' button and navigates to /viewQuotes component
     HomeComponent.prototype.viewQuotes = function (author) {
+        console.log(author._id);
         this._httpService.selected = author;
         this._router.navigate(['/viewquotes']);
     };
@@ -502,8 +516,14 @@ var HttpService = /** @class */ (function () {
     HttpService.prototype.getAuthors = function () {
         return this._http.get('/authors');
     };
+    HttpService.prototype.findAuthor = function (id) {
+        return this._http.get('/viewquotes/' + id);
+    };
     HttpService.prototype.newAuthor = function (name) {
         return this._http.post('/new', { name: name });
+    };
+    HttpService.prototype.newQuote = function (quote) {
+        return this._http.post('/newquote', { quote: quote });
     };
     HttpService.prototype.editAuthor = function (author) {
         console.log(author);
@@ -534,7 +554,7 @@ module.exports = ""
 /***/ "./src/app/viewquotes/viewquotes.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<button (click)=\"cancelButton()\"> Home </button>\n<button (click)=\"addQuote(author)\"> Add a quote </button>\n<h4>Quotes by {{ author.name }}:</h4>\n\n<table>\n  <tr>\n    <th>Quote</th>\n    <th>Votes</th>\n    <th>Actions available</th>\n  </tr>\n  <tr *ngFor=\"let author of authors\">\n    <td> {{author.name}} </td>\n    <td>\n      <button (click)=\"voteUp()\"> Vote up </button>\n      <button (click)=\"voteDown()\"> Vote down </button>\n      <button (click)=\"deleteQuote()\"> Delete </button>\n    </td>\n  </tr>\n</table>"
+module.exports = "<button (click)=\"cancelButton()\"> Home </button>\r\n<button (click)=\"addQuote(author)\"> Add a quote </button>\r\n<h4>Quotes by {{ author.name }}:</h4>\r\n\r\n<table>\r\n  <tr>\r\n    <th>Quote</th>\r\n    <th>Votes</th>\r\n    <th>Actions available</th>\r\n  </tr>\r\n  <tr *ngFor=\"let author of authors\">\r\n    <td> {{author.name}} </td>\r\n    <td>\r\n      <button (click)=\"voteUp()\"> Vote up </button>\r\n      <button (click)=\"voteDown()\"> Vote down </button>\r\n      <button (click)=\"deleteQuote()\"> Delete </button>\r\n    </td>\r\n  </tr>\r\n</table>"
 
 /***/ }),
 
@@ -561,9 +581,15 @@ var ViewquotesComponent = /** @class */ (function () {
         this._httpService = _httpService;
         this._route = _route;
         this._router = _router;
+        this.quotes = [];
     }
     ViewquotesComponent.prototype.ngOnInit = function () {
         this.author = this._httpService.selected;
+    };
+    ViewquotesComponent.prototype.findAuthor = function (id) {
+        var observable = this._httpService.findAuthor(this.id);
+        observable.subscribe(function (data) {
+        });
     };
     // cancelButton pressed navigates to /home route
     ViewquotesComponent.prototype.cancelButton = function () {

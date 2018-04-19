@@ -17,8 +17,18 @@ export class ViewquotesComponent implements OnInit {
     private _router: Router
   ) { }
 
+  quotes = [];
+  currentQuotes: any;
+  id: any;
+
   ngOnInit() {
     this.author = this._httpService.selected;
+  }
+
+  findAuthor(id) {
+    const observable = this._httpService.findAuthor(this.id);
+    observable.subscribe(data => {
+    });
   }
 
   // cancelButton pressed navigates to /home route

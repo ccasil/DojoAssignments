@@ -21,7 +21,6 @@ export class AddauthorComponent implements OnInit {
   ngOnInit() {
   }
 
-  // cancelButton pressed navigates to /home route
   cancelButton() {
     this._router.navigate(['/home']);
   }

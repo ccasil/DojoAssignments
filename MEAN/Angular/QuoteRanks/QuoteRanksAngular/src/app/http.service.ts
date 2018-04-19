@@ -14,8 +14,16 @@ export class HttpService {
     return this._http.get('/authors');
   }
 
+  findAuthor(id) {
+    return this._http.get('/viewquotes/' + id);
+  }
+
   newAuthor(name) {
     return this._http.post('/new', { name: name });
+  }
+
+  newQuote(quote) {
+    return this._http.post('/newquote', { quote: quote });
   }
 
   editAuthor(author) {
