@@ -23,11 +23,6 @@ export class EditauthorComponent implements OnInit {
     this.author = this._httpService.selected;
   }
 
-  // Navigate to home component
-  cancelButton() {
-    this._router.navigate(['/home']);
-  }
-
   // submitButton clicked and update author
   submitButton() {
     const observable = this._httpService.editAuthor(this.author);

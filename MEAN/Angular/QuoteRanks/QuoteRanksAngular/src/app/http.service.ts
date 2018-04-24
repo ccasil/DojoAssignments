@@ -22,8 +22,12 @@ export class HttpService {
     return this._http.post('/new', { name: name });
   }
 
+  findQuote(id) {
+    return this._http.get('/viewquote/' + id);
+  }
+
   newQuote(quote) {
-    return this._http.post('/newquote', { quote: quote });
+    return this._http.put('/quotes/' + this.selected._id, { quote: quote });
   }
 
   editAuthor(author) {
@@ -34,5 +38,18 @@ export class HttpService {
   deleteAuthor(author) {
     console.log('deleting ', author);
     return this._http.delete('/delete/' + author._id);
+  }
+
+  deleteQuote(author, quote) {
+    console.log('delete quote', quote);
+    return this._http.put('/deletequote/' + quote._id, { author: author });
+  }
+
+  voteUpQuote(author, quote) {
+    return this._http.put('/voteupquote/' + quote._id, { author: author });
+  }
+
+  voteDownQuote(author, quote) {
+    return this._http.put('/votedownquote/' + quote._id, { author: author });
   }
 }

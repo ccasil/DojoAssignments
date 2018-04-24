@@ -1,6 +1,6 @@
-<button (click)="cancelButton()"> Home </button>
+<button [routerLink]="['/home']"> Home </button>
 <h4> Provide a quote by {{ author.name }}: </h4>
 <input type="text" name="quote" [(ngModel)]="quote">
-<button (click)="cancelButton()"> Cancel </button>
+<button (click)="cancelButton(author)"> Cancel </button>
 <button (click)="submitButton()"> Submit </button>
 <br> {{error}}

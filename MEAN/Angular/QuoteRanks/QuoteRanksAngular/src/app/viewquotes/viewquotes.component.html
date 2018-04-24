@@ -1,4 +1,4 @@
-<button (click)="cancelButton()"> Home </button>
+<button [routerLink]="['/home']"> Home </button>
 <button (click)="addQuote(author)"> Add a quote </button>
 <h4>Quotes by {{ author.name }}:</h4>
 
@@ -8,12 +8,13 @@
     <th>Votes</th>
     <th>Actions available</th>
   </tr>
-  <tr *ngFor="let author of authors">
-    <td> {{author.name}} </td>
+  <tr *ngFor="let quote of author.quotes">
+    <td> {{ quote.quote }} </td>
+    <td> {{ quote.votes }}</td>
     <td>
-      <button (click)="voteUp()"> Vote up </button>
-      <button (click)="voteDown()"> Vote down </button>
-      <button (click)="deleteQuote()"> Delete </button>
+      <button (click)="voteUp(quote)"> Vote up </button>
+      <button (click)="voteDown(quote)"> Vote down </button>
+      <button (click)="deleteQuote(quote)"> Delete </button>
     </td>
   </tr>
 </table>

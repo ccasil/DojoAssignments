@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   authors = [];
+
   ngOnInit() {
     this.getAuthors();
   }
@@ -23,20 +24,16 @@ export class HomeComponent implements OnInit {
   getAuthors() {
     const observable = this._httpService.getAuthors();
     observable.subscribe(data => {
+      console.log(data);
       this.authors = (data as any).data;
     });
-  }
-
-  // Click 'addAuthor' button and navigates to /addauthor component
-  addAuthor() {
-    this._router.navigate(['/addauthor']);
   }
 
   // Click 'viewQuotes' button and navigates to /viewQuotes component
   viewQuotes(author) {
     console.log(author._id);
     this._httpService.selected = author;
-    this._router.navigate(['/viewquotes']);
+    this._router.navigate(['/viewquotes/' + author._id]);
   }
 
   // Click 'editAuthor' button and navigates to /edit component

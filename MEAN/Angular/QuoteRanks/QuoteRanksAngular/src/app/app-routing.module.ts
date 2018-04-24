@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'addauthor', component: AddauthorComponent },
   { path: 'editauthor', component: EditauthorComponent },
-  { path: 'viewquotes', component: ViewquotesComponent },
-  { path: 'addquote', component: AddquoteComponent },
+  { path: 'viewquotes/:id', component: ViewquotesComponent },
+  { path: 'addquote/:id', component: AddquoteComponent },
   { path: '', pathMatch: 'full', redirectTo: '/home'},
 ];
 

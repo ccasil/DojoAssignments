@@ -22,11 +22,12 @@ export class AddquoteComponent implements OnInit {
   ngOnInit() {
     this.author = this._httpService.selected;
   }
-  cancelButton() {
-    this._router.navigate(['/home']);
+
+  cancelButton(author) {
+    console.log(author);
+    this._router.navigate(['/viewquotes/' + author._id]);
   }
 
-  // submitButton pressed newAuthor service
   submitButton() {
     const observable = this._httpService.newQuote(this.quote);
     observable.subscribe(data => {

@@ -8,14 +8,13 @@ let app = express();
 mongoose.connect('mongodb://localhost/Authors');
 
 let AuthorSchema = new mongoose.Schema({
-    name: { type: String, required: true, minlength: 3 },
+    name: { type: String, required: true, minlength: [ 3, "name must be at least 3 characters"] },
     quotes: [{
-        quote: {type: String, minlength: 5},
+        quote: {type: String, required: true, minlength: [ 3, "please submit a quote"] },
         votes: {type: Number, default: 0 }
     }]
 }, { timestamps: true });
 // quotes: [ {quote, votes}, {quote, votes} ]
-
 
 mongoose.model('Author', AuthorSchema);
 let Author = mongoose.model('Author')
@@ -75,16 +74,18 @@ app.get('/viewquotes/:id', function (req, res) {
 })
 
 // Create a new quote
-app.post('/newquote/:id', function (req, res) {
-    let newQuote = new Author(req.body);
-    console.log("making new quote");
-    newQuote.save(function (err) {
-        if (err) {
-            console.log("error creating")
-            res.json({ message: "Error creating a quote", err: err });
-        } else {
-            res.json({ message: "Success", id: newQuote._id })
-        }
+app.put('/quotes/:id', function (req, res) {
+    Author.findOne({ _id: req.params.id }, function (err, author) {
+        author.quotes.push({ quote: req.body.quote });
+        author.save(function (err) {
+            if (err) {
+                console.log("error creating")
+                res.json({ message: "Error creating a quote", err: err });
+            } else {
+                res.json({ message: "Success", id: author._id })
+            }
+        })
+
     })
 })
 
@@ -114,6 +115,70 @@ app.delete('/delete/:id', function (req, res) {
         } else {
             res.json({ message: "Success" })
         }
+    })
+})
+
+// Delete quote
+app.put('/deletequote/:id', function (req, res) {
+    // console.log("deleting quote id: ", req.params.id)
+    // console.log(req.body)
+    Author.findOne({ _id: req.body.author._id }, function (err, author) {
+        console.log(author);
+        for (var i = 0; i < author.quotes.length; i++) {
+            if (req.params.id == author.quotes[i]._id) {
+                author.quotes.splice(i, 1);
+                console.log(author)
+            }
+        }
+        author.save(function (err) {
+            if (err) {
+                res.json({ message: "Error", err: err });
+            } else {
+                res.json({ message: "Success", id: author._id })
+            }
+        })
+    })
+})
+
+// Vote up quote
+app.put('/voteupquote/:id', function (req, res) {
+    // console.log("deleting quote id: ", req.params.id)
+    // console.log(req.body)
+    Author.findOne({ _id: req.body.author._id }, function (err, author) {
+        console.log(author);
+        for (var i = 0; i < author.quotes.length; i++) {
+            if (req.params.id == author.quotes[i]._id) {
+                author.quotes[i].votes++;
+            }
+        }
+        author.save(function (err) {
+            if (err) {
+                res.json({ message: "Error", err: err });
+            } else {
+                res.json({ message: "Success", id: author._id })
+            }
+        })
+    })
+})
+
+// Vote down quote
+app.put('/votedownquote/:id', function (req, res) {
+    // console.log("deleting quote id: ", req.params.id)
+    // console.log(req.body)
+    Author.findOne({ _id: req.body.author._id }, function (err, author) {
+        console.log(author);
+        for (var i = 0; i < author.quotes.length; i++) {
+            if (req.params.id == author.quotes[i]._id) {
+                author.quotes[i].votes--;
+            }
+        }
+        author.save(function (err) {
+            if (err) {
+                res.json({ message: "Error", err: err });
+            } else {
+                res.json({ message: "Success", id: author._id })
+            }
+        })
     })
 })
 

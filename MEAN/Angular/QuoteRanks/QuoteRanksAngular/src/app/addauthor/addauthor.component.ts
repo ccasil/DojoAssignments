@@ -21,10 +21,6 @@ export class AddauthorComponent implements OnInit {
   ngOnInit() {
   }
 
-  cancelButton() {
-    this._router.navigate(['/home']);
-  }
-
   // submitButton pressed newAuthor service
   submitButton() {
     const observable = this._httpService.newAuthor(this.name);
