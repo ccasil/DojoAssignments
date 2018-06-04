@@ -1,4 +1,4 @@
-1. in /DojoAssignments/myEnvironments activate virtual environment: source djangoEnv/Scripts/activate
+1. in /DojoAssignments/myEnvironments activate virtual environment: source djangoEnv/bin/activate
 2. in /DojoAssignments/Python/Django (project directory): django-admin startproject main
 3. cd main (change directory to main directory (\DojoAssignments\Python\Django\main))
 4. mkdir apps (make new apps directory inside main directory)
