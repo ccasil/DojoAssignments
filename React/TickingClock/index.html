@@ -1,0 +1,25 @@
+<script src="node_modules/react/umd/react.development.js"></script>
+<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<div id="app"></div>
+
+<script>
+    function letsGo() {
+        date = new Date();
+
+        s = date.getSeconds();
+        m = date.getMinutes();
+        h = date.getHours();
+        ampm = h >= 12 ? 'pm' : 'am';
+        setInterval(letsGo, 1000);
+
+
+        // const text = React.createElement('h3', null, 'The time is:' + new Date());
+        const text = React.createElement('h3', null, 'The time is: ' + (h > 12 ? h-12 : h) + ':' + m + ':' + s + ' ' + ampm);
+        console.log(JSON.stringify(text));
+        ReactDOM.render(text, document.getElementById('app'));
+
+    }
+    letsGo();
+</script>
+

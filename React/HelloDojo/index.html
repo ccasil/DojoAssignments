@@ -1,0 +1,21 @@
+<script src="node_modules/react/umd/react.development.js"></script>
+<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<div id="app"></div>
+
+<script>
+    const title = React.createElement('h1', null, 'Hello Dojo!')
+    const subtitle = React.createElement('h3', null, 'Things I need to do:')
+    const item1 = React.createElement('li', null, 'Learn React')
+    const item2 = React.createElement('li', null, 'Gym')
+    const item3 = React.createElement('li', null, 'Eat')
+    const item4 = React.createElement('li', null, 'Code')
+    const box = React.createElement('div', null, title, subtitle, item1, item2, item3, item4);
+    console.log(JSON.stringify(box));
+    ReactDOM.render(box, document.getElementById('app'));
+
+    const HeadlineComponent = (props) => {
+            return React.createElement('h1', null, 'Hello Dojo!');
+    }
+</script>
+

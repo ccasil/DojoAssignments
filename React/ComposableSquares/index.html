@@ -1,0 +1,27 @@
+<script src="node_modules/react/umd/react.development.js"></script>
+<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<div id="app"></div>
+
+<script>
+
+    // const Title = (props) => {
+    //         const { text, backgroundColor } = props;
+    //         return React.createElement('h1', null, text, backgroundColor);
+    //     }
+
+    const App = (props) => {
+        return React.createElement('div', null,
+        React.createElement('h1', { style: { backgroundColor: 'blue', color: 'white', height: '200px', width: '200px', display: 'inline-block' } }, 'white on blue'),
+        React.createElement('h1', { style: { backgroundColor: 'red', color: 'blue', height: '200px', width: '200px', display: 'inline-block' } }, 'blue on red'),
+        React.createElement('h1', { style: { backgroundColor: 'pink', color: 'green', height: '200px', width: '200px', display: 'inline-block' } }, 'green on pink'),
+            // React.createElement(Title, { text: 'white on blue'}, { style: { backgroundColor: 'blue' } }),
+            // React.createElement(Title, { text: 'blue on red'}, { style: { backgroundColor: 'red' } }),
+            // React.createElement(Title, { text: 'green on pink'}, { style: { backgroundColor: 'pink' } })
+        )
+    }
+
+    ReactDOM.render(App(), document.getElementById('app'));
+
+</script>
+

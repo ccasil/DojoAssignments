@@ -1,0 +1,55 @@
+<script src="node_modules/react/umd/react.development.js"></script>
+<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<div id="app"></div>
+
+<script>
+    // date = new Date();
+
+    // s = date.getSeconds();
+    // m = date.getMinutes();
+    // h = date.getHours();
+
+    // function letsGo() {
+
+    //     setInterval(letsGo, 1000);
+    // }
+    // letsGo();
+
+    // const onclick = {
+    //     onClick() {
+    //         alert('Clicked!');
+    //     }
+    // }
+
+    // const onmouseenter = {
+    //     onMouseEnter() {
+    //         this.text = 'hi';
+    //     }
+    // }
+
+    // const myButton1 = React.createElement('button', onclick, 'Click Me');
+    // const testtext = React.createElement('div', onmouseenter, 'Hover Me');
+    // // const text = React.createElement('h3', null, 'The time is:' + new Date());
+    // const text = React.createElement('h3', null, 'The time is ' + (h > 12 ? h-12 : h) + ':' + m + ':' + s);
+    // const box = React.createElement('div', null, myButton1, testtext, text);
+    // console.log(JSON.stringify(box));
+    // ReactDOM.render(box, document.getElementById('app'));
+
+    const Title = (props) => {
+        const { text, color } = props;
+        return React.createElement('h1', null, text);
+    }
+
+    const App = (props) => {
+        return React.createElement('div', null,
+            React.createElement(Title, { text: 'Title one!', color: 'green' }),
+            React.createElement(Title, { text: 'Title two!!' }),
+            React.createElement(Title, { text: 'Title three!!!' })
+        )
+    }
+    ReactDOM.render(App(), document.getElementById('app'));
+        
+
+</script>
+
