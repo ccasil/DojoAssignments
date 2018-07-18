@@ -5,19 +5,27 @@
 
 <script>
 
-    // const Title = (props) => {
-    //         const { text, backgroundColor } = props;
-    //         return React.createElement('h1', null, text, backgroundColor);
-    //     }
+        // const Square = (props) => {
+        //     const { text, squareColor, textColor } = props;
+        //     return React.createElement('div', { style: { backgroundColor: squareColor, width: "200px", height: "200px", display: "inline-block", padding: 0, margin: 0 } },
+        //         React.createElement('h1', { style: { color: textColor } }, text)
+        //     );
+        // }
+
+        // const App = (props) => {
+        //     return React.createElement('div', { style: { height: "200px", width: "600px" } },
+        //         React.createElement(Square, { squareColor: 'blue', text: 'white on blue', textColor: 'white' }),
+        //         React.createElement(Square, { squareColor: 'red', text: 'blue on red', textColor: 'blue' }),
+        //         React.createElement(Square, { squareColor: 'pink', text: 'green on pink', textColor: 'green' })
+        //     )
+        // }
+
 
     const App = (props) => {
         return React.createElement('div', null,
         React.createElement('h1', { style: { backgroundColor: 'blue', color: 'white', height: '200px', width: '200px', display: 'inline-block' } }, 'white on blue'),
         React.createElement('h1', { style: { backgroundColor: 'red', color: 'blue', height: '200px', width: '200px', display: 'inline-block' } }, 'blue on red'),
         React.createElement('h1', { style: { backgroundColor: 'pink', color: 'green', height: '200px', width: '200px', display: 'inline-block' } }, 'green on pink'),
-            // React.createElement(Title, { text: 'white on blue'}, { style: { backgroundColor: 'blue' } }),
-            // React.createElement(Title, { text: 'blue on red'}, { style: { backgroundColor: 'red' } }),
-            // React.createElement(Title, { text: 'green on pink'}, { style: { backgroundColor: 'pink' } })
         )
     }
 
