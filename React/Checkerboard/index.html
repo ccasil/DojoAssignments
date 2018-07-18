@@ -1,0 +1,28 @@
+<script src="node_modules/react/umd/react.development.js"></script>
+<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<div id="app"></div>
+
+<script>
+
+    function CheckerBoard(props) {
+        return /*Some UI... perhaps a list of rows?*/
+    }
+    function Row(props) {
+        return /*Some UI... perhaps a list of cells?*/
+    }
+    function Cell(props) {
+        return /*Some UI*/
+    }
+    // And feel free to use the following object:
+    var styles = {
+        row: { height: '20px' },
+        cell: { height: '20px', width: '20px', display: 'inline-block' },
+        colorA: { backgroundColor: 'black' },
+        colorB: { backgroundColor: 'red' }
+    }
+
+    ReactDOM.render(App(), document.getElementById('app'));
+
+</script>
+
