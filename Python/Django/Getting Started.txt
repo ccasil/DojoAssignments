@@ -14,6 +14,7 @@
 11. views.py set up index route from 
 	django.shortcuts import render, HttpResponse, redirect (INDEX)
 12. edit style link in html
+13. pip install
 
 SESSION/MIGRATE (after touching models.py):
 in manage.py:
